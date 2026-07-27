@@ -1,0 +1,52 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# editors
+.vscode/settings.json
+
+# ignore root scratch image folder and massive raw media files
+/img/
+*.mp4
+*.MP4
+*.HEIF
+*.mov
+*.MOV
+public/img/hand1.png
+public/img/hand no bg 1.png
+public/img/Video*
+public/img/WhatsApp*

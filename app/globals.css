@@ -1,0 +1,415 @@
+/* ═══════════════════════════════════════════════════════════════
+   FONT IMPORTS
+   Canela via Fontshare (free, commercial use)
+   Nunito — closest freely available match to Avenir Next
+═══════════════════════════════════════════════════════════════ */
+@import url('https://api.fontshare.com/v2/css?f[]=canela@400,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300..800;1,300..600&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════
+   TAILWIND DIRECTIVES
+═══════════════════════════════════════════════════════════════ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════
+   SWISHIT DESIGN TOKENS  (locked-in)
+═══════════════════════════════════════════════════════════════ */
+@layer base {
+  :root {
+    /* ── Brand Palette ── */
+    --color-primary:  #1D7E9E;   /* Steel teal         */
+    --color-accent:   #5AB8D6;   /* Sky blue           */
+    --color-base:     #FBF7EC;   /* Warm cream         */
+    --color-cta:      #F0A93B;   /* Amber / golden     */
+    --color-text:     #173E4A;   /* Deep ocean text    */
+
+    /* ── Tints & shades derived from brand ── */
+    --color-primary-light:  #2E9ABF;
+    --color-primary-dark:   #155E78;
+    --color-accent-light:   #82CCDF;
+    --color-accent-dark:    #3A97B5;
+    --color-cta-light:      #F5C06A;
+    --color-cta-dark:       #D48820;
+    --color-text-light:     #2A5F72;
+    --color-text-muted:     #4A7A8A;
+
+    /* ── Surfaces (light-mode, cream-based) ── */
+    --surface:          #FBF7EC;
+    --surface-raised:   #F5EFD8;
+    --surface-overlay:  #EDE5C8;
+    --surface-border:   rgba(29, 126, 158, 0.15);
+
+    /* ── Fonts ── */
+    --font-heading: 'Canela', 'Georgia', serif;
+    --font-body:    'Nunito', 'Avenir Next', 'Helvetica Neue', sans-serif;
+
+    /* ── Fluid Typography Scale ── */
+    --font-size-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+    --font-size-sm:   clamp(0.875rem, 0.8rem  + 0.375vw, 1rem);
+    --font-size-base: clamp(1rem,     0.9rem  + 0.5vw,   1.25rem);
+    --font-size-lg:   clamp(1.25rem,  1.1rem  + 0.75vw,  1.75rem);
+    --font-size-xl:   clamp(1.75rem,  1.5rem  + 1.25vw,  2.5rem);
+    --font-size-2xl:  clamp(2.5rem,   2rem    + 2.5vw,   4rem);
+    --font-size-3xl:  clamp(3.5rem,   2.5rem  + 5vw,     6rem);
+    --font-size-4xl:  clamp(4.5rem,   3rem    + 7.5vw,   9rem);
+
+    /* ── Spacing rhythm ── */
+    --space-xs:  0.25rem;
+    --space-sm:  0.5rem;
+    --space-md:  1rem;
+    --space-lg:  1.5rem;
+    --space-xl:  2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    --space-4xl: 6rem;
+    --space-5xl: 8rem;
+    --space-6xl: 12rem;
+
+    /* ── Layout ── */
+    --max-width-content: 1200px;
+    --max-width-wide:    1440px;
+    --max-width-narrow:  720px;
+
+    /* ── Elevation / Shadows ── */
+    --elevation-1: 0 1px 3px rgba(23, 62, 74, 0.08), 0 1px 2px rgba(23, 62, 74, 0.06);
+    --elevation-2: 0 4px 8px rgba(23, 62, 74, 0.1),  0 2px 4px rgba(23, 62, 74, 0.08);
+    --elevation-3: 0 8px 24px rgba(23, 62, 74, 0.12), 0 4px 8px rgba(23, 62, 74, 0.08);
+    --elevation-4: 0 16px 48px rgba(23, 62, 74, 0.15), 0 8px 16px rgba(23, 62, 74, 0.1);
+    --glow-primary: 0 0 40px rgba(29, 126, 158, 0.35);
+    --glow-cta:     0 0 40px rgba(240, 169, 59, 0.4);
+
+    /* ── Border radius ── */
+    --radius-sm:   0.375rem;
+    --radius-md:   0.75rem;
+    --radius-lg:   1rem;
+    --radius-xl:   1.5rem;
+    --radius-2xl:  2rem;
+    --radius-full: 9999px;
+
+    /* ── Motion ── */
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+    --ease-expo:   cubic-bezier(0.87, 0, 0.13, 1);
+
+    --duration-fast:   150ms;
+    --duration-normal: 300ms;
+    --duration-slow:   600ms;
+    --duration-slower: 900ms;
+
+    /* ── Z-index scale ── */
+    --z-below:   -1;
+    --z-base:     0;
+    --z-raised:   10;
+    --z-overlay:  100;
+    --z-modal:    200;
+    --z-toast:    300;
+    --z-cursor:   400;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE RESET & GLOBAL STYLES
+═══════════════════════════════════════════════════════════════ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-base);
+    overflow-x: hidden;
+    will-change: scroll-position;
+  }
+
+  /* Headings use Canela */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+  }
+
+  h1 { font-size: var(--font-size-3xl); }
+  h2 { font-size: var(--font-size-2xl); }
+  h3 { font-size: var(--font-size-xl); }
+  h4 { font-size: var(--font-size-lg); }
+  h5 { font-size: var(--font-size-base); }
+  h6 { font-size: var(--font-size-sm); }
+
+  p {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    max-width: 65ch;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img, video {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: rgba(90, 184, 214, 0.25);
+    color: var(--color-text);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--surface-raised);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: var(--radius-full);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COMPONENT LAYER — Reusable patterns
+═══════════════════════════════════════════════════════════════ */
+@layer components {
+  /* ── Layout ── */
+  .container-content {
+    width: 100%;
+    max-width: var(--max-width-content);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 5vw, 3rem);
+  }
+
+  .container-wide {
+    width: 100%;
+    max-width: var(--max-width-wide);
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 5vw, 3rem);
+  }
+
+  /* ── Glassmorphism card (cream-tinted) ── */
+  .glass {
+    background: rgba(251, 247, 236, 0.6);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid var(--surface-border);
+    box-shadow: var(--elevation-2);
+  }
+
+  .glass-strong {
+    background: rgba(251, 247, 236, 0.85);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid rgba(29, 126, 158, 0.2);
+    box-shadow: var(--elevation-3);
+  }
+
+  /* ── Gradient text ── */
+  .text-gradient-brand {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-cta {
+    background: linear-gradient(135deg, var(--color-cta), var(--color-cta-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── CTA Button ── */
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-cta);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.03em;
+    transition: background-color var(--duration-normal) var(--ease-smooth),
+                transform var(--duration-fast) var(--ease-smooth),
+                box-shadow var(--duration-normal) var(--ease-smooth);
+  }
+
+  .btn-cta:hover {
+    background-color: var(--color-cta-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--glow-cta);
+  }
+
+  /* ── Primary Button ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.03em;
+    transition: background-color var(--duration-normal) var(--ease-smooth),
+                transform var(--duration-fast) var(--ease-smooth),
+                box-shadow var(--duration-normal) var(--ease-smooth);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--glow-primary);
+  }
+
+  /* ── Section spacing ── */
+  .section-padding {
+    padding-block: clamp(4rem, 8vw, 8rem);
+  }
+
+  /* ── GSAP will-change helpers ── */
+  .gsap-will-change         { will-change: transform; }
+  .gsap-will-change-opacity { will-change: opacity, transform; }
+
+  /* ── Shimmer skeleton ── */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--surface-raised) 25%,
+      var(--surface-overlay) 50%,
+      var(--surface-raised) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--surface-border) 30%,
+      var(--surface-border) 70%,
+      transparent 100%
+    );
+  }
+
+  /* ── Badge ── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: rgba(29, 126, 158, 0.1);
+    border: 1px solid rgba(29, 126, 158, 0.25);
+    color: var(--color-primary);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITY LAYER
+═══════════════════════════════════════════════════════════════ */
+@layer utilities {
+  .px-fluid { padding-inline: clamp(1rem, 5vw, 3rem); }
+  .py-fluid { padding-block:  clamp(2rem, 6vw, 5rem); }
+
+  /* Noise texture overlay */
+  .texture-noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 1;
+  }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════════════════════════════ */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ACCESSIBILITY — Reduced motion
+═══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
