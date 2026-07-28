@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import logoImg from '../img/logo - swishit-01.png';
+import logoImg from '../public/img/logo - swishit-01.png';
 
 // Basic Icons
 const RollingLink = ({ href, children }) => (
