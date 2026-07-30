@@ -49,7 +49,7 @@ export default function Hero() {
     gsap.set(textRef.current, { y: 220, opacity: 0.01, scale: 0.95, force3D: true });
     gsap.set(imageRef.current, { y: 500, opacity: 0.01, force3D: true });
     gsap.set(handRef.current, { y: 550, opacity: 0.01, force3D: true });
-    gsap.set(bigTextRef.current, { y: 450, opacity: 0.01, force3D: true });
+    gsap.set(bigTextRef.current, { y: 250, opacity: 0.01, force3D: true });
     gsap.set(rightTextRef.current, { y: 350, opacity: 0.01, force3D: true });
 
     // Now make them all visible (they're at opacity:0.01 / offscreen, so nothing shows)
@@ -133,7 +133,6 @@ export default function Hero() {
 
       scrollTl
         .to(scrollHandRef.current, { y: 600, opacity: 0, ease: "power1.inOut" }, 0)
-        .to(scrollBigTextRef.current, { y: 400, opacity: 0, ease: "power1.inOut" }, 0)
         .to(scrollContainerRef.current, { y: -100, opacity: 0, ease: "power1.inOut" }, 0)
         .to(scrollRightTextRef.current, { x: 100, opacity: 0, ease: "power1.inOut" }, 0)
         .to(scrollImageRef.current, { y: 280, scale: 1.1, ease: "power1.inOut" }, 0)
@@ -152,7 +151,9 @@ export default function Hero() {
         // 2. The 3 USPs appear one by one
         .fromTo(usp1Ref.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: "power2.out" }, 2.0)
         .fromTo(usp2Ref.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: "power2.out" }, 2.5)
-        .fromTo(usp3Ref.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: "power2.out" }, 3.0);
+        .fromTo(usp3Ref.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, ease: "power2.out" }, 3.0)
+        // 3. Keep "Swish It" bg text visible during USPs, fade out at end of hero scroll
+        .to(scrollBigTextRef.current, { opacity: 0, y: 80, ease: "power1.in" }, 3.3);
     });
 
   }, { scope: sectionRef });
@@ -164,23 +165,23 @@ export default function Hero() {
       <div className="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-end overflow-hidden pb-32 md:pb-40">
         
         {/* Massive Background Text */}
-        <div ref={scrollBigTextRef} className="absolute inset-0 z-[-1] pointer-events-none flex items-end justify-center pb-32 md:pb-40">
+        <div ref={scrollBigTextRef} className="absolute inset-x-0 bottom-0 z-[-1] pointer-events-none flex items-end justify-center pb-2 md:pb-6 overflow-hidden">
           <div
             ref={bigTextRef}
             className="flex justify-center w-full"
             style={{ visibility: 'hidden' }}
           >
-            <span className="text-[25vw] leading-none font-bold text-black/[0.03] tracking-tighter whitespace-nowrap">
+            <span className="text-[22vw] leading-none font-bold text-black/[0.035] tracking-tighter whitespace-nowrap">
               Swish It
             </span>
           </div>
         </div>
 
         {/* Hand Graphic */}
-        <div ref={scrollHandRef} className="absolute bottom-0 translate-y-8 md:translate-y-16 w-full flex justify-center z-0 pointer-events-none">
+        <div ref={scrollHandRef} className="absolute bottom-0 -translate-y-2 md:translate-y-16 w-full flex justify-center z-0 pointer-events-none">
           <div 
             ref={handRef}
-            className="relative w-[280px] h-[280px] md:w-[850px] md:h-[500px] lg:w-[950px] lg:h-[550px]"
+            className="relative w-[320px] h-[320px] md:w-[850px] md:h-[500px] lg:w-[950px] lg:h-[550px]"
             style={{ visibility: 'hidden' }}
           >
             <Image 
@@ -189,7 +190,6 @@ export default function Hero() {
               fill 
               className="object-contain object-bottom"
               priority
-              unoptimized
             />
           </div>
         </div>
@@ -234,7 +234,7 @@ export default function Hero() {
             {/* USP 1 */}
             <div ref={usp1Ref} className="opacity-0 translate-y-8 border-t border-gray-300/80 pt-4 pb-2 md:pt-5 md:pb-3 pointer-events-auto bg-base/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none rounded-lg md:rounded-none px-3 md:px-0">
               <div className="flex items-center gap-3 mb-1 md:mb-2">
-                <span className="text-xs md:text-sm font-mono font-bold text-[#409c89]">01</span>
+                <span className="text-xs md:text-sm font-mono font-bold text-[#1D7E9E]">01</span>
                 <span className="text-xs md:text-sm font-mono tracking-widest uppercase text-gray-500">The Pump</span>
               </div>
               <p className="font-body text-base md:text-xl lg:text-2xl text-text font-medium leading-snug">
@@ -245,7 +245,7 @@ export default function Hero() {
             {/* USP 2 */}
             <div ref={usp2Ref} className="opacity-0 translate-y-8 border-t border-gray-300/80 pt-4 pb-2 md:pt-5 md:pb-3 pointer-events-auto bg-base/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none rounded-lg md:rounded-none px-3 md:px-0">
               <div className="flex items-center gap-3 mb-1 md:mb-2">
-                <span className="text-xs md:text-sm font-mono font-bold text-[#409c89]">02</span>
+                <span className="text-xs md:text-sm font-mono font-bold text-[#1D7E9E]">02</span>
                 <span className="text-xs md:text-sm font-mono tracking-widest uppercase text-gray-500">The Formula</span>
               </div>
               <p className="font-body text-base md:text-xl lg:text-2xl text-text font-medium leading-snug">
@@ -256,7 +256,7 @@ export default function Hero() {
             {/* USP 3 */}
             <div ref={usp3Ref} className="opacity-0 translate-y-8 border-t border-gray-300/80 pt-4 pb-2 md:pt-5 md:pb-3 pointer-events-auto bg-base/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none rounded-lg md:rounded-none px-3 md:px-0">
               <div className="flex items-center gap-3 mb-1 md:mb-2">
-                <span className="text-xs md:text-sm font-mono font-bold text-[#409c89]">03</span>
+                <span className="text-xs md:text-sm font-mono font-bold text-[#1D7E9E]">03</span>
                 <span className="text-xs md:text-sm font-mono tracking-widest uppercase text-gray-500">The Scent</span>
               </div>
               <p className="font-body text-base md:text-xl lg:text-2xl text-text font-medium leading-snug">
@@ -284,7 +284,7 @@ export default function Hero() {
                 >
                   You&apos;re doing <br />
                   the dishes anyway. <br />
-                  <span className="text-[#409c89]">Might as well not hate it.</span>
+                  <span className="text-[#1D7E9E]">Might as well not hate it.</span>
                 </h1>
               </div>
             </div>
@@ -293,7 +293,7 @@ export default function Hero() {
         </div>
 
         {/* Middle Right: Description Text */}
-        <div className="absolute right-8 md:right-16 lg:right-24 top-[55%] md:top-1/2 -translate-y-1/2 z-30 pointer-events-auto">
+        <div className="absolute right-6 md:right-16 lg:right-24 top-[40%] md:top-1/2 -translate-y-1/2 z-30 pointer-events-auto">
           <div ref={scrollRightTextRef}>
             <div 
               ref={rightTextRef}

@@ -16,23 +16,23 @@ export default function Community() {
   const cardRefs = useRef([]);
 
   useGSAP(() => {
-    // 1. Zoom in from deep inside (scale: 0.5 -> 1.0) as Testimonials slides out!
+    // 1. Smooth entrance right under testimonials split
     gsap.fromTo(
       zoomWrapperRef.current,
       {
-        scale: 0.5,
+        scale: 0.92,
         opacity: 0,
-        y: 80,
+        y: 30,
       },
       {
         scale: 1,
         opacity: 1,
         y: 0,
-        duration: 1.5,
+        duration: 1.2,
         ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%",
+          start: "top 95%",
           toggleActions: "play none none none",
         },
       }
@@ -42,25 +42,26 @@ export default function Community() {
     gsap.fromTo(
       cardRefs.current,
       {
-        scale: 0.85,
+        scale: 0.9,
         opacity: 0,
-        y: 50,
+        y: 30,
       },
       {
         scale: 1,
         opacity: 1,
         y: 0,
-        duration: 1.2,
-        stagger: 0.15,
-        ease: "back.out(1.3)",
+        duration: 1.0,
+        stagger: 0.12,
+        ease: "back.out(1.2)",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%",
+          start: "top 90%",
           toggleActions: "play none none none",
         },
       }
     );
   }, { scope: sectionRef });
+
   // Interactive like counter for Social Spotlight card
   const [likes, setLikes] = useState(2481);
   const [liked, setLiked] = useState(false);
@@ -83,7 +84,7 @@ export default function Community() {
   };
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-base py-32 px-6 overflow-hidden -mt-20" id="community">
+    <section ref={sectionRef} className="relative w-full bg-base pt-4 md:pt-8 pb-32 px-6 overflow-hidden -mt-36 md:-mt-48" id="community">
       <div className="max-w-7xl mx-auto">
         
         {/* ── ZOOMING CONTENT WRAPPER ───────────────────────────── */}
@@ -101,12 +102,12 @@ export default function Community() {
             <div>
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#0369a1] text-white flex items-center justify-center font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-[#1D7E9E] text-white flex items-center justify-center font-bold text-sm">
                     PK
                   </div>
                   <div>
                     <div className="flex items-center gap-1 font-body font-bold text-sm text-text">
-                      @priya_kitchens <span className="text-[#0369a1] text-xs">✓</span>
+                      @priya_kitchens <span className="text-[#1D7E9E] text-xs">✓</span>
                     </div>
                     <div className="text-xs text-text-muted">Instagram Spotlight</div>
                   </div>
@@ -127,7 +128,7 @@ export default function Community() {
                 onClick={handleLike}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full font-body text-sm font-medium transition-all duration-300 ${
                   liked 
-                    ? 'bg-[#0369a1] text-white scale-105 shadow-md' 
+                    ? 'bg-[#1D7E9E] text-white scale-105 shadow-md' 
                     : 'bg-white/80 text-text hover:bg-white'
                 }`}
               >
@@ -149,7 +150,7 @@ export default function Community() {
           >
             <div>
               <div className="flex items-center justify-between mb-6">
-                <span className="text-xs font-mono uppercase tracking-widest font-bold text-[#b45309] bg-white/60 px-3 py-1 rounded-full">
+                <span className="text-xs font-mono uppercase tracking-widest font-bold text-[#F0A93B] bg-[#F0A93B]/10 px-3 py-1 rounded-full border border-[#F0A93B]/20">
                   🧪 Scent Lab
                 </span>
                 <span className="text-xs text-text-muted font-mono">Community Vote</span>
@@ -169,7 +170,7 @@ export default function Community() {
                 onClick={() => handleVote('mandarin')}
                 className={`w-full text-left p-3.5 rounded-2xl border font-body text-sm font-medium flex items-center justify-between transition-all duration-200 ${
                   votedScent === 'mandarin'
-                    ? 'bg-[#b45309] text-white border-[#b45309] shadow-md'
+                    ? 'bg-[#F0A93B] text-[#173E4A] border-[#F0A93B] shadow-md font-semibold'
                     : 'bg-white/70 text-text border-black/5 hover:bg-white'
                 }`}
               >
@@ -181,7 +182,7 @@ export default function Community() {
                 onClick={() => handleVote('eucalyptus')}
                 className={`w-full text-left p-3.5 rounded-2xl border font-body text-sm font-medium flex items-center justify-between transition-all duration-200 ${
                   votedScent === 'eucalyptus'
-                    ? 'bg-[#b45309] text-white border-[#b45309] shadow-md'
+                    ? 'bg-[#F0A93B] text-[#173E4A] border-[#F0A93B] shadow-md font-semibold'
                     : 'bg-white/70 text-text border-black/5 hover:bg-white'
                 }`}
               >
@@ -190,7 +191,7 @@ export default function Community() {
               </button>
 
               {votedScent && (
-                <p className="text-[11px] text-[#b45309] font-mono text-center mt-1 animate-fadeIn">
+                <p className="text-[11px] text-[#F0A93B] font-mono font-bold text-center mt-1 animate-fadeIn">
                   ✓ Thanks for voting! Drop arrives next month.
                 </p>
               )}
@@ -206,13 +207,13 @@ export default function Community() {
           >
             <div>
               <div className="flex items-center justify-between mb-6">
-                <span className="text-xs font-mono uppercase tracking-widest font-bold text-[#15803d] bg-white/60 px-3 py-1 rounded-full">
+                <span className="text-xs font-mono uppercase tracking-widest font-bold text-[#1D7E9E] bg-[#1D7E9E]/10 px-3 py-1 rounded-full border border-[#1D7E9E]/20">
                   🌱 Zero Waste
                 </span>
                 <span className="text-xs text-text-muted font-mono">2026 Impact</span>
               </div>
 
-              <div className="font-heading text-4xl lg:text-5xl text-text font-bold mb-2 text-[#15803d]">
+              <div className="font-heading text-4xl lg:text-5xl text-[#1D7E9E] font-bold mb-2">
                 50,000+
               </div>
               <h3 className="font-body font-bold text-lg text-text mb-3">
@@ -227,37 +228,13 @@ export default function Community() {
               <span className="text-xs font-body font-semibold text-text">
                 1 Pump = Exact Dose
               </span>
-              <span className="text-xs font-mono text-[#15803d] font-bold bg-white/80 px-3 py-1 rounded-full">
+              <span className="text-xs font-mono text-[#1D7E9E] font-bold bg-white/80 px-3 py-1 rounded-full border border-[#1D7E9E]/20">
                 0% Spills
               </span>
             </div>
           </motion.div>
         </div>
         </div>
-
-        {/* ── MODERN SLEEK FOOTER ──────────────────────────────── */}
-        <footer className="pt-16 border-t border-text/10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
-          <div>
-            <div className="font-heading text-3xl font-bold text-text tracking-tight mb-2">
-              Swish It
-            </div>
-            <p className="font-body text-text-muted text-xs md:text-sm">
-              Designed for people who hate doing dishes. Made with care in India.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 font-body text-xs md:text-sm font-medium text-text">
-            <a href="#products" className="hover:text-[#409c89] transition-colors">Shop</a>
-            <a href="#testimonials" className="hover:text-[#409c89] transition-colors">Reviews</a>
-            <a href="#community" className="hover:text-[#409c89] transition-colors">Scent Lab</a>
-            <a href="#community" className="hover:text-[#409c89] transition-colors">Sustainability</a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-[#409c89] transition-colors">Instagram</a>
-          </div>
-
-          <div className="font-mono text-xs text-text-muted">
-            &copy; {new Date().getFullYear()} Swish It Inc. All rights reserved.
-          </div>
-        </footer>
 
       </div>
     </section>

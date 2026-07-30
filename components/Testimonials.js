@@ -80,6 +80,7 @@ export default function Testimonials() {
   const sectionRef = useRef(null);
   const topTextRef = useRef(null);
   const bottomTextRef = useRef(null);
+  const centerTextRef = useRef(null);
   const cardRefs = useRef([]);
 
   useGSAP(() => {
@@ -90,6 +91,9 @@ export default function Testimonials() {
       isMobile: "(max-width: 768px)"
     }, (context) => {
       let { isDesktop } = context.conditions;
+
+      // Initially hide center community text during testimonial cards float
+      gsap.set(centerTextRef.current, { scale: 0.65, opacity: 0, force3D: true });
 
       // Snappy pinned timeline with zero initial peeking and theatrical text split exit
       const tl = gsap.timeline({
@@ -118,16 +122,24 @@ export default function Testimonials() {
           }, startTime);
         });
 
-        // 2. After the cards go up (around time 6.2), split text: "What they" right, "are saying" left!
+        // 2. AFTER testimonials pass, slide out "What they" (left) & "are saying" (right)
+        // AND simultaneously reveal "Join the community..." at the exact same start time (6.2)!
         tl.to(topTextRef.current, {
-          x: "120vw",
+          x: "-120vw",
           ease: "power2.inOut",
           duration: 2.2,
         }, 6.2);
 
         tl.to(bottomTextRef.current, {
-          x: "-120vw",
+          x: "120vw",
           ease: "power2.inOut",
+          duration: 2.2,
+        }, 6.2);
+
+        tl.to(centerTextRef.current, {
+          scale: 1.0,
+          opacity: 1.0,
+          ease: "power2.out",
           duration: 2.2,
         }, 6.2);
 
@@ -147,16 +159,23 @@ export default function Testimonials() {
           }, startTime);
         });
 
-        // Mobile text split exit after cards clear
+        // Mobile text split exit & simultaneous community reveal after cards clear
         tl.to(topTextRef.current, {
-          x: "120vw",
+          x: "-120vw",
           ease: "power2.inOut",
           duration: 2.0,
         }, 6.8);
 
         tl.to(bottomTextRef.current, {
-          x: "-120vw",
+          x: "120vw",
           ease: "power2.inOut",
+          duration: 2.0,
+        }, 6.8);
+
+        tl.to(centerTextRef.current, {
+          scale: 1.0,
+          opacity: 1.0,
+          ease: "power2.out",
           duration: 2.0,
         }, 6.8);
       }
@@ -173,26 +192,46 @@ export default function Testimonials() {
       {/* ── SPLIT MASSIVE BACKGROUND HEADING LAYER ── */}
       <div 
         style={{ zIndex: 1 }}
-        className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-4"
+        className="absolute inset-0 flex flex-col items-start pt-12 md:pt-0 md:items-center justify-center pointer-events-none px-6 md:px-16"
       >
-        {/* Top line slides out to the RIGHT */}
-        <div ref={topTextRef} className="will-change-transform">
-          <h2 
-            style={{ color: '#1A1A1A' }}
-            className="font-body font-medium text-[clamp(3.8rem,13vw,14rem)] tracking-tight text-center leading-[0.9]"
-          >
-            What they
-          </h2>
-        </div>
+        <div className="relative w-full max-w-6xl flex flex-col items-start justify-center">
+          
+          {/* Top line: "What they" */}
+          <div ref={topTextRef} className="will-change-transform">
+            <h2 
+              style={{ color: '#173E4A' }}
+              className="font-body font-medium text-[clamp(4rem,14vw,14rem)] tracking-tight text-left leading-[0.88]"
+            >
+              What they
+            </h2>
+          </div>
 
-        {/* Bottom line slides out to the LEFT */}
-        <div ref={bottomTextRef} className="will-change-transform -mt-2 md:-mt-4">
-          <h2 
-            style={{ color: '#1A1A1A' }}
-            className="font-body font-medium text-[clamp(3.8rem,13vw,14rem)] tracking-tight text-center leading-[0.9]"
+          {/* Bottom line: "are saying" */}
+          <div ref={bottomTextRef} className="will-change-transform">
+            <h2 
+              style={{ color: '#173E4A' }}
+              className="font-body font-medium text-[clamp(4rem,14vw,14rem)] tracking-tight text-left leading-[0.88]"
+            >
+              are saying
+            </h2>
+          </div>
+
+          {/* Center text: "Join the community..." (appears simultaneously as split occurs) */}
+          <div 
+            ref={centerTextRef} 
+            className="absolute inset-0 flex flex-col items-center justify-center text-center max-w-4xl mx-auto px-6 pointer-events-auto"
           >
-            are saying
-          </h2>
+            <div className="flex items-center justify-center gap-1 mb-2 text-[#F0A93B] text-base md:text-xl tracking-tighter" style={{ color: '#F0A93B' }}>
+              ★★★★★
+            </div>
+            <span className="text-xs md:text-sm font-mono text-[#173E4A] mb-3 uppercase tracking-widest font-bold" style={{ color: '#173E4A' }}>
+              2,500+ five-star reviews
+            </span>
+            <h3 className="font-heading font-normal text-2xl md:text-4xl lg:text-6xl text-[#173E4A] leading-tight tracking-tight" style={{ color: '#173E4A' }}>
+              Join the community that&apos;s redefining dishwashing, one push at a time.
+            </h3>
+          </div>
+
         </div>
       </div>
 
@@ -228,7 +267,7 @@ export default function Testimonials() {
                 {[...Array(5)].map((_, i) => (
                   <span 
                     key={i} 
-                    style={{ color: '#1A1A1A' }}
+                    style={{ color: '#F0A93B' }}
                     className="text-xs md:text-sm tracking-tighter"
                   >
                     ★
@@ -249,8 +288,8 @@ export default function Testimonials() {
                     {test.name}
                   </span>
                   <span 
-                    style={{ color: '#6A6A6A' }}
-                    className="font-body font-normal text-xs md:text-sm"
+                    style={{ color: '#173E4A' }}
+                    className="font-body font-medium text-xs md:text-sm"
                   >
                     {test.role}
                   </span>

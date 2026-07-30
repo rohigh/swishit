@@ -3,6 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect } from 'react';
+import { createClient } from '@/lib/supabase/client';
+import { useCart } from '@/context/CartContext';
+import SearchModal from './SearchModal';
 import logoImg from '../public/img/logo - swishit-01.png';
 
 // Basic Icons
@@ -61,6 +65,40 @@ const BagIcon = () => (
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const supabase = createClient();
+  const { cartCount, setIsCartOpen } = useCart();
+
+  // Cmd+K or Ctrl+K shortcut listener
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsSearchOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+    };
+    fetchUser();
+
+    const { data: authListener } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setUser(session?.user ?? null);
+      }
+    );
+
+    return () => {
+      authListener.subscription.unsubscribe();
+    };
+  }, []);
 
   return (
     <>
@@ -104,11 +142,28 @@ export default function Navbar() {
 
         {/* Right side: Icons */}
         <div className="flex items-center gap-5 text-text">
-          <button className="hover:opacity-60 transition-opacity">
-            <UserIcon />
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="hover:opacity-60 transition-opacity flex items-center"
+            title="Search"
+            aria-label="Search"
+          >
+            <SearchIcon />
           </button>
-          <button className="hover:opacity-60 transition-opacity">
+          <Link href={user ? "/account" : "/login"} className="hover:opacity-60 transition-opacity">
+            <UserIcon />
+          </Link>
+          <button 
+            onClick={() => setIsCartOpen(true)} 
+            className="hover:opacity-60 transition-opacity relative flex items-center"
+            aria-label="Open Cart"
+          >
             <BagIcon />
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-[#155E78] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
+                {cartCount}
+              </span>
+            )}
           </button>
         </div>
       </div>
@@ -123,7 +178,23 @@ export default function Navbar() {
         <Link href="/shop" onClick={() => setIsMenuOpen(false)} className="hover:opacity-70 transition-opacity">Shop</Link>
         <Link href="/about" onClick={() => setIsMenuOpen(false)} className="hover:opacity-70 transition-opacity">About</Link>
         <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:opacity-70 transition-opacity">Contact</Link>
+        <Link href={user ? "/account" : "/login"} onClick={() => setIsMenuOpen(false)} className="hover:opacity-70 transition-opacity">
+          {user ? "My Account" : "Log In"}
+        </Link>
+        <Link 
+          href="/checkout" 
+          onClick={() => {
+            setIsMenuOpen(false);
+            setIsCartOpen(true);
+          }} 
+          className="hover:opacity-70 transition-opacity flex items-center gap-2"
+        >
+          View Bag ({cartCount})
+        </Link>
       </div>
+
+      {/* Global Product Search Modal */}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );
 }

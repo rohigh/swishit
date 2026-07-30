@@ -2,6 +2,7 @@ import { Playfair_Display, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import SmoothScrollProvider from './providers';
+import JsonLd from '@/components/JsonLd';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -17,27 +18,41 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    default: 'Swishit',
-    template: '%s | Swishit',
+    default: 'SWISH IT | The Standard for Effortless Clean',
+    template: '%s | SWISH IT',
   },
-  description: 'Swishit — a premium modern web experience',
-  keywords: ['swishit'],
-  authors: [{ name: 'Swishit' }],
-  creator: 'Swishit',
+  description: 'High-performance, plant-powered dishwashing dew engineered for effortless clean. Cut grease instantly with zero soapy residue.',
+  keywords: ['swishit', 'dishwash', 'plant-powered', 'hygiene', 'kitchen', 'cleaning dew', 'eco-friendly'],
+  authors: [{ name: 'SWISH IT' }],
+  creator: 'SWISH IT',
   metadataBase: new URL('https://swishit.app'),
+  icons: {
+    icon: '/img/logo - swishit-01.png',
+    shortcut: '/img/logo - swishit-01.png',
+    apple: '/img/logo - swishit-01.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://swishit.app',
-    siteName: 'Swishit',
-    title: 'Swishit',
-    description: 'Swishit — a premium modern web experience',
+    siteName: 'SWISH IT',
+    title: 'SWISH IT | The Standard for Effortless Clean',
+    description: 'High-performance, plant-powered dishwashing dew engineered for effortless clean. Free shipping over ₹399.',
+    images: [
+      {
+        url: '/img/ocean garden edited.png',
+        width: 1200,
+        height: 630,
+        alt: 'SWISH IT Dishwashing Dew',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Swishit',
-    description: 'Swishit — a premium modern web experience',
+    title: 'SWISH IT | The Standard for Effortless Clean',
+    description: 'High-performance, plant-powered dishwashing dew engineered for effortless clean. Free shipping over ₹399.',
     creator: '@swishit',
+    images: ['/img/ocean garden edited.png'],
   },
   robots: {
     index: true,
@@ -68,6 +83,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className="bg-base text-text antialiased font-body selection:bg-black selection:text-white">
+        <JsonLd />
         {/*
           SmoothScrollProvider wraps:
           - GSAP plugin registration (ScrollTrigger, useGSAP)
@@ -77,8 +93,8 @@ export default function RootLayout({ children }) {
           'use client' is declared in providers.js; this layout
           remains a Server Component for optimal SSR performance.
         */}
-        <Navbar />
         <SmoothScrollProvider>
+          <Navbar />
           {children}
         </SmoothScrollProvider>
       </body>

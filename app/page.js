@@ -1,6 +1,10 @@
 import Hero from '@/components/Hero';
 import Products from '@/components/Products';
 import Testimonials from '@/components/Testimonials';
+import Community from '@/components/Community';
+import InstagramSection from '@/components/InstagramSection';
+import { FAQ } from '@/components/ui/faq-section';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Swishit – Dishwashing Dew',
@@ -13,6 +17,10 @@ export default function Home() {
       <Hero />
       <Products />
       <Testimonials />
+      <Community />
+      <InstagramSection />
+      <FAQ />
+      <Footer />
     </main>
   );
 }

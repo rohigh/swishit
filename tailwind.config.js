@@ -22,18 +22,35 @@ module.exports = {
       },
 
       // ─────────────────────────────────────────────
-      // Color Design Tokens — Essentia
+      // Color Design Tokens — Ocean Anchor Palette
       // ─────────────────────────────────────────────
       colors: {
-        base:    '#F5F3EF',
+        primary: {
+          DEFAULT: '#1D7E9E',
+          light:   '#2E9ABF',
+          dark:    '#155E78',
+        },
+        accent: {
+          DEFAULT: '#5AB8D6',
+          light:   '#82CCDF',
+          dark:    '#3A97B5',
+        },
+        base:    '#FBF7EC',
+        cta: {
+          DEFAULT: '#F0A93B',
+          light:   '#F5C06A',
+          dark:    '#D48820',
+        },
         text: {
-          DEFAULT: '#1A1A1A',
-          muted:   '#6A6A6A',
+          DEFAULT: '#173E4A',
+          muted:   '#4A7A8A',
+          light:   '#2A5F72',
         },
         surface: {
-          DEFAULT: '#F5F3EF',
-          raised:  '#EFECE5',
-          border:  'rgba(26, 26, 26, 0.1)',
+          DEFAULT: '#FBF7EC',
+          raised:  '#F5EFD8',
+          overlay: '#EDE5C8',
+          border:  'rgba(29, 126, 158, 0.15)',
         },
         pastel: {
           blue: '#E6EBEF',

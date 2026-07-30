@@ -7,6 +7,9 @@ import { useGSAP } from '@gsap/react';
 import { AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
+import { CartProvider } from '@/context/CartContext';
+import CartDrawer from '@/components/CartDrawer';
+
 // ─────────────────────────────────────────────────────────
 // GSAP Plugin Registration — done once at module level
 // SSR guard: typeof window !== "undefined" ensures this
@@ -17,6 +20,7 @@ if (typeof window !== 'undefined') {
 }
 
 export default function SmoothScrollProvider({ children }) {
+  const pathname = usePathname();
   const lenisRef = useRef(null);
 
   useEffect(() => {
@@ -33,6 +37,9 @@ export default function SmoothScrollProvider({ children }) {
       });
 
       lenisRef.current = lenis;
+      if (typeof window !== 'undefined') {
+        window.lenisInstance = lenis;
+      }
 
       // Connect Lenis to GSAP's ticker for synchronized animation
       lenis.on('scroll', ScrollTrigger.update);
@@ -60,8 +67,13 @@ export default function SmoothScrollProvider({ children }) {
   }, []);
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      {children}
-    </AnimatePresence>
+    <CartProvider>
+      <AnimatePresence mode="wait" initial={false}>
+        <div key={pathname} className="w-full">
+          {children}
+        </div>
+      </AnimatePresence>
+      <CartDrawer />
+    </CartProvider>
   );
 }
