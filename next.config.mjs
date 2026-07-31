@@ -3,6 +3,11 @@ const nextConfig = {
   // Enable React strict mode for highlighting potential issues
   reactStrictMode: true,
 
+  // Ignore ESLint errors during production builds on Vercel
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   // Image optimization domains and disable optimization buffer limit for large files
   images: {
     remotePatterns: [

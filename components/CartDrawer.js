@@ -111,7 +111,7 @@ export default function CartDrawer() {
                     <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    🎉 You've unlocked FREE Shipping!
+                    🎉 You&apos;ve unlocked FREE Shipping!
                   </span>
                 )}
                 <span className="font-mono text-[#173E4A]/60">{progressPercent}%</span>
@@ -139,7 +139,7 @@ export default function CartDrawer() {
                   </div>
                   <h3 className="text-lg font-heading font-semibold text-[#173E4A] mb-1">Your bag is empty</h3>
                   <p className="text-xs text-[#173E4A]/70 max-w-xs mb-6">
-                    Looks like you haven't added any products yet.
+                    Looks like you haven&apos;t added any products yet.
                   </p>
                   <button
                     onClick={() => {

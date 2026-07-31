@@ -195,7 +195,7 @@ export default function SearchModal({ isOpen, onClose }) {
                 <div className="text-center py-10 px-4">
                   <p className="text-base font-semibold text-[#173E4A] mb-1">No products found</p>
                   <p className="text-xs text-[#173E4A]/60">
-                    No results for "{query || selectedTag}". Try searching for "Ocean", "Lime", or "Lemon".
+                    No results for &quot;{query || selectedTag}&quot;. Try searching for &quot;Ocean&quot;, &quot;Lime&quot;, or &quot;Lemon&quot;.
                   </p>
                 </div>
               ) : (

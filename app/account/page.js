@@ -525,7 +525,7 @@ export default function AccountPage() {
                     </div>
                   ) : (
                     <div className="text-center py-10 text-[#173E4A]/60 text-sm">
-                      No address saved yet. Click "+ Add Address" above to save one.
+                      No address saved yet. Click &quot;+ Add Address&quot; above to save one.
                     </div>
                   )}
                 </motion.div>
