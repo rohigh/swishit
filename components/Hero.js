@@ -178,10 +178,10 @@ export default function Hero() {
         </div>
 
         {/* Hand Graphic */}
-        <div ref={scrollHandRef} className="absolute bottom-0 -translate-y-2 md:translate-y-16 w-full flex justify-center z-0 pointer-events-none">
+        <div ref={scrollHandRef} className="absolute bottom-0 -translate-y-14 md:translate-y-16 w-full flex justify-center z-0 pointer-events-none">
           <div 
             ref={handRef}
-            className="relative w-[320px] h-[320px] md:w-[850px] md:h-[500px] lg:w-[950px] lg:h-[550px]"
+            className="relative w-[350px] h-[370px] md:w-[850px] md:h-[500px] lg:w-[950px] lg:h-[550px]"
             style={{ visibility: 'hidden' }}
           >
             <Image 
