@@ -10,6 +10,8 @@ const nextConfig = {
 
   // Image optimization domains and disable optimization buffer limit for large files
   images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: 'https',

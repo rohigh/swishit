@@ -161,6 +161,8 @@ export default function Products() {
                               src={img} 
                               alt={prod.name} 
                               fill 
+                              sizes="(max-width: 768px) 260px, 360px"
+                              quality={80}
                               className={`object-contain drop-shadow-xl ${img.includes('lemon') ? 'scale-[1.4]' : 'scale-[1.75]'}`} 
                             />
                           </div>
@@ -173,6 +175,8 @@ export default function Products() {
                             src={prod.image} 
                             alt={prod.name} 
                             fill 
+                            sizes="(max-width: 768px) 320px, 450px"
+                            quality={80}
                             className="object-contain drop-shadow-xl"
                           />
                         </div>

@@ -188,6 +188,8 @@ export default function Hero() {
               src={handImg} 
               alt="Hand Reaching Up" 
               fill 
+              sizes="(max-width: 768px) 320px, 950px"
+              quality={80}
               className="object-contain object-bottom"
               priority
             />
@@ -205,6 +207,8 @@ export default function Hero() {
               src={blueBottleImg} 
               alt="Swishit Blue Bottle" 
               fill 
+              sizes="(max-width: 768px) 450px, 780px"
+              quality={80}
               className="object-contain scale-[1.5]"
               priority
             />
