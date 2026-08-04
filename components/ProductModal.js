@@ -7,6 +7,25 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '@/context/CartContext';
 import ProductReviews from './ProductReviews';
 
+const DEFAULT_PRODUCT_FAQS = [
+  {
+    q: 'How long does a 500ml bottle usually last?',
+    a: 'With daily household hand dishwashing, one concentrated 500ml pump bottle lasts approximately 4 to 6 weeks (120+ sink loads).'
+  },
+  {
+    q: 'Is Swishit safe for sensitive skin & baby bottles?',
+    a: 'Yes, 100%. Swishit is plant-powered, dermatologically tested, and free from harsh synthetic sulfates or parabens. It rinses completely clean with zero residue.'
+  },
+  {
+    q: 'How does the Perfume-Lock™ technology work?',
+    a: 'Our Perfume-Lock™ formula neutralizes tough food odors (such as fish, garlic, and spices) at the molecular level without transferring any perfume taste to your cookware or dishes.'
+  },
+  {
+    q: 'Can I refill and reuse this bottle?',
+    a: 'Yes! Our signature bottles are built for infinite reuse. Simply purchase our eco-friendly refill pouches to top up your bottle.'
+  }
+];
+
 export default function ProductModal({ product, onClose }) {
   const [mounted, setMounted] = useState(false);
   const [activeImage, setActiveImage] = useState('/img/ocean garden edited.png');
@@ -72,6 +91,8 @@ export default function ProductModal({ product, onClose }) {
   const sizes = product?.isBundle 
     ? ['Trio Collection (3x500ml)', 'Refill Pouch Bundle'] 
     : ['500ml Pump', '1000ml Refill Pouch'];
+
+  const productFaqs = product?.faqs || DEFAULT_PRODUCT_FAQS;
 
   return createPortal(
     <AnimatePresence>
