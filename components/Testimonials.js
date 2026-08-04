@@ -19,7 +19,7 @@ const TESTIMONIALS = [
     role: "home chef & daily cook",
     initials: "PS",
     bg: "bg-pastel-blue text-[#0369a1]",
-    desktopPos: "top-[16%] left-[4%] lg:left-[6%] w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[16%] left-[2%] lg:left-[5%] xl:left-[6%] w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
     startTime: 1.5,
   },
   {
@@ -29,7 +29,7 @@ const TESTIMONIALS = [
     role: "switched from typical liquid soaps",
     initials: "RV",
     bg: "bg-pastel-green text-[#15803d]",
-    desktopPos: "top-[10%] right-[4%] lg:right-[6%] w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[10%] right-[2%] lg:right-[5%] xl:right-[6%] w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
     startTime: 1.7,
   },
   {
@@ -39,7 +39,7 @@ const TESTIMONIALS = [
     role: "kitchen minimalist & mother of 2",
     initials: "AP",
     bg: "bg-pastel-yellow text-[#b45309]",
-    desktopPos: "top-[55%] left-1/2 -translate-x-1/2 w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[56%] left-1/2 -translate-x-1/2 w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
     startTime: 2.0,
   },
 
@@ -51,7 +51,7 @@ const TESTIMONIALS = [
     role: "food blogger & host",
     initials: "VM",
     bg: "bg-pastel-yellow text-[#a16207]",
-    desktopPos: "top-[16%] left-[5%] lg:left-[7%] w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[16%] left-[3%] lg:left-[6%] xl:left-[7%] w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
     startTime: 3.8,
   },
   {
@@ -61,7 +61,7 @@ const TESTIMONIALS = [
     role: "mother of 3 & doctor",
     initials: "SG",
     bg: "bg-pastel-green text-[#15803d]",
-    desktopPos: "top-[10%] right-[5%] lg:right-[7%] w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[10%] right-[3%] lg:right-[6%] xl:right-[7%] w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
     startTime: 4.0,
   },
   {
@@ -71,7 +71,7 @@ const TESTIMONIALS = [
     role: "fitness enthusiast",
     initials: "AD",
     bg: "bg-pastel-blue text-[#1d7e9e]",
-    desktopPos: "top-[55%] left-1/2 -translate-x-1/2 w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[56%] left-1/2 -translate-x-1/2 w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
     startTime: 4.3,
   }
 ];
@@ -87,97 +87,68 @@ export default function Testimonials() {
     let mm = gsap.matchMedia();
 
     mm.add({
-      isDesktop: "(min-width: 769px)",
-      isMobile: "(max-width: 768px)"
+      isMobile: "(max-width: 767px)",
+      isTablet: "(min-width: 768px) and (max-width: 1023px)",
+      isDesktop: "(min-width: 1024px)"
     }, (context) => {
-      let { isDesktop } = context.conditions;
+      let { isMobile, isTablet } = context.conditions;
 
-      // Initially hide center community text during testimonial cards float
       gsap.set(centerTextRef.current, { scale: 0.65, opacity: 0, force3D: true });
 
-      // Snappy pinned timeline with zero initial peeking and theatrical text split exit
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           pin: true,
           start: "top top",
-          end: isDesktop ? "+=400%" : "+=420%",
+          end: isMobile ? "+=380%" : isTablet ? "+=420%" : "+=450%",
           scrub: true,
         }
       });
 
-      if (isDesktop) {
-        // 1. Cards float up across the static text
+      if (isMobile) {
         cardRefs.current.forEach((card, index) => {
           if (!card) return;
-
-          gsap.set(card, { y: 1200, opacity: 1 });
-
-          const startTime = TESTIMONIALS[index].startTime;
-
+          gsap.set(card, { y: 720, opacity: 1, scale: 1 });
           tl.to(card, {
-            y: -1200,
+            y: -720,
             ease: "none",
-            duration: 3.2,
-          }, startTime);
+            duration: 2.9,
+          }, index * 0.85 + 1.2);
         });
 
-        // 2. AFTER testimonials pass, slide out "What they" (left) & "are saying" (right)
-        // AND simultaneously reveal "Join the community..." at the exact same start time (6.2)!
-        tl.to(topTextRef.current, {
-          x: "-120vw",
-          ease: "power2.inOut",
-          duration: 2.2,
-        }, 6.2);
+        tl.to(topTextRef.current, { x: "-120vw", ease: "power2.inOut", duration: 2.0 }, 6.5);
+        tl.to(bottomTextRef.current, { x: "120vw", ease: "power2.inOut", duration: 2.0 }, 6.5);
+        tl.to(centerTextRef.current, { scale: 1.0, opacity: 1.0, ease: "power2.out", duration: 2.0 }, 6.5);
 
-        tl.to(bottomTextRef.current, {
-          x: "120vw",
-          ease: "power2.inOut",
-          duration: 2.2,
-        }, 6.2);
+      } else if (isTablet) {
+        cardRefs.current.forEach((card, index) => {
+          if (!card) return;
+          gsap.set(card, { y: 950, opacity: 1 });
+          tl.to(card, {
+            y: -950,
+            ease: "none",
+            duration: 3.1,
+          }, TESTIMONIALS[index].startTime);
+        });
 
-        tl.to(centerTextRef.current, {
-          scale: 1.0,
-          opacity: 1.0,
-          ease: "power2.out",
-          duration: 2.2,
-        }, 6.2);
+        tl.to(topTextRef.current, { x: "-120vw", ease: "power2.inOut", duration: 2.2 }, 6.2);
+        tl.to(bottomTextRef.current, { x: "120vw", ease: "power2.inOut", duration: 2.2 }, 6.2);
+        tl.to(centerTextRef.current, { scale: 1.0, opacity: 1.0, ease: "power2.out", duration: 2.2 }, 6.2);
 
       } else {
-        // Mobile: Sequential centered conveyor belt
         cardRefs.current.forEach((card, index) => {
           if (!card) return;
-
-          gsap.set(card, { y: 750, opacity: 1, scale: 1 });
-
-          const startTime = index * 0.9 + 1.2;
-
+          gsap.set(card, { y: 1150, opacity: 1 });
           tl.to(card, {
-            y: -750,
+            y: -1150,
             ease: "none",
-            duration: 3.0,
-          }, startTime);
+            duration: 3.2,
+          }, TESTIMONIALS[index].startTime);
         });
 
-        // Mobile text split exit & simultaneous community reveal after cards clear
-        tl.to(topTextRef.current, {
-          x: "-120vw",
-          ease: "power2.inOut",
-          duration: 2.0,
-        }, 6.8);
-
-        tl.to(bottomTextRef.current, {
-          x: "120vw",
-          ease: "power2.inOut",
-          duration: 2.0,
-        }, 6.8);
-
-        tl.to(centerTextRef.current, {
-          scale: 1.0,
-          opacity: 1.0,
-          ease: "power2.out",
-          duration: 2.0,
-        }, 6.8);
+        tl.to(topTextRef.current, { x: "-120vw", ease: "power2.inOut", duration: 2.2 }, 6.2);
+        tl.to(bottomTextRef.current, { x: "120vw", ease: "power2.inOut", duration: 2.2 }, 6.2);
+        tl.to(centerTextRef.current, { scale: 1.0, opacity: 1.0, ease: "power2.out", duration: 2.2 }, 6.2);
       }
     });
 
@@ -192,7 +163,7 @@ export default function Testimonials() {
       {/* ── SPLIT MASSIVE BACKGROUND HEADING LAYER ── */}
       <div 
         style={{ zIndex: 1 }}
-        className="absolute inset-0 flex flex-col items-center md:items-center justify-center pointer-events-none px-6 md:px-16"
+        className="absolute inset-0 flex flex-col items-center md:items-center justify-center pointer-events-none px-4 md:px-12 lg:px-16"
       >
         <div className="relative w-full max-w-6xl flex flex-col items-center md:items-start justify-center">
           
@@ -200,7 +171,7 @@ export default function Testimonials() {
           <div ref={topTextRef} className="will-change-transform">
             <h2 
               style={{ color: '#173E4A' }}
-              className="font-body font-medium text-[clamp(2.75rem,11vw,14rem)] md:text-[clamp(4rem,14vw,14rem)] tracking-tight text-center md:text-left leading-[0.9] md:leading-[0.88]"
+              className="font-body font-medium text-[clamp(2.5rem,8.5vw,10rem)] md:text-[clamp(3.5rem,8.5vw,11rem)] lg:text-[clamp(4.5rem,11vw,13rem)] tracking-tight text-center md:text-left leading-[0.9] md:leading-[0.88]"
             >
               What they
             </h2>
@@ -210,7 +181,7 @@ export default function Testimonials() {
           <div ref={bottomTextRef} className="will-change-transform">
             <h2 
               style={{ color: '#173E4A' }}
-              className="font-body font-medium text-[clamp(2.75rem,11vw,14rem)] md:text-[clamp(4rem,14vw,14rem)] tracking-tight text-center md:text-left leading-[0.9] md:leading-[0.88]"
+              className="font-body font-medium text-[clamp(2.5rem,8.5vw,10rem)] md:text-[clamp(3.5rem,8.5vw,11rem)] lg:text-[clamp(4.5rem,11vw,13rem)] tracking-tight text-center md:text-left leading-[0.9] md:leading-[0.88]"
             >
               are saying
             </h2>
@@ -246,17 +217,17 @@ export default function Testimonials() {
             ref={(el) => (cardRefs.current[index] = el)}
             style={{ zIndex: 100 }}
             className={`
-              absolute pointer-events-auto bg-white rounded-3xl p-5 md:p-8 
+              absolute pointer-events-auto bg-white rounded-3xl p-5 md:p-6 lg:p-8 
               shadow-2xl border border-neutral-200/80
               flex flex-col justify-between
               max-md:top-1/2 max-md:-translate-y-1/2 max-md:left-1/2 max-md:-translate-x-1/2
               ${test.desktopPos}
             `}
           >
-            {/* Quote Text - Explicit hex style guarantees 100% dark #1A1A1A contrast */}
+            {/* Quote Text */}
             <p 
               style={{ color: '#1A1A1A' }}
-              className="font-body text-sm md:text-base font-normal leading-relaxed mb-6 tracking-normal"
+              className="font-body text-xs md:text-sm lg:text-base font-normal leading-relaxed mb-4 md:mb-6 tracking-normal"
             >
               &ldquo;{test.quote}&rdquo;
             </p>
@@ -264,7 +235,7 @@ export default function Testimonials() {
             {/* Footer: Stars + Author Info */}
             <div>
               {/* 5 Stars */}
-              <div className="flex items-center gap-1 mb-3">
+              <div className="flex items-center gap-1 mb-2 md:mb-3">
                 {[...Array(5)].map((_, i) => (
                   <span 
                     key={i} 
@@ -278,19 +249,19 @@ export default function Testimonials() {
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-mono font-bold text-sm ${test.bg}`}>
+                <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-mono font-bold text-xs md:text-sm ${test.bg}`}>
                   {test.initials}
                 </div>
                 <div className="flex flex-col">
                   <span 
                     style={{ color: '#1A1A1A' }}
-                    className="font-body font-bold text-sm md:text-base leading-tight"
+                    className="font-body font-bold text-xs md:text-sm lg:text-base leading-tight"
                   >
                     {test.name}
                   </span>
                   <span 
                     style={{ color: '#173E4A' }}
-                    className="font-body font-medium text-xs md:text-sm"
+                    className="font-body font-medium text-[11px] md:text-xs lg:text-sm"
                   >
                     {test.role}
                   </span>
