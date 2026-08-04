@@ -19,7 +19,7 @@ const TESTIMONIALS = [
     role: "home chef & daily cook",
     initials: "PS",
     bg: "bg-pastel-blue text-[#0369a1]",
-    desktopPos: "top-[16%] left-[4%] lg:left-[6%] w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "md:top-[16%] md:left-[4%] lg:md:left-[6%] w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 1.5,
   },
   {
@@ -29,7 +29,7 @@ const TESTIMONIALS = [
     role: "switched from typical liquid soaps",
     initials: "RV",
     bg: "bg-pastel-green text-[#15803d]",
-    desktopPos: "top-[10%] right-[4%] lg:right-[6%] w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "md:top-[10%] md:right-[4%] lg:md:right-[6%] md:left-auto w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 1.7,
   },
   {
@@ -39,7 +39,7 @@ const TESTIMONIALS = [
     role: "kitchen minimalist & mother of 2",
     initials: "AP",
     bg: "bg-pastel-yellow text-[#b45309]",
-    desktopPos: "top-[55%] left-1/2 -translate-x-1/2 w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "md:top-[55%] md:left-1/2 md:-translate-x-1/2 w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 2.0,
   },
 
@@ -51,7 +51,7 @@ const TESTIMONIALS = [
     role: "food blogger & host",
     initials: "VM",
     bg: "bg-pastel-yellow text-[#a16207]",
-    desktopPos: "top-[16%] left-[5%] lg:left-[7%] w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "md:top-[16%] md:left-[5%] lg:md:left-[7%] w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 3.8,
   },
   {
@@ -61,7 +61,7 @@ const TESTIMONIALS = [
     role: "mother of 3 & doctor",
     initials: "SG",
     bg: "bg-pastel-green text-[#15803d]",
-    desktopPos: "top-[10%] right-[5%] lg:right-[7%] w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "md:top-[10%] md:right-[5%] lg:md:right-[7%] md:left-auto w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 4.0,
   },
   {
@@ -71,7 +71,7 @@ const TESTIMONIALS = [
     role: "fitness enthusiast",
     initials: "AD",
     bg: "bg-pastel-blue text-[#1d7e9e]",
-    desktopPos: "top-[55%] left-1/2 -translate-x-1/2 w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "md:top-[55%] md:left-1/2 md:-translate-x-1/2 w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 4.3,
   }
 ];
@@ -101,7 +101,7 @@ export default function Testimonials() {
           trigger: sectionRef.current,
           pin: true,
           start: "top top",
-          end: isDesktop ? "+=400%" : "+=480%",
+          end: isDesktop ? "+=400%" : "+=420%",
           scrub: true,
         }
       });
@@ -144,18 +144,18 @@ export default function Testimonials() {
         }, 6.2);
 
       } else {
-        // Mobile: Sequential conveyor belt
+        // Mobile: Sequential centered conveyor belt
         cardRefs.current.forEach((card, index) => {
           if (!card) return;
 
-          gsap.set(card, { y: 1100, opacity: 1, scale: 1 });
+          gsap.set(card, { y: 750, opacity: 1, scale: 1 });
 
-          const startTime = index * 0.8 + 1.5;
+          const startTime = index * 0.9 + 1.2;
 
           tl.to(card, {
-            y: -1100,
+            y: -750,
             ease: "none",
-            duration: 2.8,
+            duration: 3.0,
           }, startTime);
         });
 
@@ -192,15 +192,15 @@ export default function Testimonials() {
       {/* ── SPLIT MASSIVE BACKGROUND HEADING LAYER ── */}
       <div 
         style={{ zIndex: 1 }}
-        className="absolute inset-0 flex flex-col items-start pt-12 md:pt-0 md:items-center justify-center pointer-events-none px-6 md:px-16"
+        className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-4 md:px-16"
       >
-        <div className="relative w-full max-w-6xl flex flex-col items-start justify-center">
+        <div className="relative w-full max-w-6xl flex flex-col items-center justify-center text-center">
           
           {/* Top line: "What they" */}
           <div ref={topTextRef} className="will-change-transform">
             <h2 
               style={{ color: '#173E4A' }}
-              className="font-body font-medium text-[clamp(4rem,14vw,14rem)] tracking-tight text-left leading-[0.88]"
+              className="font-body font-medium text-[clamp(2.75rem,11vw,14rem)] tracking-tight text-center leading-[0.9]"
             >
               What they
             </h2>
@@ -210,7 +210,7 @@ export default function Testimonials() {
           <div ref={bottomTextRef} className="will-change-transform">
             <h2 
               style={{ color: '#173E4A' }}
-              className="font-body font-medium text-[clamp(4rem,14vw,14rem)] tracking-tight text-left leading-[0.88]"
+              className="font-body font-medium text-[clamp(2.75rem,11vw,14rem)] tracking-tight text-center leading-[0.9]"
             >
               are saying
             </h2>
@@ -238,7 +238,7 @@ export default function Testimonials() {
       {/* ── FLOATING TESTIMONIAL CARDS LAYER ──────────────────────── */}
       <div 
         style={{ zIndex: 50 }}
-        className="absolute inset-0 pointer-events-none max-w-7xl mx-auto px-6 w-full h-full flex items-center justify-center"
+        className="absolute inset-0 pointer-events-none max-w-7xl mx-auto px-4 w-full h-full flex items-center justify-center"
       >
         {TESTIMONIALS.map((test, index) => (
           <div
@@ -246,9 +246,10 @@ export default function Testimonials() {
             ref={(el) => (cardRefs.current[index] = el)}
             style={{ zIndex: 100 }}
             className={`
-              absolute pointer-events-auto bg-white rounded-3xl p-6 md:p-8 
+              absolute pointer-events-auto bg-white rounded-3xl p-5 md:p-8 
               shadow-2xl border border-neutral-200/80
               flex flex-col justify-between
+              top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2
               ${test.desktopPos}
             `}
           >
