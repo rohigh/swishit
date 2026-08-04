@@ -19,7 +19,7 @@ const TESTIMONIALS = [
     role: "home chef & daily cook",
     initials: "PS",
     bg: "bg-pastel-blue text-[#0369a1]",
-    desktopPos: "md:top-[16%] md:left-[4%] lg:md:left-[6%] w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[16%] left-[4%] lg:left-[6%] w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 1.5,
   },
   {
@@ -29,7 +29,7 @@ const TESTIMONIALS = [
     role: "switched from typical liquid soaps",
     initials: "RV",
     bg: "bg-pastel-green text-[#15803d]",
-    desktopPos: "md:top-[10%] md:right-[4%] lg:md:right-[6%] md:left-auto w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[10%] right-[4%] lg:right-[6%] w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 1.7,
   },
   {
@@ -39,7 +39,7 @@ const TESTIMONIALS = [
     role: "kitchen minimalist & mother of 2",
     initials: "AP",
     bg: "bg-pastel-yellow text-[#b45309]",
-    desktopPos: "md:top-[55%] md:left-1/2 md:-translate-x-1/2 w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[55%] left-1/2 -translate-x-1/2 w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 2.0,
   },
 
@@ -51,7 +51,7 @@ const TESTIMONIALS = [
     role: "food blogger & host",
     initials: "VM",
     bg: "bg-pastel-yellow text-[#a16207]",
-    desktopPos: "md:top-[16%] md:left-[5%] lg:md:left-[7%] w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[16%] left-[5%] lg:left-[7%] w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 3.8,
   },
   {
@@ -61,7 +61,7 @@ const TESTIMONIALS = [
     role: "mother of 3 & doctor",
     initials: "SG",
     bg: "bg-pastel-green text-[#15803d]",
-    desktopPos: "md:top-[10%] md:right-[5%] lg:md:right-[7%] md:left-auto w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[10%] right-[5%] lg:right-[7%] w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 4.0,
   },
   {
@@ -71,7 +71,7 @@ const TESTIMONIALS = [
     role: "fitness enthusiast",
     initials: "AD",
     bg: "bg-pastel-blue text-[#1d7e9e]",
-    desktopPos: "md:top-[55%] md:left-1/2 md:-translate-x-1/2 w-[90%] md:w-[360px] lg:w-[400px]",
+    desktopPos: "top-[55%] left-1/2 -translate-x-1/2 w-[90%] md:w-[360px] lg:w-[400px]",
     startTime: 4.3,
   }
 ];
@@ -192,15 +192,15 @@ export default function Testimonials() {
       {/* ── SPLIT MASSIVE BACKGROUND HEADING LAYER ── */}
       <div 
         style={{ zIndex: 1 }}
-        className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none px-4 md:px-16"
+        className="absolute inset-0 flex flex-col items-center md:items-center justify-center pointer-events-none px-6 md:px-16"
       >
-        <div className="relative w-full max-w-6xl flex flex-col items-center justify-center text-center">
+        <div className="relative w-full max-w-6xl flex flex-col items-center md:items-start justify-center">
           
           {/* Top line: "What they" */}
           <div ref={topTextRef} className="will-change-transform">
             <h2 
               style={{ color: '#173E4A' }}
-              className="font-body font-medium text-[clamp(2.75rem,11vw,14rem)] tracking-tight text-center leading-[0.9]"
+              className="font-body font-medium text-[clamp(2.75rem,11vw,14rem)] md:text-[clamp(4rem,14vw,14rem)] tracking-tight text-center md:text-left leading-[0.9] md:leading-[0.88]"
             >
               What they
             </h2>
@@ -210,7 +210,7 @@ export default function Testimonials() {
           <div ref={bottomTextRef} className="will-change-transform">
             <h2 
               style={{ color: '#173E4A' }}
-              className="font-body font-medium text-[clamp(2.75rem,11vw,14rem)] tracking-tight text-center leading-[0.9]"
+              className="font-body font-medium text-[clamp(2.75rem,11vw,14rem)] md:text-[clamp(4rem,14vw,14rem)] tracking-tight text-center md:text-left leading-[0.9] md:leading-[0.88]"
             >
               are saying
             </h2>
@@ -249,7 +249,7 @@ export default function Testimonials() {
               absolute pointer-events-auto bg-white rounded-3xl p-5 md:p-8 
               shadow-2xl border border-neutral-200/80
               flex flex-col justify-between
-              top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2
+              max-md:top-1/2 max-md:-translate-y-1/2 max-md:left-1/2 max-md:-translate-x-1/2
               ${test.desktopPos}
             `}
           >
