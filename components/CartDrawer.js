@@ -129,7 +129,7 @@ export default function CartDrawer() {
             </div>
 
             {/* Items List */}
-            <div className="flex-grow overflow-y-auto p-6 space-y-4">
+            <div className="flex-grow overflow-y-auto p-4 sm:p-5 md:p-6 space-y-3 md:space-y-4">
               {cartItems.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center py-12">
                   <div className="w-16 h-16 rounded-full bg-[#F4F1EB] flex items-center justify-center text-[#155E78] mb-4">
@@ -167,6 +167,7 @@ export default function CartDrawer() {
                         src={item.image || '/img/blue-nobg.jpeg'}
                         alt={item.title}
                         fill
+                        sizes="80px"
                         className="object-contain p-1"
                       />
                     </div>
@@ -179,7 +180,7 @@ export default function CartDrawer() {
                             {item.title}
                           </h4>
                         </div>
-                        <p className="text-[11px] text-[#173E4A]/60 font-mono mt-0.5">{item.variant}</p>
+                        <p className="text-[0.6875rem] text-[#173E4A]/60 font-mono mt-0.5">{item.variant}</p>
                       </div>
 
                       <div className="flex items-center justify-between mt-2">
@@ -228,14 +229,14 @@ export default function CartDrawer() {
 
             {/* Footer Summary & Checkout CTA */}
             {cartItems.length > 0 && (
-              <div className="p-6 border-t border-[#173E4A]/10 bg-white shadow-lg space-y-4">
+              <div className="p-4 sm:p-5 md:p-6 border-t border-[#173E4A]/10 bg-white shadow-lg space-y-3 md:space-y-4">
                 <div className="flex justify-between items-baseline">
                   <span className="text-sm font-medium text-[#173E4A]/80">Subtotal</span>
                   <span className="text-2xl font-bold font-heading text-[#173E4A]">
                     ₹{cartSubtotal}
                   </span>
                 </div>
-                <p className="text-[11px] text-[#173E4A]/60">Taxes and shipping calculated at checkout.</p>
+                <p className="text-[0.6875rem] text-[#173E4A]/60">Taxes and shipping calculated at checkout.</p>
 
                 <button
                   onClick={handleCheckoutClick}

@@ -157,7 +157,7 @@ export default function SearchModal({ isOpen, onClose }) {
                 </button>
               )}
 
-              <span className="hidden sm:inline-block px-2 py-0.5 rounded-md bg-[#F4F1EB] text-[10px] font-mono font-bold text-[#173E4A]/60 border border-gray-200">
+              <span className="hidden sm:inline-block px-2 py-0.5 rounded-md bg-[#F4F1EB] text-[0.625rem] font-mono font-bold text-[#173E4A]/60 border border-gray-200">
                 ESC
               </span>
             </div>
@@ -214,6 +214,7 @@ export default function SearchModal({ isOpen, onClose }) {
                         src={prod.image}
                         alt={prod.name}
                         fill
+                        sizes="64px"
                         className="object-contain p-1"
                       />
                     </div>
@@ -225,7 +226,7 @@ export default function SearchModal({ isOpen, onClose }) {
                           {prod.name}
                         </h4>
                         {prod.badge && (
-                          <span className="px-2 py-0.5 rounded-full bg-[#155E78]/10 text-[#155E78] text-[10px] font-bold font-mono uppercase flex-shrink-0">
+                          <span className="px-2 py-0.5 rounded-full bg-[#155E78]/10 text-[#155E78] text-[0.625rem] font-bold font-mono uppercase flex-shrink-0">
                             {prod.badge}
                           </span>
                         )}

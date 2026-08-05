@@ -143,7 +143,7 @@ export default function ProductModal({ product, onClose }) {
               <div className="lg:col-span-6 flex flex-col gap-6">
                 
                 {/* Main Large Image Container (Matching Screenshot 1) */}
-                <div className="relative w-full h-[420px] md:h-[560px] lg:h-[620px] bg-[#EFECE5] rounded-3xl overflow-hidden border border-[#173E4A]/10 flex items-center justify-center group shadow-inner">
+                <div className="relative w-full h-[clamp(380px,48vw,660px)] bg-[#EFECE5] rounded-3xl overflow-hidden border border-[#173E4A]/10 flex items-center justify-center group shadow-inner">
                   
                   {/* Wishlist Heart Button */}
                   <button 
@@ -158,6 +158,7 @@ export default function ProductModal({ product, onClose }) {
                       src={activeImage || product?.image || '/img/ocean garden edited.png'} 
                       alt={product?.name || 'Swishit Product'} 
                       fill 
+                      sizes="(max-width: 1024px) 80vw, 40vw"
                       className="object-contain drop-shadow-2xl"
                       priority
                     />
@@ -174,7 +175,7 @@ export default function ProductModal({ product, onClose }) {
                         activeImage === img ? 'border-[#1D7E9E] scale-105 shadow-md' : 'border-transparent opacity-70 hover:opacity-100'
                       }`}
                     >
-                      <Image src={img} alt="Thumbnail" fill className="object-contain p-2" />
+                      <Image src={img} alt="Thumbnail" fill sizes="96px" className="object-contain p-2" />
                     </button>
                   ))}
                 </div>
@@ -184,12 +185,12 @@ export default function ProductModal({ product, onClose }) {
               <div className="lg:col-span-6 flex flex-col justify-between">
                 <div>
                   {/* Price */}
-                  <div className="text-2xl md:text-3xl font-body font-bold text-[#173E4A] mb-3">
+                  <div className="text-fluid-xl font-body font-bold text-[#173E4A] mb-3">
                     ₹{product.price} <span className="text-xs md:text-sm text-[#4A7A8A] font-normal ml-2">(Incl. all taxes)</span>
                   </div>
 
                   {/* Product Title */}
-                  <h1 className="font-heading font-normal text-3xl md:text-5xl text-[#173E4A] tracking-tight mb-2">
+                  <h1 className="font-heading font-normal text-fluid-3xl text-[#173E4A] tracking-tight mb-2">
                     {product.name}
                   </h1>
 
@@ -291,7 +292,7 @@ export default function ProductModal({ product, onClose }) {
                         className="w-full flex items-center justify-between font-heading text-xl font-normal text-[#173E4A] text-left cursor-pointer"
                       >
                         <span>Details</span>
-                        <span className="text-[#173E4A] font-bold text-2xl">{activeAccordion === 'details' ? '–' : '+'}</span>
+                        <span className="text-[#173E4A] font-bold text-fluid-lg">{activeAccordion === 'details' ? '–' : '+'}</span>
                       </button>
                       {activeAccordion === 'details' && (
                         <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
@@ -307,7 +308,7 @@ export default function ProductModal({ product, onClose }) {
                         className="w-full flex items-center justify-between font-heading text-xl font-normal text-[#173E4A] text-left cursor-pointer"
                       >
                         <span>How to Use</span>
-                        <span className="text-[#173E4A] font-bold text-2xl">{activeAccordion === 'use' ? '–' : '+'}</span>
+                        <span className="text-[#173E4A] font-bold text-fluid-lg">{activeAccordion === 'use' ? '–' : '+'}</span>
                       </button>
                       {activeAccordion === 'use' && (
                         <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
@@ -323,7 +324,7 @@ export default function ProductModal({ product, onClose }) {
                         className="w-full flex items-center justify-between font-heading text-xl font-normal text-[#173E4A] text-left cursor-pointer"
                       >
                         <span>Ingredients</span>
-                        <span className="text-[#173E4A] font-bold text-2xl">{activeAccordion === 'ingredients' ? '–' : '+'}</span>
+                        <span className="text-[#173E4A] font-bold text-fluid-lg">{activeAccordion === 'ingredients' ? '–' : '+'}</span>
                       </button>
                       {activeAccordion === 'ingredients' && (
                         <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
@@ -339,7 +340,7 @@ export default function ProductModal({ product, onClose }) {
                         className="w-full flex items-center justify-between font-heading text-xl font-normal text-[#173E4A] text-left cursor-pointer"
                       >
                         <span>Delivery &amp; Returns</span>
-                        <span className="text-[#173E4A] font-bold text-2xl">{activeAccordion === 'shipping' ? '–' : '+'}</span>
+                        <span className="text-[#173E4A] font-bold text-fluid-lg">{activeAccordion === 'shipping' ? '–' : '+'}</span>
                       </button>
                       {activeAccordion === 'shipping' && (
                         <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
@@ -408,7 +409,7 @@ export default function ProductModal({ product, onClose }) {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
                 <div className="lg:col-span-4">
-                  <h2 className="font-heading text-5xl font-normal text-[#173E4A]">
+                  <h2 className="font-heading text-fluid-3xl font-normal text-[#173E4A]">
                     FAQ
                   </h2>
                 </div>

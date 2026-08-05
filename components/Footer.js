@@ -55,15 +55,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#122A33] text-[#FBF7EC] pt-24 pb-12 px-6 md:px-12 lg:px-20 border-t border-[#1D7E9E]/20 select-none">
+    <footer className="w-full bg-[#122A33] text-[#FBF7EC] pt-16 md:pt-20 lg:pt-24 pb-10 md:pb-12 px-6 md:px-10 lg:px-20 border-t border-[#1D7E9E]/20 select-none">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-12 lg:gap-20 items-start">
           
           {/* ── LEFT COLUMN: Tagline, Newsletter Signup & Visual Card ── */}
-          <div className="lg:col-span-5 flex flex-col justify-between h-full">
+          <div className="md:col-span-1 lg:col-span-5 flex flex-col justify-between h-full">
             <div>
               {/* Heading Tagline */}
-              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-[#FBF7EC] font-normal leading-[1.1] mb-8 tracking-tight">
+              <h2 className="font-heading text-fluid-3xl text-[#FBF7EC] font-normal leading-[1.1] mb-8 tracking-tight">
                 Crafting Dews <br />
                 <span className="italic font-serif text-[#F0A93B]">Built to Last</span>
               </h2>
@@ -95,16 +95,17 @@ export default function Footer() {
             </div>
 
             {/* Visual Feature Card */}
-            <div className="relative w-full max-w-md h-52 md:h-64 rounded-2xl overflow-hidden shadow-2xl border border-[#5AB8D6]/20 group mt-4">
+            <div className="relative w-full max-w-md h-44 sm:h-52 md:h-56 lg:h-64 rounded-2xl overflow-hidden shadow-2xl border border-[#5AB8D6]/20 group mt-4">
               <Image 
                 src="/img/blue-nobg.jpeg" 
                 alt="Swishit Signature Bottle" 
                 fill 
+                sizes="(max-width: 640px) 100vw, 448px"
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out opacity-90"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#122A33] via-[#122A33]/40 to-transparent flex items-end p-6">
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#F0A93B] block mb-1">
+                  <span className="text-[0.625rem] font-mono uppercase tracking-widest text-[#F0A93B] block mb-1">
                     Zero Waste Design
                   </span>
                   <p className="font-body text-sm font-medium text-[#FBF7EC]/90">
@@ -116,7 +117,7 @@ export default function Footer() {
           </div>
 
           {/* ── RIGHT COLUMN: Navigation Links, Brand Logo & Socials ── */}
-          <div className="lg:col-span-7 flex flex-col justify-between h-full pt-2">
+          <div className="md:col-span-1 lg:col-span-7 flex flex-col justify-between h-full pt-2">
             
             {/* Links List with Arrows */}
             <div className="w-full divide-y divide-[#5AB8D6]/15 border-t border-b border-[#5AB8D6]/15 mb-12">
@@ -140,14 +141,15 @@ export default function Footer() {
                 src={logoImg} 
                 alt="Swishit Logo" 
                 height={120} 
-                className="h-20 md:h-28 lg:h-36 w-auto object-contain brightness-0 invert opacity-95"
+                sizes="(max-width: 768px) 120px, (max-width: 1024px) 160px, 216px"
+                className="h-16 md:h-20 lg:h-28 xl:h-36 w-auto max-w-full object-contain brightness-0 invert opacity-95"
                 priority
               />
             </div>
 
             {/* Social Icons Section */}
             <div className="mt-8">
-              <span className="text-[10px] font-mono tracking-widest text-[#5AB8D6]/70 uppercase block mb-4">
+              <span className="text-[0.625rem] font-mono tracking-widest text-[#5AB8D6]/70 uppercase block mb-4">
                 Follow Us
               </span>
               <div className="flex items-center gap-3">
@@ -171,7 +173,7 @@ export default function Footer() {
         </div>
 
         {/* ── BOTTOM COPYRIGHT & LEGAL BAR ── */}
-        <div className="pt-8 mt-20 border-t border-[#5AB8D6]/15 flex flex-col md:flex-row items-center justify-between text-xs text-[#5AB8D6]/80 font-mono gap-4 text-center md:text-left">
+        <div className="pt-8 mt-12 md:mt-16 lg:mt-20 border-t border-[#5AB8D6]/15 flex flex-col md:flex-row items-center justify-between text-xs text-[#5AB8D6]/80 font-mono gap-4 text-center md:text-left">
           <div>
             &copy; {new Date().getFullYear()} Swish It Inc. All rights reserved. &bull; Engineered for Everyday.
           </div>

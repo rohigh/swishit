@@ -109,13 +109,11 @@ function LoginContent() {
           <span className="font-medium">Continue with Google</span>
         </button>
 
-        <div className="relative">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-200" />
-          </div>
-          <div className="relative flex justify-center text-sm">
-            <span className="px-2 bg-white text-[#173E4A]/60">Or continue with email</span>
-          </div>
+        {/* Flex divider — no absolute needed */}
+        <div className="flex items-center gap-3">
+          <div className="flex-1 h-px bg-gray-200" />
+          <span className="px-2 text-sm text-[#173E4A]/60 whitespace-nowrap">Or continue with email</span>
+          <div className="flex-1 h-px bg-gray-200" />
         </div>
 
         <form className="space-y-4" onSubmit={handleEmailAuth}>

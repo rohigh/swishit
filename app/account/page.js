@@ -152,6 +152,7 @@ export default function AccountPage() {
                     src={avatarUrl}
                     alt={fullName}
                     fill
+                    sizes="(max-width: 640px) 64px, 80px"
                     className="object-cover"
                     unoptimized
                   />
@@ -166,7 +167,7 @@ export default function AccountPage() {
                   <h1 className="text-2xl sm:text-3xl font-heading font-semibold text-[#173E4A] capitalize">
                     {fullName}
                   </h1>
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#1D7E9E]/10 border border-[#1D7E9E]/20 text-[#155E78] text-[11px] font-bold uppercase tracking-wider hidden sm:inline-block">
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#1D7E9E]/10 border border-[#1D7E9E]/20 text-[#155E78] text-[0.6875rem] font-bold uppercase tracking-wider hidden sm:inline-block">
                     Verified Customer
                   </span>
                 </div>

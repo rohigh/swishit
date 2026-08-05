@@ -57,7 +57,7 @@ function OrderSuccessContent() {
           Order Confirmed • Payment Successful
         </span>
 
-        <h1 className="text-3xl sm:text-5xl font-heading font-semibold text-[#173E4A] mb-3">
+        <h1 className="text-fluid-2xl font-heading font-semibold text-[#173E4A] mb-3">
           Thank you for your order!
         </h1>
         <p className="text-base text-[#173E4A]/70 max-w-lg mx-auto mb-8 leading-relaxed">
@@ -67,19 +67,19 @@ function OrderSuccessContent() {
         {/* Order Meta Box */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 bg-[#FBF7EC] rounded-2xl border border-[#173E4A]/10 text-left mb-8">
           <div>
-            <span className="block text-[11px] font-mono font-bold uppercase text-[#173E4A]/60">Order Number</span>
+            <span className="block text-[0.6875rem] font-mono font-bold uppercase text-[#173E4A]/60">Order Number</span>
             <span className="text-sm font-bold text-[#173E4A] font-mono">{displayOrderId}</span>
           </div>
           <div>
-            <span className="block text-[11px] font-mono font-bold uppercase text-[#173E4A]/60">Estimated Delivery</span>
+            <span className="block text-[0.6875rem] font-mono font-bold uppercase text-[#173E4A]/60">Estimated Delivery</span>
             <span className="text-sm font-semibold text-[#155E78]">2 - 4 Business Days</span>
           </div>
           <div>
-            <span className="block text-[11px] font-mono font-bold uppercase text-[#173E4A]/60">Payment Method</span>
+            <span className="block text-[0.6875rem] font-mono font-bold uppercase text-[#173E4A]/60">Payment Method</span>
             <span className="text-sm font-semibold text-[#173E4A] uppercase">{order?.paymentMethod || 'COD / UPI'}</span>
           </div>
           <div>
-            <span className="block text-[11px] font-mono font-bold uppercase text-[#173E4A]/60">Total Paid</span>
+            <span className="block text-[0.6875rem] font-mono font-bold uppercase text-[#173E4A]/60">Total Paid</span>
             <span className="text-sm font-bold text-[#173E4A]">₹{displayTotal}</span>
           </div>
         </div>

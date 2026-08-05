@@ -89,10 +89,10 @@ export default function ProductReviews({ productName = 'Swishit Dishwashing Dew'
     <div className="w-full py-8 text-[#173E4A]">
       {/* ── RATINGS OVERVIEW HEADER ── */}
       <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#173E4A]/10 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.04)] mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-6 md:gap-8 items-center">
           
           {/* Average Score Box */}
-          <div className="md:col-span-4 text-center md:text-left md:border-r border-[#173E4A]/10 md:pr-8">
+          <div className="sm:col-span-2 md:col-span-4 text-center md:text-left md:border-r border-[#173E4A]/10 md:pr-8">
             <div className="flex items-baseline justify-center md:justify-start gap-2 mb-2">
               <span className="text-5xl font-heading font-bold text-[#173E4A]">4.9</span>
               <span className="text-lg font-medium text-[#173E4A]/60">/ 5.0</span>
@@ -113,7 +113,7 @@ export default function ProductReviews({ productName = 'Swishit Dishwashing Dew'
           </div>
 
           {/* Distribution Bars */}
-          <div className="md:col-span-5 space-y-2">
+          <div className="sm:col-span-2 md:col-span-5 space-y-2">
             {[
               { stars: '5 ★', percent: 88, count: '2,200' },
               { stars: '4 ★', percent: 9, count: '225' },
@@ -135,7 +135,7 @@ export default function ProductReviews({ productName = 'Swishit Dishwashing Dew'
           </div>
 
           {/* Write a Review Button */}
-          <div className="md:col-span-3 text-center">
+          <div className="sm:col-span-2 md:col-span-3 text-center">
             <button
               onClick={() => setShowReviewForm(!showReviewForm)}
               className="w-full py-3.5 px-6 rounded-full bg-[#173E4A] hover:bg-[#155E78] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md"
@@ -246,13 +246,13 @@ export default function ProductReviews({ productName = 'Swishit Dishwashing Dew'
         {reviews.map((rev) => (
           <div
             key={rev.id}
-            className="p-6 rounded-3xl bg-white border border-[#173E4A]/10 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.03)]"
+            className="p-4 sm:p-5 md:p-6 rounded-3xl bg-white border border-[#173E4A]/10 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.03)]"
           >
             <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
               <div className="flex items-center gap-3">
                 <span className="font-semibold text-sm text-[#173E4A]">{rev.name}</span>
                 {rev.verified && (
-                  <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-green-700 bg-green-50 px-2.5 py-0.5 rounded-full border border-green-200">
+                  <span className="inline-flex items-center gap-1 text-[0.6875rem] font-semibold text-green-700 bg-green-50 px-2.5 py-0.5 rounded-full border border-green-200">
                     <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>

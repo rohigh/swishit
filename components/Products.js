@@ -97,20 +97,20 @@ export default function Products() {
                 onClick={() => setSelectedProduct(prod)}
                 className={`sticky w-full rounded-[24px] overflow-hidden border border-surface-border shadow-sm group cursor-pointer ${prod.bg}`}
                 style={{
-                  top: `calc(120px + ${index * 30}px)`, // Stacks beautifully
-                  minHeight: '580px',
+                  top: `calc(5rem + ${index * 1.875}rem)`,
+                  minHeight: 'clamp(420px, 55vw, 640px)',
                 }}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
-                <div className="grid grid-cols-1 md:grid-cols-2 h-full min-h-[580px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 h-full min-h-[clamp(420px,55vw,640px)]">
                   
                   {/* Text Content */}
-                  <div className="p-10 md:p-14 flex flex-col justify-center">
+                  <div className="p-6 sm:p-10 md:p-14 flex flex-col justify-center">
                     {prod.badge && (
-                      <span className="self-start inline-flex items-center px-4 py-1.5 rounded-full bg-text text-white text-[10px] uppercase font-bold tracking-widest mb-4">
+                      <span className="self-start inline-flex items-center px-4 py-1.5 rounded-full bg-text text-white text-[0.625rem] uppercase font-bold tracking-widest mb-4">
                         {prod.badge}
                       </span>
                     )}
@@ -121,7 +121,7 @@ export default function Products() {
                       <span className="text-text-muted font-normal">(2.5k+ reviews)</span>
                     </div>
                     
-                    <h3 className="font-heading text-4xl text-text mb-4 group-hover:text-[#1D7E9E] transition-colors">
+                    <h3 className="font-heading text-fluid-2xl text-text mb-4 group-hover:text-[#1D7E9E] transition-colors">
                       {prod.name}
                     </h3>
                     <p className="font-body text-text-muted text-base leading-relaxed mb-10 max-w-sm">
@@ -130,8 +130,8 @@ export default function Products() {
                     
                     <div className="mt-auto flex items-center justify-between">
                       <div>
-                        <span className="block text-[10px] text-text-muted uppercase tracking-widest font-semibold mb-1">Price</span>
-                        <span className="text-2xl font-body font-semibold text-text">₹{prod.price}</span>
+                        <span className="block text-[0.625rem] text-text-muted uppercase tracking-widest font-semibold mb-1">Price</span>
+                        <span className="text-fluid-xl font-body font-semibold text-text">₹{prod.price}</span>
                       </div>
                       
                       <button 
@@ -144,14 +144,14 @@ export default function Products() {
                   </div>
 
                   {/* Images */}
-                  <div className="relative w-full h-[450px] md:h-full bg-black/5 flex items-center justify-center overflow-hidden">
+                  <div className="relative w-full h-[min(50vw,480px)] md:h-full bg-black/5 flex items-center justify-center overflow-hidden">
                     {prod.isBundle ? (
                       <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-700 ease-out">
                         {prod.images.map((img, i) => (
                           <div 
                             key={i}
                             className={`
-                              absolute w-[260px] h-[360px] 
+                              absolute w-[clamp(160px,18vw,280px)] aspect-[13/18]
                               ${i === 0 ? '-translate-x-14 rotate-[-8deg] z-10' : ''}
                               ${i === 1 ? 'translate-x-14 rotate-[8deg] z-10' : ''}
                               ${i === 2 ? 'z-20 translate-y-6 scale-110' : ''}
@@ -170,7 +170,7 @@ export default function Products() {
                       </div>
                     ) : (
                       <div className="relative w-full h-full flex items-center justify-center">
-                        <div className={`relative w-[320px] h-[450px] ${prod.customScale || 'scale-[1.75] group-hover:scale-[2.0]'} transition-transform duration-1000 ease-[0.19,1,0.22,1]`}>
+                        <div className={`relative w-[clamp(200px,22vw,340px)] aspect-[32/45] ${prod.customScale || 'scale-[1.75] group-hover:scale-[2.0]'} transition-transform duration-1000 ease-[0.19,1,0.22,1]`}>
                           <Image 
                             src={prod.image} 
                             alt={prod.name} 

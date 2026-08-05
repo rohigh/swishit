@@ -84,13 +84,13 @@ export default function Community() {
   };
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-base pt-4 md:pt-8 pb-32 px-6 overflow-hidden -mt-36 md:-mt-48" id="community">
+    <section ref={sectionRef} className="relative w-full bg-base pt-12 md:pt-20 pb-20 md:pb-28 lg:pb-32 px-4 md:px-6 overflow-hidden -mt-36 md:-mt-48" id="community">
       <div className="max-w-7xl mx-auto">
         
         {/* ── ZOOMING CONTENT WRAPPER ───────────────────────────── */}
         <div ref={zoomWrapperRef} className="will-change-transform">
-          {/* ── INTERACTIVE COMMUNITY CARDS GRID ─────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+          {/* ── INTERACTIVE COMMUNITY CARDS GRID ───────────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8 mb-16 md:mb-24">
           
           {/* Card 1: Social Spotlight */}
           <motion.div 
@@ -191,7 +191,7 @@ export default function Community() {
               </button>
 
               {votedScent && (
-                <p className="text-[11px] text-[#F0A93B] font-mono font-bold text-center mt-1 animate-fadeIn">
+                <p className="text-[0.6875rem] text-[#F0A93B] font-mono font-bold text-center mt-1 animate-fadeIn">
                   ✓ Thanks for voting! Drop arrives next month.
                 </p>
               )}

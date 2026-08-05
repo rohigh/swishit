@@ -47,8 +47,9 @@ export default function Hero() {
     // Set initial positions with force3D:true and opacity:0.01 to pre-warm GPU hardware layers
     gsap.set(containerRef.current, { y: 0, x: 0, force3D: true });
     gsap.set(textRef.current, { y: 220, opacity: 0.01, scale: 0.95, force3D: true });
-    gsap.set(imageRef.current, { y: 500, opacity: 0.01, force3D: true });
-    gsap.set(handRef.current, { y: 550, opacity: 0.01, force3D: true });
+    // y offsets now use vw so they scale with the fluid image containers
+    gsap.set(imageRef.current, { y: '45vh', opacity: 0.01, force3D: true });
+    gsap.set(handRef.current, { y: '50vh', opacity: 0.01, force3D: true });
     gsap.set(bigTextRef.current, { y: 250, opacity: 0.01, force3D: true });
     gsap.set(rightTextRef.current, { y: 350, opacity: 0.01, force3D: true });
 
@@ -131,11 +132,12 @@ export default function Hero() {
         }
       });
 
+      // Scroll offsets expressed in vh/vw so they scale with fluid containers
       scrollTl
-        .to(scrollHandRef.current, { y: 600, opacity: 0, ease: "power1.inOut" }, 0)
+        .to(scrollHandRef.current, { y: '55vh', opacity: 0, ease: "power1.inOut" }, 0)
         .to(scrollContainerRef.current, { y: -100, opacity: 0, ease: "power1.inOut" }, 0)
         .to(scrollRightTextRef.current, { x: 100, opacity: 0, ease: "power1.inOut" }, 0)
-        .to(scrollImageRef.current, { y: 280, scale: 1.1, ease: "power1.inOut" }, 0)
+        .to(scrollImageRef.current, { y: '26vh', scale: 1.1, ease: "power1.inOut" }, 0)
         .fromTo('.usp-word',
           { opacity: 0, x: -20 },
           { opacity: 1, x: 0, ease: "power2.out", stagger: 0.05 }, 0.2
@@ -144,7 +146,7 @@ export default function Hero() {
         .to(introUspTextRef.current, { y: -60, opacity: 0, ease: "power1.inOut" }, 1.5)
         .to(scrollImageRef.current, { 
           x: isDesktop ? "10vw" : 0, 
-          y: isDesktop ? 40 : 280, 
+          y: isDesktop ? '4vh' : '26vh', 
           scale: isDesktop ? 1.15 : 1.1, 
           ease: "power2.inOut" 
         }, 1.5)
@@ -162,10 +164,10 @@ export default function Hero() {
     <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden bg-base">
       
       {/* ── GRAPHIC LAYER ─────────────────────────── */}
-      <div className="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-end overflow-hidden pb-32 md:pb-40">
+      <div className="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-center overflow-hidden pt-16 pb-16 md:pb-24">
         
         {/* Massive Background Text */}
-        <div ref={scrollBigTextRef} className="absolute inset-x-0 bottom-0 z-[-1] pointer-events-none flex items-end justify-center pb-2 md:pb-6 overflow-hidden">
+        <div ref={scrollBigTextRef} className="absolute inset-x-0 bottom-0 z-[-1] pointer-events-none flex items-end justify-center overflow-hidden">
           <div
             ref={bigTextRef}
             className="flex justify-center w-full"
@@ -177,18 +179,18 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Hand Graphic */}
-        <div ref={scrollHandRef} className="absolute bottom-0 -translate-y-14 md:translate-y-16 w-full flex justify-center z-0 pointer-events-none">
+        {/* Hand Graphic — fluid: takes 100% width on mobile, capped at 960px on desktop */}
+        <div ref={scrollHandRef} className="absolute bottom-0 translate-y-4 md:translate-y-6 lg:translate-y-8 w-full flex justify-center z-0 pointer-events-none">
           <div 
             ref={handRef}
-            className="relative w-[350px] h-[370px] md:w-[850px] md:h-[500px] lg:w-[950px] lg:h-[550px]"
+            className="relative w-[min(70vw,500px)] md:w-[min(65vw,620px)] aspect-[19/11]"
             style={{ visibility: 'hidden' }}
           >
             <Image 
               src={handImg} 
               alt="Hand Reaching Up" 
               fill 
-              sizes="(max-width: 768px) 320px, 950px"
+              sizes="(max-width: 768px) 70vw, 620px"
               quality={80}
               className="object-contain object-bottom"
               priority
@@ -196,18 +198,18 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Product Graphic */}
+        {/* Product Graphic — fluid: scales between 45vw on mobile to 50vw on desktop */}
         <div ref={scrollImageRef} className="relative z-10">
           <div 
             ref={imageRef} 
-            className="relative w-[450px] h-[650px] md:w-[780px] md:h-[980px]"
+            className="relative w-[min(72vw,360px)] md:w-[min(42vw,480px)] lg:w-[min(55vw,800px)] aspect-[9/13]"
             style={{ visibility: 'hidden' }}
           >
             <Image 
               src={blueBottleImg} 
               alt="Swishit Blue Bottle" 
               fill 
-              sizes="(max-width: 768px) 450px, 780px"
+              sizes="(max-width: 767px) 72vw, (max-width: 1023px) 42vw, 55vw"
               quality={80}
               className="object-contain scale-[1.5]"
               priority
@@ -274,9 +276,9 @@ export default function Hero() {
       </div>
 
       {/* ── CONTENT LAYER ─────────────────────────── */}
-      <div className="container-content relative z-20 w-full h-full mx-auto px-8 md:px-16 lg:px-24 max-w-none pt-24 md:pt-32 pb-10 flex flex-col justify-between min-h-screen pointer-events-none">
+      <div className="container-content relative z-20 w-full h-full mx-auto px-6 sm:px-8 md:px-16 lg:px-24 max-w-none pt-24 md:pt-32 pb-10 flex flex-col justify-between min-h-screen pointer-events-none">
         
-        <div className="flex flex-col lg:flex-row justify-between items-start mt-4 md:mt-16 pointer-events-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start mt-4 md:mt-20 pointer-events-auto">
           
           {/* Top Left: Heading Group */}
           <div ref={scrollContainerRef}>
@@ -284,7 +286,7 @@ export default function Hero() {
               <div ref={textRef} style={{ visibility: 'hidden' }}>
                 <h1
                   className="font-body font-medium text-text tracking-tight leading-[1.05]"
-                  style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)' }}
+                  style={{ fontSize: 'clamp(2.25rem, 4.5vw, 4.5rem)' }}
                 >
                   You&apos;re doing <br />
                   the dishes anyway. <br />
@@ -296,12 +298,12 @@ export default function Hero() {
           
         </div>
 
-        {/* Middle Right: Description Text */}
-        <div className="absolute right-6 md:right-16 lg:right-24 top-[40%] md:top-1/2 -translate-y-1/2 z-30 pointer-events-auto">
+        {/* Middle Right: Description Text — uses flex-end in the row instead of absolute */}
+        <div className="hidden md:flex flex-1 justify-end items-center z-30 pointer-events-auto pr-0">
           <div ref={scrollRightTextRef}>
             <div 
               ref={rightTextRef}
-              className="max-w-[220px] md:max-w-[280px]"
+              className="max-w-[30ch]"
               style={{ visibility: 'hidden' }}
             >
               <p className="font-body text-base md:text-xl text-black leading-snug tracking-tight text-right">

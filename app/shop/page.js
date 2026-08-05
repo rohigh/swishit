@@ -102,7 +102,7 @@ export default function ShopPage() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#1D7E9E]/10 text-[#1D7E9E] font-mono text-xs font-bold uppercase tracking-widest mb-4">
             Official Store
           </span>
-          <h1 className="font-heading font-normal text-4xl md:text-6xl text-[#173E4A] leading-tight tracking-tight mb-4">
+          <h1 className="font-heading font-normal text-fluid-3xl text-[#173E4A] leading-tight tracking-tight mb-4">
             Shop Swishit Collection
           </h1>
           <p className="font-body text-[#4A7A8A] text-base md:text-xl leading-relaxed">
@@ -148,7 +148,7 @@ export default function ShopPage() {
                 {/* Top Badge & Heart */}
                 <div className="flex items-center justify-between z-10 mb-4">
                   {prod.badge ? (
-                    <span className="px-3 py-1 rounded-full bg-[#173E4A] text-white text-[10px] uppercase font-bold tracking-wider">
+                    <span className="px-3 py-1 rounded-full bg-[#173E4A] text-white text-[0.625rem] uppercase font-bold tracking-wider">
                       {prod.badge}
                     </span>
                   ) : (
@@ -159,27 +159,27 @@ export default function ShopPage() {
                   </div>
                 </div>
 
-                {/* Image Stage */}
-                <div className="relative w-full h-[260px] my-4 flex items-center justify-center">
+                {/* Image Stage — fluid between 180px and 280px based on viewport */}
+                <div className="relative w-full h-[clamp(180px,24vw,280px)] my-4 flex items-center justify-center">
                   {prod.isBundle ? (
                     <div className="relative w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
                       {prod.images.map((img, i) => (
                         <div 
                           key={i}
                           className={`
-                            absolute w-[140px] h-[200px] 
+                            absolute w-[clamp(90px,12vw,150px)] aspect-[7/10]
                             ${i === 0 ? '-translate-x-8 rotate-[-8deg] z-10' : ''}
                             ${i === 1 ? 'translate-x-8 rotate-[8deg] z-10' : ''}
                             ${i === 2 ? 'z-20 translate-y-4 scale-110' : ''}
                           `}
                         >
-                          <Image src={img} alt={prod.name} fill className="object-contain drop-shadow-lg" />
+                          <Image src={img} alt={prod.name} fill sizes="150px" className="object-contain drop-shadow-lg" />
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <div className="relative w-[180px] h-[240px] group-hover:scale-110 transition-transform duration-500 ease-out">
-                      <Image src={prod.image} alt={prod.name} fill className="object-contain drop-shadow-xl" />
+                    <div className="relative w-[clamp(110px,14vw,190px)] aspect-[3/4] group-hover:scale-110 transition-transform duration-500 ease-out">
+                      <Image src={prod.image} alt={prod.name} fill sizes="(max-width: 768px) 190px, 190px" className="object-contain drop-shadow-xl" />
                     </div>
                   )}
                 </div>
@@ -196,7 +196,7 @@ export default function ShopPage() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-heading text-2xl font-normal text-[#173E4A] mb-2 group-hover:text-[#1D7E9E] transition-colors">
+                    <h3 className="font-heading text-fluid-lg font-normal text-[#173E4A] mb-2 group-hover:text-[#1D7E9E] transition-colors">
                       {prod.name}
                     </h3>
                     <p className="font-body text-xs text-[#4A7A8A] line-clamp-2 leading-relaxed mb-6">
@@ -207,7 +207,7 @@ export default function ShopPage() {
                   {/* Price & Action */}
                   <div className="flex items-center justify-between pt-2">
                     <div>
-                      <span className="block text-[10px] uppercase tracking-widest text-[#4A7A8A] font-semibold">Price</span>
+                      <span className="block text-[0.625rem] uppercase tracking-widest text-[#4A7A8A] font-semibold">Price</span>
                       <span className="text-xl font-bold text-[#173E4A]">₹{prod.price}</span>
                     </div>
 

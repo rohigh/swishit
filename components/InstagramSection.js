@@ -65,8 +65,8 @@ export default function InstagramSection() {
   }, []);
 
   return (
-    <section className="w-full py-16 lg:py-24 bg-[#FBF7EC] border-t border-[#173E4A]/10 overflow-hidden" id="instagram">
-      <div className="max-w-7xl mx-auto px-6 text-center mb-8">
+    <section className="w-full py-12 md:py-16 lg:py-24 bg-[#FBF7EC] border-t border-[#173E4A]/10 overflow-hidden" id="instagram">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 text-center mb-6 md:mb-8">
         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1D7E9E]/10 border border-[#1D7E9E]/20 text-[#155E78] text-xs font-mono font-bold uppercase tracking-widest mb-3">
           <svg className="w-4 h-4 text-[#155E78]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -76,7 +76,7 @@ export default function InstagramSection() {
           @swishit.official
         </span>
 
-        <h2 className="font-heading font-normal text-3xl sm:text-5xl text-[#173E4A] tracking-tight mb-3">
+        <h2 className="font-heading font-normal text-fluid-2xl text-[#173E4A] tracking-tight mb-3">
           Follow Us on Instagram
         </h2>
         <p className="font-body text-[#173E4A]/70 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
@@ -84,8 +84,8 @@ export default function InstagramSection() {
         </p>
       </div>
 
-      {/* 3D Circular WebGL Gallery */}
-      <div className="relative h-[500px] sm:h-[600px] w-full my-2">
+      {/* 3D Circular WebGL Gallery — fluid height, min 340px on small phones, max 640px on wide screens */}
+      <div className="relative h-[clamp(340px,45vw,640px)] w-full my-2">
         <CircularGallery
           items={items}
           bend={3}

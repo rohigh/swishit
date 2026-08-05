@@ -46,9 +46,9 @@ export default function ContactPage() {
 
       {/* ── HERO SECTION ── */}
       <section className="relative pt-36 pb-16 md:pt-44 md:pb-24 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-[#F5EFD8]/60 to-[#FBF7EC] overflow-hidden">
-        {/* Background glow effects */}
-        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#5AB8D6]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 right-10 w-[300px] h-[300px] bg-[#F0A93B]/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Background glow effects — fluid so they don't overflow on small screens */}
+        <div className="absolute top-1/3 left-1/4 w-[min(80vw,500px)] aspect-square bg-[#5AB8D6]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 w-[min(60vw,300px)] aspect-square bg-[#F0A93B]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10 text-center">
           <motion.span
@@ -65,7 +65,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] text-[#173E4A] mb-6 tracking-tight"
+            className="font-heading text-fluid-4xl font-semibold leading-[1.1] text-[#173E4A] mb-6 tracking-tight"
           >
             Contact <span className="italic font-serif text-[#155E78]">SWISH IT</span>
           </motion.h1>
@@ -93,7 +93,7 @@ export default function ContactPage() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-7 bg-white rounded-3xl p-8 md:p-12 shadow-[0_10px_35px_-10px_rgba(23,62,74,0.12)] border border-[#1D7E9E]/20 relative"
           >
-            <h2 className="font-heading text-2xl md:text-3xl text-[#173E4A] font-bold mb-2">
+            <h2 className="font-heading text-fluid-xl text-[#173E4A] font-bold mb-2">
               Send Us a Message
             </h2>
             <p className="text-[#173E4A] text-sm md:text-base font-medium mb-8">
@@ -304,7 +304,7 @@ export default function ContactPage() {
       {/* ── QUICK FAQ SECTION ── */}
       <section className="py-16 px-6 md:px-12 lg:px-20 bg-[#F5EFD8]/60 border-t border-[#1D7E9E]/15">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="font-heading text-2xl md:text-4xl text-[#173E4A] font-semibold">
+          <h2 className="font-heading text-fluid-xl text-[#173E4A] font-semibold">
             Frequently Asked Questions
           </h2>
           

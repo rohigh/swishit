@@ -173,7 +173,7 @@ export default function CheckoutPage() {
             <span>/</span>
             <span className="text-[#173E4A]">Checkout</span>
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold text-[#173E4A]">
+          <h1 className="text-fluid-2xl font-heading font-semibold text-[#173E4A]">
             Complete Your Order
           </h1>
         </div>

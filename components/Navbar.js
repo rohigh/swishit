@@ -103,10 +103,10 @@ export default function Navbar() {
   return (
     <>
       <div className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-7xl z-50">
-      <div className="bg-white/95 backdrop-blur-md shadow-[0_4px_24px_-8px_rgba(0,0,0,0.1)] rounded-full px-5 md:px-8 h-16 flex items-center justify-between border border-gray-100">
+      <div className="bg-white/95 backdrop-blur-md shadow-[0_4px_24px_-8px_rgba(0,0,0,0.1)] rounded-full px-5 md:px-8 h-16 grid grid-cols-3 items-center border border-gray-100">
         
-        {/* Left side: Navigation Links & Mobile Menu */}
-        <div className="flex items-center gap-6 text-[13px] font-body text-text font-medium">
+        {/* Col 1 (left): Mobile Menu Button + Desktop Nav Links */}
+        <div className="flex items-center gap-6 text-[0.8125rem] font-body text-text font-medium">
           
           {/* Mobile Menu Button */}
           <button 
@@ -119,7 +119,7 @@ export default function Navbar() {
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-6">
             <RollingLink href="/shop">
-              <span className="flex items-center gap-1">Shop <span className="text-[10px] text-gray-400">+</span></span>
+              <span className="flex items-center gap-1">Shop <span className="text-[0.625rem] text-gray-400">+</span></span>
             </RollingLink>
             <RollingLink href="/about">About</RollingLink>
             <RollingLink href="/contact">Contact</RollingLink>
@@ -127,21 +127,22 @@ export default function Navbar() {
 
         </div>
 
-        {/* Center: Logo */}
-        <div className="absolute left-1/2 -translate-x-1/2 h-full flex items-center">
+        {/* Col 2 (center): Logo — perfectly centered by grid, no absolute needed */}
+        <div className="flex items-center justify-center h-full">
           <Link href="/" className="hover:opacity-70 transition-opacity flex items-center justify-center">
             <Image 
               src={logoImg} 
               alt="Swishit Logo" 
               height={32} 
-              className="object-contain h-8 w-auto"
+              className="object-contain h-8 w-auto max-w-full"
+              sizes="32px"
               priority
             />
           </Link>
         </div>
 
-        {/* Right side: Icons */}
-        <div className="flex items-center gap-5 text-text">
+        {/* Col 3 (right): Icons — justified to end */}
+        <div className="flex items-center justify-end gap-5 text-text">
           <button
             onClick={() => setIsSearchOpen(true)}
             className="hover:opacity-60 transition-opacity flex items-center"
@@ -160,13 +161,14 @@ export default function Navbar() {
           >
             <BagIcon />
             {cartCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-[#155E78] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
+              <span className="absolute -top-2 -right-2 bg-[#155E78] text-white text-[0.625rem] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-xs">
                 {cartCount}
               </span>
             )}
           </button>
         </div>
       </div>
+
     </div>
 
       {/* Mobile Menu Overlay */}

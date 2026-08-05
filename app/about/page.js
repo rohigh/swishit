@@ -31,9 +31,9 @@ export default function AboutPage() {
 
       {/* ── HERO SECTION ── */}
       <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 px-6 md:px-12 lg:px-20 overflow-hidden bg-gradient-to-b from-[#F5EFD8]/60 to-[#FBF7EC]">
-        {/* Background Ambient Glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#5AB8D6]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/3 right-10 w-[350px] h-[350px] bg-[#F0A93B]/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Background Ambient Glows — fluid so they don't overflow on small screens */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[min(90vw,600px)] aspect-square bg-[#5AB8D6]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/3 right-10 w-[min(60vw,350px)] aspect-square bg-[#F0A93B]/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -52,7 +52,7 @@ export default function AboutPage() {
 
             <motion.h1
               variants={itemVariants}
-              className="font-heading text-4xl md:text-6xl lg:text-7xl font-semibold leading-[1.1] text-[#173E4A] mb-8 tracking-tight"
+              className="font-heading text-fluid-4xl font-semibold leading-[1.1] text-[#173E4A] mb-8 tracking-tight"
             >
               The Standard for <br />
               <span className="italic font-serif text-[#155E78]">Effortless Clean</span>
@@ -77,7 +77,7 @@ export default function AboutPage() {
               <span className="text-xs font-mono tracking-widest text-[#F0A93B] uppercase font-bold">
                 Engineering Efficacy
               </span>
-              <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl leading-tight text-white font-medium">
+              <h2 className="font-heading text-fluid-2xl leading-tight text-white font-medium">
                 Designed to simplify chores into quick, satisfying moments.
               </h2>
               <p className="text-[#82CCDF] text-base md:text-lg leading-relaxed font-normal">
@@ -86,15 +86,15 @@ export default function AboutPage() {
               
               <div className="pt-4 grid grid-cols-3 gap-4 border-t border-[#5AB8D6]/20">
                 <div>
-                  <div className="font-heading text-2xl md:text-3xl text-[#F0A93B] font-bold">100%</div>
+                  <div className="font-heading text-fluid-xl text-[#F0A93B] font-bold">100%</div>
                   <div className="text-xs text-[#82CCDF] font-mono mt-1 font-semibold">Efficacy Focus</div>
                 </div>
                 <div>
-                  <div className="font-heading text-2xl md:text-3xl text-[#F0A93B] font-bold">3x</div>
+                  <div className="font-heading text-fluid-xl text-[#F0A93B] font-bold">3x</div>
                   <div className="text-xs text-[#82CCDF] font-mono mt-1 font-semibold">Concentrated</div>
                 </div>
                 <div>
-                  <div className="font-heading text-2xl md:text-3xl text-[#F0A93B] font-bold">0%</div>
+                  <div className="font-heading text-fluid-xl text-[#F0A93B] font-bold">0%</div>
                   <div className="text-xs text-[#82CCDF] font-mono mt-1 font-semibold">Harsh Residue</div>
                 </div>
               </div>
@@ -120,7 +120,7 @@ export default function AboutPage() {
             <span className="text-xs font-mono uppercase tracking-widest text-[#155E78] font-bold block mb-3">
               Our Purpose
             </span>
-            <h2 className="font-heading text-3xl md:text-5xl text-[#173E4A] font-semibold tracking-tight">
+            <h2 className="font-heading text-fluid-2xl text-[#173E4A] font-semibold tracking-tight">
               Our Mission: <span className="italic text-[#155E78]">Beyond Clean, To Confidence</span>
             </h2>
           </div>
@@ -139,7 +139,7 @@ export default function AboutPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <blockquote className="font-heading text-2xl md:text-4xl text-[#173E4A] leading-snug font-normal">
+              <blockquote className="font-heading text-fluid-xl text-[#173E4A] leading-snug font-normal">
                 &ldquo;Our mission is simple: To provide exceptional cleaning and hygiene solutions that allow our customers to move faster, live healthier, and feel the satisfaction of an effortless SWISH.&rdquo;
               </blockquote>
               <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
@@ -159,7 +159,7 @@ export default function AboutPage() {
             <span style={{ color: '#155E78' }} className="text-xs font-mono uppercase tracking-widest text-[#155E78] font-bold block">
               WHAT DRIVES US
             </span>
-            <h2 style={{ color: '#173E4A' }} className="font-heading text-3xl md:text-5xl text-[#173E4A] font-semibold tracking-tight">
+            <h2 style={{ color: '#173E4A' }} className="font-heading text-fluid-2xl text-[#173E4A] font-semibold tracking-tight">
               Our Core Commitments
             </h2>
             <p style={{ color: '#1D7E9E' }} className="text-[#1D7E9E] text-base md:text-lg font-semibold">
@@ -258,7 +258,7 @@ export default function AboutPage() {
               <span className="text-xs font-mono uppercase tracking-widest text-[#155E78] font-bold block">
                 Why We Stand Out
               </span>
-              <h2 className="font-heading text-3xl md:text-5xl text-[#173E4A] leading-tight font-semibold">
+              <h2 className="font-heading text-fluid-2xl text-[#173E4A] leading-tight font-semibold">
                 The SWISH IT <br />
                 <span className="italic text-[#155E78]">Difference</span>
               </h2>
@@ -351,7 +351,7 @@ export default function AboutPage() {
             <span className="text-xs font-mono uppercase tracking-widest text-[#F0A93B] font-bold block">
               Our Community
             </span>
-            <h2 className="font-heading text-3xl md:text-5xl font-semibold tracking-tight text-white">
+            <h2 className="font-heading text-fluid-2xl font-semibold tracking-tight text-white">
               We Proudly Serve
             </h2>
             <p className="text-[#82CCDF] text-base md:text-lg font-normal">
@@ -417,7 +417,7 @@ export default function AboutPage() {
           <span className="text-xs font-mono uppercase tracking-widest text-[#155E78] font-bold block">
             START YOUR SWISH
           </span>
-          <h2 className="font-heading text-3xl md:text-5xl text-[#173E4A] font-semibold leading-tight">
+          <h2 className="font-heading text-fluid-2xl text-[#173E4A] font-semibold leading-tight">
             Experience the advantage of a clean that&apos;s <br />
             <span className="italic text-[#155E78]">powerful, modern, and immediate.</span>
           </h2>
