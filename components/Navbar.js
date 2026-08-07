@@ -123,6 +123,11 @@ export default function Navbar() {
             </RollingLink>
             <RollingLink href="/about">About</RollingLink>
             <RollingLink href="/contact">Contact</RollingLink>
+            {user?.email === 'swishitt@gmail.com' && (
+              <RollingLink href="/admin">
+                <span className="text-[#F0A93B] font-bold">Admin</span>
+              </RollingLink>
+            )}
           </div>
 
         </div>
@@ -180,6 +185,9 @@ export default function Navbar() {
         <Link href="/shop" onClick={() => setIsMenuOpen(false)} className="hover:opacity-70 transition-opacity">Shop</Link>
         <Link href="/about" onClick={() => setIsMenuOpen(false)} className="hover:opacity-70 transition-opacity">About</Link>
         <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="hover:opacity-70 transition-opacity">Contact</Link>
+        {user?.email === 'swishitt@gmail.com' && (
+          <Link href="/admin" onClick={() => setIsMenuOpen(false)} className="hover:opacity-70 transition-opacity text-[#F0A93B] font-bold">Admin Dashboard</Link>
+        )}
         <Link href={user ? "/account" : "/login"} onClick={() => setIsMenuOpen(false)} className="hover:opacity-70 transition-opacity">
           {user ? "My Account" : "Log In"}
         </Link>

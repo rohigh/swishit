@@ -84,10 +84,10 @@ function LoginContent() {
   return (
     <div className="max-w-md w-full mx-auto space-y-8 bg-white p-10 rounded-2xl shadow-sm border border-gray-100 mt-12 mb-24">
       <div className="text-center">
-        <h2 className="mt-2 text-3xl font-light text-[#173E4A] font-heading">
+        <h2 className="mt-2 text-3xl font-light text-text font-heading">
           {isSignUp ? 'Create an account' : 'Welcome back'}
         </h2>
-        <p className="mt-2 text-sm text-[#173E4A]/70">
+        <p className="mt-2 text-sm text-text/70">
           {isSignUp ? 'Join SWISH IT for effortless hygiene' : 'Sign in to access your SWISH IT account'}
         </p>
       </div>
@@ -97,7 +97,7 @@ function LoginContent() {
           onClick={handleGoogleSignIn}
           disabled={loading}
           type="button"
-          className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-full text-[#173E4A] bg-white hover:bg-gray-50 transition-colors disabled:opacity-50"
+          className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-full text-text bg-white hover:bg-gray-50 transition-colors disabled:opacity-50"
         >
           <svg className="w-5 h-5" viewBox="0 0 24 24">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -112,7 +112,7 @@ function LoginContent() {
         {/* Flex divider — no absolute needed */}
         <div className="flex items-center gap-3">
           <div className="flex-1 h-px bg-gray-200" />
-          <span className="px-2 text-sm text-[#173E4A]/60 whitespace-nowrap">Or continue with email</span>
+          <span className="px-2 text-sm text-text/60 whitespace-nowrap">Or continue with email</span>
           <div className="flex-1 h-px bg-gray-200" />
         </div>
 
@@ -141,7 +141,7 @@ function LoginContent() {
           </AnimatePresence>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-[#173E4A]">
+            <label htmlFor="email" className="block text-sm font-medium text-text">
               Email address
             </label>
             <input
@@ -150,13 +150,13 @@ function LoginContent() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg text-[#173E4A] placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#5AB8D6] focus:border-[#5AB8D6] transition-colors bg-white"
+              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg text-text placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#5AB8D6] focus:border-[#5AB8D6] transition-colors bg-white"
               placeholder="you@example.com"
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-[#173E4A]">
+            <label htmlFor="password" className="block text-sm font-medium text-text">
               Password
             </label>
             <input
@@ -165,7 +165,7 @@ function LoginContent() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg text-[#173E4A] placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#5AB8D6] focus:border-[#5AB8D6] transition-colors bg-white"
+              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg text-text placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#5AB8D6] focus:border-[#5AB8D6] transition-colors bg-white"
               placeholder="••••••••"
             />
           </div>

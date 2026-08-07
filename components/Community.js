@@ -170,7 +170,7 @@ export default function Community() {
                 onClick={() => handleVote('mandarin')}
                 className={`w-full text-left p-3.5 rounded-2xl border font-body text-sm font-medium flex items-center justify-between transition-all duration-200 ${
                   votedScent === 'mandarin'
-                    ? 'bg-[#F0A93B] text-[#173E4A] border-[#F0A93B] shadow-md font-semibold'
+                    ? 'bg-[#F0A93B] text-text border-[#F0A93B] shadow-md font-semibold'
                     : 'bg-white/70 text-text border-black/5 hover:bg-white'
                 }`}
               >
@@ -182,7 +182,7 @@ export default function Community() {
                 onClick={() => handleVote('eucalyptus')}
                 className={`w-full text-left p-3.5 rounded-2xl border font-body text-sm font-medium flex items-center justify-between transition-all duration-200 ${
                   votedScent === 'eucalyptus'
-                    ? 'bg-[#F0A93B] text-[#173E4A] border-[#F0A93B] shadow-md font-semibold'
+                    ? 'bg-[#F0A93B] text-text border-[#F0A93B] shadow-md font-semibold'
                     : 'bg-white/70 text-text border-black/5 hover:bg-white'
                 }`}
               >

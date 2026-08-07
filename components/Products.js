@@ -115,7 +115,7 @@ export default function Products() {
                       </span>
                     )}
 
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-[#173E4A] mb-2">
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-text mb-2">
                       <span className="text-amber-500 text-sm">★★★★★</span>
                       <span>4.9</span>
                       <span className="text-text-muted font-normal">(2.5k+ reviews)</span>
@@ -136,7 +136,7 @@ export default function Products() {
                       
                       <button 
                         onClick={(e) => handleQuickAdd(e, prod)}
-                        className="h-12 px-6 rounded-full bg-[#1D7E9E] text-white font-body font-medium text-sm hover:bg-[#F0A93B] hover:text-[#173E4A] transition-all shadow-sm cursor-pointer"
+                        className="h-12 px-6 rounded-full bg-[#1D7E9E] text-white font-body font-medium text-sm hover:bg-[#F0A93B] hover:text-text transition-all shadow-sm cursor-pointer"
                       >
                         {addedId === prod.id ? '✓ Added to Bag!' : 'Add to Cart'}
                       </button>

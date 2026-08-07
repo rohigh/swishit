@@ -17,7 +17,7 @@ function Accordion({ children, type = "single", collapsible = true, className = 
 
   return (
     <AccordionContext.Provider value={{ openItem, toggleItem }}>
-      <div className={cn("w-full divide-y divide-[#173E4A]/15", className)}>
+      <div className={cn("w-full divide-y divide-[#155E78]/15", className)}>
         {children}
       </div>
     </AccordionContext.Provider>
@@ -26,7 +26,7 @@ function Accordion({ children, type = "single", collapsible = true, className = 
 
 function AccordionItem({ value, className = "", children, ...props }) {
   return (
-    <div className={cn("border-b border-[#173E4A]/15 py-1", className)} {...props}>
+    <div className={cn("border-b border-[#155E78]/15 py-1", className)} {...props}>
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child, { itemValue: value })
@@ -49,10 +49,10 @@ function AccordionTrigger({ className = "", children, itemValue, ...props }) {
           "flex flex-1 items-center justify-between py-4 font-body font-semibold text-base md:text-lg transition-all hover:opacity-80 text-left gap-4 leading-snug",
           className
         )}
-        style={{ color: '#173E4A' }}
+        style={{ color: 'var(--color-text)' }}
         {...props}
       >
-        <span style={{ color: '#173E4A' }} className="font-semibold text-[#173E4A]">{children}</span>
+        <span style={{ color: 'var(--color-text)' }} className="font-semibold text-text">{children}</span>
         <svg
           className={cn(
             "h-4 w-4 shrink-0 transition-transform duration-300",
@@ -86,8 +86,8 @@ function AccordionContent({ className = "", children, itemValue, ...props }) {
       {...props}
     >
       <p 
-        style={{ color: '#173E4A' }} 
-        className="text-[#173E4A] font-medium leading-relaxed text-sm md:text-base opacity-100"
+        style={{ color: 'var(--color-text)' }} 
+        className="text-text font-medium leading-relaxed text-sm md:text-base opacity-100"
       >
         {children}
       </p>

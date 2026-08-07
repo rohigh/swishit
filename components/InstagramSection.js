@@ -65,10 +65,10 @@ export default function InstagramSection() {
   }, []);
 
   return (
-    <section className="w-full py-12 md:py-16 lg:py-24 bg-[#FBF7EC] border-t border-[#173E4A]/10 overflow-hidden" id="instagram">
+    <section className="w-full py-12 md:py-16 lg:py-24 bg-[#FBF7EC] border-t border-[#155E78]/10 overflow-hidden" id="instagram">
       <div className="max-w-7xl mx-auto px-4 md:px-6 text-center mb-6 md:mb-8">
-        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1D7E9E]/10 border border-[#1D7E9E]/20 text-[#155E78] text-xs font-mono font-bold uppercase tracking-widest mb-3">
-          <svg className="w-4 h-4 text-[#155E78]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1D7E9E]/10 border border-[#1D7E9E]/20 text-text text-xs font-mono font-bold uppercase tracking-widest mb-3">
+          <svg className="w-4 h-4 text-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -76,11 +76,11 @@ export default function InstagramSection() {
           @swishit.official
         </span>
 
-        <h2 className="font-heading font-normal text-fluid-2xl text-[#173E4A] tracking-tight mb-3">
+        <h2 className="font-heading font-normal text-fluid-2xl text-text tracking-tight mb-3">
           Follow Us on Instagram
         </h2>
-        <p className="font-body text-[#173E4A]/70 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-          Tag <strong className="text-[#155E78]">@swishit.official</strong> in your kitchen counter setups for a chance to be featured!
+        <p className="font-body text-text/70 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          Tag <strong className="text-text">@swishit.official</strong> in your kitchen counter setups for a chance to be featured!
         </p>
       </div>
 
@@ -100,7 +100,7 @@ export default function InstagramSection() {
           href="https://instagram.com/swishit.official"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#173E4A] hover:bg-[#155E78] text-white font-body font-semibold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all"
+          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#155E78] hover:bg-[#155E78] text-white font-body font-semibold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all"
         >
           <span>Follow @swishit.official</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

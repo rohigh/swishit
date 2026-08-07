@@ -539,7 +539,7 @@ const CircularGallery = ({
     if (!containerRef.current) return;
 
     const computedStyle = getComputedStyle(containerRef.current);
-    const computedColor = computedStyle.color || "#173E4A";
+    const computedColor = computedStyle.color || "#155E78";
     const computedFontWeight = computedStyle.fontWeight || "bold";
     const computedFontSize = computedStyle.fontSize || "30px";
     const computedFontFamily = computedStyle.fontFamily;
@@ -565,7 +565,7 @@ const CircularGallery = ({
     <div
       ref={containerRef}
       className={cn(
-        "w-full h-full overflow-hidden cursor-grab active:cursor-grabbing text-[#173E4A] font-bold text-[1.875rem]",
+        "w-full h-full overflow-hidden cursor-grab active:cursor-grabbing text-text font-bold text-[1.875rem]",
         fontClassName,
         className
       )}

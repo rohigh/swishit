@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "compress:images": "node scripts/compress-images.js"
+    "compress:images": "node scripts/compress-images.js",
+    "build:cf": "opennextjs-cloudflare build",
+    "deploy": "opennextjs-cloudflare build && wrangler pages deploy"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -18,7 +20,8 @@
     "gsap": "^3.12.7",
     "next": "^15.2.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "razorpay": "^2.9.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import InstagramSection from '@/components/InstagramSection';
 
 export default function AboutPage() {
   const containerVariants = {
@@ -26,7 +27,7 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FBF7EC] text-[#173E4A] flex flex-col font-body selection:bg-[#1D7E9E] selection:text-white">
+    <div className="min-h-screen bg-[#FBF7EC] text-text flex flex-col font-body selection:bg-[#1D7E9E] selection:text-white">
       <Navbar />
 
       {/* ── HERO SECTION ── */}
@@ -44,7 +45,7 @@ export default function AboutPage() {
           >
             <motion.span
               variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1D7E9E]/15 border border-[#1D7E9E]/30 text-[#155E78] text-xs md:text-sm font-bold tracking-wider uppercase mb-6 shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1D7E9E]/15 border border-[#1D7E9E]/30 text-text text-xs md:text-sm font-bold tracking-wider uppercase mb-6 shadow-sm"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-[#F0A93B]" />
               About SWISH IT
@@ -52,15 +53,15 @@ export default function AboutPage() {
 
             <motion.h1
               variants={itemVariants}
-              className="font-heading text-fluid-4xl font-semibold leading-[1.1] text-[#173E4A] mb-8 tracking-tight"
+              className="font-heading text-fluid-4xl font-semibold leading-[1.1] text-text mb-8 tracking-tight"
             >
               The Standard for <br />
-              <span className="italic font-serif text-[#155E78]">Effortless Clean</span>
+              <span className="italic font-serif text-text">Effortless Clean</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl lg:text-2xl text-[#173E4A] leading-relaxed font-medium max-w-3xl mx-auto mb-12"
+              className="text-lg md:text-xl lg:text-2xl text-text leading-relaxed font-medium max-w-3xl mx-auto mb-12"
             >
               At <strong className="font-bold text-[#0F2931]">SWISH IT</strong>, we believe that a clean environment is the foundation for a confident life. We founded this company to cut through the complexity of traditional cleaning, delivering a line of hygiene products that are powerful, precise, and a pleasure to use.
             </motion.p>
@@ -100,7 +101,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 relative h-72 md:h-96 rounded-2xl overflow-hidden flex items-center justify-center bg-[#173E4A]/60 border border-[#5AB8D6]/20">
+            <div className="lg:col-span-5 relative h-72 md:h-96 rounded-2xl overflow-hidden flex items-center justify-center bg-[#155E78]/60 border border-[#5AB8D6]/20">
               <Image
                 src="/img/blue-nobg.jpeg"
                 alt="SWISH IT Signature Dishwashing Dew"
@@ -117,11 +118,11 @@ export default function AboutPage() {
       <section className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-[#FBF7EC] relative">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#155E78] font-bold block mb-3">
+            <span className="text-xs font-mono uppercase tracking-widest text-text font-bold block mb-3">
               Our Purpose
             </span>
-            <h2 className="font-heading text-fluid-2xl text-[#173E4A] font-semibold tracking-tight">
-              Our Mission: <span className="italic text-[#155E78]">Beyond Clean, To Confidence</span>
+            <h2 className="font-heading text-fluid-2xl text-text font-semibold tracking-tight">
+              Our Mission: <span className="italic text-text">Beyond Clean, To Confidence</span>
             </h2>
           </div>
 
@@ -139,11 +140,11 @@ export default function AboutPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <blockquote className="font-heading text-fluid-xl text-[#173E4A] leading-snug font-normal">
+              <blockquote className="font-heading text-fluid-xl text-text leading-snug font-normal">
                 &ldquo;Our mission is simple: To provide exceptional cleaning and hygiene solutions that allow our customers to move faster, live healthier, and feel the satisfaction of an effortless SWISH.&rdquo;
               </blockquote>
               <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
-                <span className="px-5 py-2 rounded-full bg-[#173E4A] text-white text-xs font-bold font-mono shadow-sm">Move Faster</span>
+                <span className="px-5 py-2 rounded-full bg-[#155E78] text-white text-xs font-bold font-mono shadow-sm">Move Faster</span>
                 <span className="px-5 py-2 rounded-full bg-[#1D7E9E] text-white text-xs font-bold font-mono shadow-sm">Live Healthier</span>
                 <span className="px-5 py-2 rounded-full bg-[#D48820] text-white text-xs font-bold font-mono shadow-sm">Effortless SWISH</span>
               </div>
@@ -156,10 +157,10 @@ export default function AboutPage() {
       <section className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-[#F5EFD8]/60 border-y border-[#1D7E9E]/15">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-            <span style={{ color: '#155E78' }} className="text-xs font-mono uppercase tracking-widest text-[#155E78] font-bold block">
+            <span style={{ color: 'var(--color-text)' }} className="text-xs font-mono uppercase tracking-widest text-text font-bold block">
               WHAT DRIVES US
             </span>
-            <h2 style={{ color: '#173E4A' }} className="font-heading text-fluid-2xl text-[#173E4A] font-semibold tracking-tight">
+            <h2 style={{ color: 'var(--color-text)' }} className="font-heading text-fluid-2xl text-text font-semibold tracking-tight">
               Our Core Commitments
             </h2>
             <p style={{ color: '#1D7E9E' }} className="text-[#1D7E9E] text-base md:text-lg font-semibold">
@@ -182,15 +183,15 @@ export default function AboutPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <h3 style={{ color: '#173E4A' }} className="font-heading text-2xl text-[#173E4A] font-bold mb-4">
+                <h3 style={{ color: 'var(--color-text)' }} className="font-heading text-2xl text-text font-bold mb-4">
                   High-Performance Chemistry
                 </h3>
                 <p style={{ color: '#1D7E9E' }} className="text-[#1D7E9E] text-sm md:text-base leading-relaxed font-semibold">
                   We invest in cutting-edge, data-backed formulas that deliver unmatched cleaning power. Our products are engineered for efficacy, ensuring a professional-grade clean with minimal effort.
                 </p>
               </div>
-              <div className="mt-8 pt-4 border-t border-gray-100 flex items-center text-xs font-mono text-[#155E78] font-bold">
-                <span style={{ color: '#155E78' }}>CUTTING-EDGE &bull; EFFICIENT</span>
+              <div className="mt-8 pt-4 border-t border-gray-100 flex items-center text-xs font-mono text-text font-bold">
+                <span style={{ color: 'var(--color-text)' }}>CUTTING-EDGE &bull; EFFICIENT</span>
               </div>
             </motion.div>
 
@@ -208,15 +209,15 @@ export default function AboutPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
                   </svg>
                 </div>
-                <h3 style={{ color: '#173E4A' }} className="font-heading text-2xl text-[#173E4A] font-bold mb-4">
+                <h3 style={{ color: 'var(--color-text)' }} className="font-heading text-2xl text-text font-bold mb-4">
                   User-Focused Design
                 </h3>
                 <p style={{ color: '#1D7E9E' }} className="text-[#1D7E9E] text-sm md:text-base leading-relaxed font-semibold">
                   We know time is valuable. From our ergonomic packaging to our clear instructions, the SWISH IT line is designed to streamline your cleaning routine, turning chores into quick, satisfying tasks.
                 </p>
               </div>
-              <div className="mt-8 pt-4 border-t border-gray-100 flex items-center text-xs font-mono text-[#155E78] font-bold">
-                <span style={{ color: '#155E78' }}>ERGONOMIC &bull; STREAMLINED</span>
+              <div className="mt-8 pt-4 border-t border-gray-100 flex items-center text-xs font-mono text-text font-bold">
+                <span style={{ color: 'var(--color-text)' }}>ERGONOMIC &bull; STREAMLINED</span>
               </div>
             </motion.div>
 
@@ -234,15 +235,15 @@ export default function AboutPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <h3 style={{ color: '#173E4A' }} className="font-heading text-2xl text-[#173E4A] font-bold mb-4">
+                <h3 style={{ color: 'var(--color-text)' }} className="font-heading text-2xl text-text font-bold mb-4">
                   Responsibility and Trust
                 </h3>
                 <p style={{ color: '#1D7E9E' }} className="text-[#1D7E9E] text-sm md:text-base leading-relaxed font-semibold">
                   We are dedicated to transparency about the ingredients we use. We prioritize the health and safety of your home and the planet, continually seeking sustainable materials and responsible sourcing.
                 </p>
               </div>
-              <div className="mt-8 pt-4 border-t border-gray-100 flex items-center text-xs font-mono text-[#155E78] font-bold">
-                <span style={{ color: '#155E78' }}>TRANSPARENT &bull; SUSTAINABLE</span>
+              <div className="mt-8 pt-4 border-t border-gray-100 flex items-center text-xs font-mono text-text font-bold">
+                <span style={{ color: 'var(--color-text)' }}>TRANSPARENT &bull; SUSTAINABLE</span>
               </div>
             </motion.div>
           </div>
@@ -255,14 +256,14 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             <div className="lg:col-span-5 space-y-6">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#155E78] font-bold block">
+              <span className="text-xs font-mono uppercase tracking-widest text-text font-bold block">
                 Why We Stand Out
               </span>
-              <h2 className="font-heading text-fluid-2xl text-[#173E4A] leading-tight font-semibold">
+              <h2 className="font-heading text-fluid-2xl text-text leading-tight font-semibold">
                 The SWISH IT <br />
-                <span className="italic text-[#155E78]">Difference</span>
+                <span className="italic text-text">Difference</span>
               </h2>
-              <p className="text-[#173E4A] text-base md:text-lg leading-relaxed font-medium">
+              <p className="text-text text-base md:text-lg leading-relaxed font-medium">
                 In a crowded market, what makes us stand out is our commitment to the effortless result. We don&apos;t just sell cleaning products; we sell time back, peace of mind, and the confidence that comes from a truly hygienic space.
               </p>
 
@@ -272,8 +273,8 @@ export default function AboutPage() {
                     ✓
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#173E4A] text-base">Time Back</h4>
-                    <p className="text-xs text-[#173E4A] font-medium">Fast-acting formulas reduce kitchen cleanup time dramatically.</p>
+                    <h4 className="font-bold text-text text-base">Time Back</h4>
+                    <p className="text-xs text-text font-medium">Fast-acting formulas reduce kitchen cleanup time dramatically.</p>
                   </div>
                 </div>
 
@@ -282,8 +283,8 @@ export default function AboutPage() {
                     ✓
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#173E4A] text-base">Peace of Mind</h4>
-                    <p className="text-xs text-[#173E4A] font-medium">Non-toxic, residue-free chemistry safe for your whole family.</p>
+                    <h4 className="font-bold text-text text-base">Peace of Mind</h4>
+                    <p className="text-xs text-text font-medium">Non-toxic, residue-free chemistry safe for your whole family.</p>
                   </div>
                 </div>
 
@@ -292,8 +293,8 @@ export default function AboutPage() {
                     ✓
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#173E4A] text-base">Hygienic Space</h4>
-                    <p className="text-xs text-[#173E4A] font-medium">Commercial-grade clarity and freshness after every single wash.</p>
+                    <h4 className="font-bold text-text text-base">Hygienic Space</h4>
+                    <p className="text-xs text-text font-medium">Commercial-grade clarity and freshness after every single wash.</p>
                   </div>
                 </div>
               </div>
@@ -309,7 +310,7 @@ export default function AboutPage() {
                     fill
                     className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="relative z-10 bg-[#173E4A] text-white px-3 py-1.5 rounded-full text-xs font-mono w-max font-bold shadow-md">
+                  <div className="relative z-10 bg-[#155E78] text-white px-3 py-1.5 rounded-full text-xs font-mono w-max font-bold shadow-md">
                     Lime Lush &bull; Zesty
                   </div>
                 </div>
@@ -333,7 +334,7 @@ export default function AboutPage() {
                     fill
                     className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="relative z-10 bg-[#173E4A] text-white px-3 py-1.5 rounded-full text-xs font-mono w-max font-bold shadow-md">
+                  <div className="relative z-10 bg-[#155E78] text-white px-3 py-1.5 rounded-full text-xs font-mono w-max font-bold shadow-md">
                     Lemon Loop &bull; Radiant
                   </div>
                 </div>
@@ -361,7 +362,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Card 1 */}
-            <div className="bg-[#173E4A] rounded-3xl p-8 border border-[#5AB8D6]/30 flex flex-col justify-between hover:border-[#F0A93B]/60 transition-colors shadow-md">
+            <div className="bg-[#155E78] rounded-3xl p-8 border border-[#5AB8D6]/30 flex flex-col justify-between hover:border-[#F0A93B]/60 transition-colors shadow-md">
               <div>
                 <div className="text-4xl mb-6">🏡</div>
                 <h3 className="font-heading text-2xl text-white font-bold mb-3">
@@ -377,7 +378,7 @@ export default function AboutPage() {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-[#173E4A] rounded-3xl p-8 border border-[#5AB8D6]/30 flex flex-col justify-between hover:border-[#F0A93B]/60 transition-colors shadow-md">
+            <div className="bg-[#155E78] rounded-3xl p-8 border border-[#5AB8D6]/30 flex flex-col justify-between hover:border-[#F0A93B]/60 transition-colors shadow-md">
               <div>
                 <div className="text-4xl mb-6">✨</div>
                 <h3 className="font-heading text-2xl text-white font-bold mb-3">
@@ -393,7 +394,7 @@ export default function AboutPage() {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-[#173E4A] rounded-3xl p-8 border border-[#5AB8D6]/30 flex flex-col justify-between hover:border-[#F0A93B]/60 transition-colors shadow-md">
+            <div className="bg-[#155E78] rounded-3xl p-8 border border-[#5AB8D6]/30 flex flex-col justify-between hover:border-[#F0A93B]/60 transition-colors shadow-md">
               <div>
                 <div className="text-4xl mb-6">⚡</div>
                 <h3 className="font-heading text-2xl text-white font-bold mb-3">
@@ -414,12 +415,12 @@ export default function AboutPage() {
       {/* ── CALL TO ACTION SECTION ── */}
       <section className="py-20 md:py-28 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-[#FBF7EC] to-[#F5EFD8] text-center">
         <div className="max-w-4xl mx-auto space-y-8">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#155E78] font-bold block">
+          <span className="text-xs font-mono uppercase tracking-widest text-text font-bold block">
             START YOUR SWISH
           </span>
-          <h2 className="font-heading text-fluid-2xl text-[#173E4A] font-semibold leading-tight">
+          <h2 className="font-heading text-fluid-2xl text-text font-semibold leading-tight">
             Experience the advantage of a clean that&apos;s <br />
-            <span className="italic text-[#155E78]">powerful, modern, and immediate.</span>
+            <span className="italic text-text">powerful, modern, and immediate.</span>
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
@@ -430,7 +431,7 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/contact"
-              className="px-8 py-4 rounded-full bg-[#173E4A] text-white font-bold hover:bg-[#122A33] transition-all shadow-md text-sm md:text-base"
+              className="px-8 py-4 rounded-full bg-[#155E78] text-white font-bold hover:bg-[#122A33] transition-all shadow-md text-sm md:text-base"
             >
               Get In Touch
             </Link>
@@ -438,6 +439,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <InstagramSection />
       <Footer />
     </div>
   );

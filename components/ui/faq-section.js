@@ -45,7 +45,7 @@ const FAQS_DATA = [
 
 function FAQ() {
   return (
-    <section className="w-full py-20 lg:py-32 bg-base border-t border-[#173E4A]/10" id="faq">
+    <section className="w-full py-20 lg:py-32 bg-base border-t border-[#155E78]/10" id="faq">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           
@@ -59,25 +59,25 @@ function FAQ() {
               </div>
               <div className="flex gap-4 flex-col">
                 <h4 
-                  style={{ color: '#173E4A' }}
-                  className="text-3xl md:text-5xl tracking-tight text-left font-heading font-medium text-[#173E4A] leading-tight"
+                  style={{ color: 'var(--color-text)' }}
+                  className="text-3xl md:text-5xl tracking-tight text-left font-heading font-medium text-text leading-tight"
                 >
                   Everything you need to know about Swishit
                 </h4>
                 <p 
-                  style={{ color: '#173E4A' }}
-                  className="text-base md:text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-[#173E4A] text-left font-body font-medium"
+                  style={{ color: 'var(--color-text)' }}
+                  className="text-base md:text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-text text-left font-body font-medium"
                 >
                   Got questions about our plant-powered formula, infinite refill bottles, or shipping? We&apos;ve got answers. If you need further help, our team is always here for you.
                 </p>
               </div>
               <div className="pt-2">
                 <button 
-                  className="inline-flex items-center gap-3 rounded-full px-6 h-12 bg-[#F0A93B] text-[#173E4A] hover:bg-[#D48820] hover:text-white font-body text-sm font-semibold transition-all shadow-md cursor-pointer"
-                  style={{ backgroundColor: '#F0A93B', color: '#173E4A' }}
+                  className="inline-flex items-center gap-3 rounded-full px-6 h-12 bg-[#F0A93B] text-text hover:bg-[#D48820] hover:text-white font-body text-sm font-semibold transition-all shadow-md cursor-pointer"
+                  style={{ backgroundColor: '#F0A93B', color: 'var(--color-text)' }}
                 >
                   <span>Any questions? Reach out</span> 
-                  <PhoneCallIcon className="w-4 h-4 text-[#173E4A]" />
+                  <PhoneCallIcon className="w-4 h-4 text-text" />
                 </button>
               </div>
             </div>

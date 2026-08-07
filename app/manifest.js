@@ -7,7 +7,7 @@ export default function manifest() {
     start_url: '/',
     display: 'standalone',
     background_color: '#FBF7EC',
-    theme_color: '#173E4A',
+    theme_color: 'var(--color-text)',
     icons: [
       {
         src: '/img/logo - swishit-01.png',

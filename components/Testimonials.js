@@ -170,7 +170,7 @@ export default function Testimonials() {
           {/* Top line: "What they" */}
           <div ref={topTextRef} className="will-change-transform">
             <h2 
-              style={{ color: '#173E4A' }}
+              style={{ color: 'var(--color-text)' }}
               className="font-body font-medium text-[clamp(2.5rem,8.5vw,10rem)] md:text-[clamp(3.5rem,8.5vw,11rem)] lg:text-[clamp(4.5rem,11vw,13rem)] tracking-tight text-center md:text-left leading-[0.9] md:leading-[0.88]"
             >
               What they
@@ -180,7 +180,7 @@ export default function Testimonials() {
           {/* Bottom line: "are saying" */}
           <div ref={bottomTextRef} className="will-change-transform">
             <h2 
-              style={{ color: '#173E4A' }}
+              style={{ color: 'var(--color-text)' }}
               className="font-body font-medium text-[clamp(2.5rem,8.5vw,10rem)] md:text-[clamp(3.5rem,8.5vw,11rem)] lg:text-[clamp(4.5rem,11vw,13rem)] tracking-tight text-center md:text-left leading-[0.9] md:leading-[0.88]"
             >
               are saying
@@ -195,10 +195,10 @@ export default function Testimonials() {
             <div className="flex items-center justify-center gap-1 mb-2 text-[#F0A93B] text-base md:text-xl tracking-tighter" style={{ color: '#F0A93B' }}>
               ★★★★★
             </div>
-            <span className="text-xs md:text-sm font-mono text-[#173E4A] mb-3 uppercase tracking-widest font-bold" style={{ color: '#173E4A' }}>
+            <span className="text-xs md:text-sm font-mono text-text mb-3 uppercase tracking-widest font-bold" style={{ color: 'var(--color-text)' }}>
               2,500+ five-star reviews
             </span>
-            <h3 className="font-heading font-normal text-2xl md:text-4xl lg:text-6xl text-[#173E4A] leading-tight tracking-tight" style={{ color: '#173E4A' }}>
+            <h3 className="font-heading font-normal text-2xl md:text-4xl lg:text-6xl text-text leading-tight tracking-tight" style={{ color: 'var(--color-text)' }}>
               Join the community that&apos;s redefining dishwashing, one push at a time.
             </h3>
           </div>
@@ -260,7 +260,7 @@ export default function Testimonials() {
                     {test.name}
                   </span>
                   <span 
-                    style={{ color: '#173E4A' }}
+                    style={{ color: 'var(--color-text)' }}
                     className="font-body font-medium text-[11px] md:text-xs lg:text-sm"
                   >
                     {test.role}

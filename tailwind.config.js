@@ -42,9 +42,9 @@ module.exports = {
           dark:    '#D48820',
         },
         text: {
-          DEFAULT: '#173E4A',
-          muted:   '#4A7A8A',
-          light:   '#2A5F72',
+          DEFAULT: '#1A1A1A',
+          muted:   '#4D4D4D',
+          light:   '#333333',
         },
         surface: {
           DEFAULT: '#FBF7EC',

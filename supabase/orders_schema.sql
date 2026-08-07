@@ -13,10 +13,15 @@ create table if not exists public.orders (
   shipping_fee numeric not null,
   total numeric not null,
   payment_method text not null,
+  payment_id text,                  -- Razorpay payment ID (null for COD)
   shipping_address jsonb not null,
   status text default 'Processing' not null,
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
+
+-- If the table already exists, add the payment_id column if it doesn't exist yet:
+alter table public.orders add column if not exists payment_id text;
+
 
 -- Enable Row Level Security
 alter table public.orders enable row level security;

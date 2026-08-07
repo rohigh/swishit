@@ -89,7 +89,7 @@ export default function ShopPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FBF7EC] text-[#173E4A] font-body">
+    <div className="min-h-screen bg-[#FBF7EC] text-text font-body">
       
       {/* Navigation */}
       <Navbar />
@@ -102,7 +102,7 @@ export default function ShopPage() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#1D7E9E]/10 text-[#1D7E9E] font-mono text-xs font-bold uppercase tracking-widest mb-4">
             Official Store
           </span>
-          <h1 className="font-heading font-normal text-fluid-3xl text-[#173E4A] leading-tight tracking-tight mb-4">
+          <h1 className="font-heading font-normal text-fluid-3xl text-text leading-tight tracking-tight mb-4">
             Shop Swishit Collection
           </h1>
           <p className="font-body text-[#4A7A8A] text-base md:text-xl leading-relaxed">
@@ -118,8 +118,8 @@ export default function ShopPage() {
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-medium transition-all cursor-pointer ${
                 activeCategory === cat
-                  ? 'bg-[#173E4A] text-white shadow-md font-semibold scale-105'
-                  : 'bg-white/80 text-[#173E4A] hover:bg-white border border-[#173E4A]/10'
+                  ? 'bg-[#155E78] text-white shadow-md font-semibold scale-105'
+                  : 'bg-white/80 text-text hover:bg-white border border-[#155E78]/10'
               }`}
             >
               {cat}
@@ -142,13 +142,13 @@ export default function ShopPage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setSelectedProduct(prod)}
-                className={`group rounded-3xl p-6 flex flex-col justify-between border border-[#173E4A]/10 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer relative overflow-hidden ${prod.bg}`}
+                className={`group rounded-3xl p-6 flex flex-col justify-between border border-[#155E78]/10 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer relative overflow-hidden ${prod.bg}`}
               >
                 
                 {/* Top Badge & Heart */}
                 <div className="flex items-center justify-between z-10 mb-4">
                   {prod.badge ? (
-                    <span className="px-3 py-1 rounded-full bg-[#173E4A] text-white text-[0.625rem] uppercase font-bold tracking-wider">
+                    <span className="px-3 py-1 rounded-full bg-[#155E78] text-white text-[0.625rem] uppercase font-bold tracking-wider">
                       {prod.badge}
                     </span>
                   ) : (
@@ -185,18 +185,18 @@ export default function ShopPage() {
                 </div>
 
                 {/* Content Footer */}
-                <div className="pt-4 border-t border-[#173E4A]/10 flex flex-col justify-between flex-1">
+                <div className="pt-4 border-t border-[#155E78]/10 flex flex-col justify-between flex-1">
                   <div>
                     {/* Scent & Rating */}
                     <div className="flex items-center justify-between text-xs text-[#4A7A8A] mb-2 font-mono">
                       <span>{prod.scent}</span>
-                      <span className="flex items-center gap-1 font-bold text-[#173E4A]">
+                      <span className="flex items-center gap-1 font-bold text-text">
                         ★ {prod.rating} <span className="text-gray-400 font-normal">({prod.reviews})</span>
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-heading text-fluid-lg font-normal text-[#173E4A] mb-2 group-hover:text-[#1D7E9E] transition-colors">
+                    <h3 className="font-heading text-fluid-lg font-normal text-text mb-2 group-hover:text-[#1D7E9E] transition-colors">
                       {prod.name}
                     </h3>
                     <p className="font-body text-xs text-[#4A7A8A] line-clamp-2 leading-relaxed mb-6">
@@ -208,12 +208,12 @@ export default function ShopPage() {
                   <div className="flex items-center justify-between pt-2">
                     <div>
                       <span className="block text-[0.625rem] uppercase tracking-widest text-[#4A7A8A] font-semibold">Price</span>
-                      <span className="text-xl font-bold text-[#173E4A]">₹{prod.price}</span>
+                      <span className="text-xl font-bold text-text">₹{prod.price}</span>
                     </div>
 
                     <button 
                       onClick={(e) => handleQuickAdd(e, prod.id)}
-                      className="h-11 px-5 rounded-full bg-[#1D7E9E] text-white font-medium text-xs hover:bg-[#F0A93B] hover:text-[#173E4A] transition-all shadow-md cursor-pointer"
+                      className="h-11 px-5 rounded-full bg-[#1D7E9E] text-white font-medium text-xs hover:bg-[#F0A93B] hover:text-text transition-all shadow-md cursor-pointer"
                     >
                       {addedId === prod.id ? '✓ Added!' : 'Add to Cart'}
                     </button>
@@ -226,31 +226,31 @@ export default function ShopPage() {
         </motion.div>
 
         {/* ── VALUE PROPOSITION BANNER ── */}
-        <div className="mt-24 bg-[#EFECE5] rounded-3xl p-8 md:p-14 border border-[#173E4A]/10">
+        <div className="mt-24 bg-[#EFECE5] rounded-3xl p-8 md:p-14 border border-[#155E78]/10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             
             <div className="flex flex-col items-center">
               <span className="text-3xl mb-3">🌿</span>
-              <h4 className="font-heading text-lg font-normal text-[#173E4A] mb-1">100% Plant Surfactants</h4>
-              <p style={{ color: '#173E4A' }} className="font-body text-xs text-[#173E4A] font-medium">Derived from organic coconut and citric acid.</p>
+              <h4 className="font-heading text-lg font-normal text-text mb-1">100% Plant Surfactants</h4>
+              <p style={{ color: 'var(--color-text)' }} className="font-body text-xs text-text font-medium">Derived from organic coconut and citric acid.</p>
             </div>
 
             <div className="flex flex-col items-center">
               <span className="text-3xl mb-3">🐰</span>
-              <h4 className="font-heading text-lg font-normal text-[#173E4A] mb-1">Cruelty-Free &amp; Vegan</h4>
-              <p style={{ color: '#173E4A' }} className="font-body text-xs text-[#173E4A] font-medium">Ethically created with zero animal testing.</p>
+              <h4 className="font-heading text-lg font-normal text-text mb-1">Cruelty-Free &amp; Vegan</h4>
+              <p style={{ color: 'var(--color-text)' }} className="font-body text-xs text-text font-medium">Ethically created with zero animal testing.</p>
             </div>
 
             <div className="flex flex-col items-center">
               <span className="text-3xl mb-3">💧</span>
-              <h4 className="font-heading text-lg font-normal text-[#173E4A] mb-1">Perfume-Lock™ Tech</h4>
-              <p style={{ color: '#173E4A' }} className="font-body text-xs text-[#173E4A] font-medium">Long-lasting fresh aromas with neutralizers.</p>
+              <h4 className="font-heading text-lg font-normal text-text mb-1">Perfume-Lock™ Tech</h4>
+              <p style={{ color: 'var(--color-text)' }} className="font-body text-xs text-text font-medium">Long-lasting fresh aromas with neutralizers.</p>
             </div>
 
             <div className="flex flex-col items-center">
               <span className="text-3xl mb-3">📦</span>
-              <h4 className="font-heading text-lg font-normal text-[#173E4A] mb-1">Free Shipping &gt; ₹350</h4>
-              <p style={{ color: '#173E4A' }} className="font-body text-xs text-[#173E4A] font-medium">Swift 2-4 day dispatch nationwide.</p>
+              <h4 className="font-heading text-lg font-normal text-text mb-1">Free Shipping &gt; ₹350</h4>
+              <p style={{ color: 'var(--color-text)' }} className="font-body text-xs text-text font-medium">Swift 2-4 day dispatch nationwide.</p>
             </div>
 
           </div>

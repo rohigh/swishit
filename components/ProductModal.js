@@ -108,25 +108,25 @@ export default function ProductModal({ product, onClose }) {
         >
           
           {/* Top Sticky Header Bar (Breadcrumbs & Back Button) */}
-          <div className="sticky top-0 z-30 bg-[#FBF7EC]/95 backdrop-blur-md px-6 md:px-16 py-5 border-b border-[#173E4A]/10 flex items-center justify-between">
+          <div className="sticky top-0 z-30 bg-[#FBF7EC]/95 backdrop-blur-md px-6 md:px-16 py-5 border-b border-[#155E78]/10 flex items-center justify-between">
             <div className="flex items-center gap-3 text-xs md:text-sm font-body text-[#4A7A8A]">
               <button 
                 onClick={onClose}
-                className="flex items-center gap-2 text-[#173E4A] font-semibold hover:opacity-75 transition-opacity cursor-pointer mr-2"
+                className="flex items-center gap-2 text-text font-semibold hover:opacity-75 transition-opacity cursor-pointer mr-2"
               >
                 <span>&larr;</span> Back to Shop
               </button>
               <span className="hidden sm:inline text-gray-300">|</span>
-              <span className="hidden sm:inline cursor-pointer hover:text-[#173E4A]" onClick={onClose}>Home</span>
+              <span className="hidden sm:inline cursor-pointer hover:text-text" onClick={onClose}>Home</span>
               <span className="hidden sm:inline">&gt;</span>
-              <span className="hidden sm:inline cursor-pointer hover:text-[#173E4A]" onClick={onClose}>Shop</span>
+              <span className="hidden sm:inline cursor-pointer hover:text-text" onClick={onClose}>Shop</span>
               <span className="hidden sm:inline">&gt;</span>
-              <span className="font-semibold text-[#173E4A]">{product.name}</span>
+              <span className="font-semibold text-text">{product.name}</span>
             </div>
 
             <button 
               onClick={onClose}
-              className="w-10 h-10 rounded-full bg-[#173E4A]/5 hover:bg-[#173E4A]/10 flex items-center justify-center text-[#173E4A] font-bold text-xl transition-colors cursor-pointer"
+              className="w-10 h-10 rounded-full bg-[#155E78]/5 hover:bg-[#155E78]/10 flex items-center justify-center text-text font-bold text-xl transition-colors cursor-pointer"
               aria-label="Close Product Page"
             >
               ✕
@@ -143,7 +143,7 @@ export default function ProductModal({ product, onClose }) {
               <div className="lg:col-span-6 flex flex-col gap-6">
                 
                 {/* Main Large Image Container (Matching Screenshot 1) */}
-                <div className="relative w-full h-[clamp(380px,48vw,660px)] bg-[#EFECE5] rounded-3xl overflow-hidden border border-[#173E4A]/10 flex items-center justify-center group shadow-inner">
+                <div className="relative w-full h-[clamp(380px,48vw,660px)] bg-[#EFECE5] rounded-3xl overflow-hidden border border-[#155E78]/10 flex items-center justify-center group shadow-inner">
                   
                   {/* Wishlist Heart Button */}
                   <button 
@@ -185,20 +185,20 @@ export default function ProductModal({ product, onClose }) {
               <div className="lg:col-span-6 flex flex-col justify-between">
                 <div>
                   {/* Price */}
-                  <div className="text-fluid-xl font-body font-bold text-[#173E4A] mb-3">
+                  <div className="text-fluid-xl font-body font-bold text-text mb-3">
                     ₹{product.price} <span className="text-xs md:text-sm text-[#4A7A8A] font-normal ml-2">(Incl. all taxes)</span>
                   </div>
 
                   {/* Product Title */}
-                  <h1 className="font-heading font-normal text-fluid-3xl text-[#173E4A] tracking-tight mb-2">
+                  <h1 className="font-heading font-normal text-fluid-3xl text-text tracking-tight mb-2">
                     {product.name}
                   </h1>
 
                   {/* Rating Stars Badge */}
                   <div className="flex items-center gap-2 mb-4">
                     <div className="flex text-amber-400 text-sm">★★★★★</div>
-                    <span className="text-xs font-bold text-[#173E4A]">4.9</span>
-                    <span className="text-xs text-[#173E4A]/60 font-body">• 2,500+ Verified Reviews</span>
+                    <span className="text-xs font-bold text-text">4.9</span>
+                    <span className="text-xs text-text/60 font-body">• 2,500+ Verified Reviews</span>
                   </div>
 
                   {/* Short Description */}
@@ -218,8 +218,8 @@ export default function ProductModal({ product, onClose }) {
                           onClick={() => setSelectedSize(sz)}
                           className={`px-5 py-3 rounded-2xl text-xs md:text-sm font-body font-medium transition-all cursor-pointer ${
                             selectedSize === sz
-                              ? 'bg-[#173E4A] text-white shadow-md font-semibold scale-[1.02]'
-                              : 'bg-[#EFECE5] text-[#173E4A] hover:bg-[#E2DDD3]'
+                              ? 'bg-[#155E78] text-white shadow-md font-semibold scale-[1.02]'
+                              : 'bg-[#EFECE5] text-text hover:bg-[#E2DDD3]'
                           }`}
                         >
                           {sz}
@@ -231,17 +231,17 @@ export default function ProductModal({ product, onClose }) {
                   {/* Quantity Counter & Add to Cart Action Bar */}
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
                     {/* Counter */}
-                    <div className="flex items-center justify-between bg-[#EFECE5] rounded-full px-5 h-14 w-36 border border-[#173E4A]/10">
+                    <div className="flex items-center justify-between bg-[#EFECE5] rounded-full px-5 h-14 w-36 border border-[#155E78]/10">
                       <button 
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="text-[#173E4A] text-xl font-bold hover:opacity-60 transition-opacity cursor-pointer"
+                        className="text-text text-xl font-bold hover:opacity-60 transition-opacity cursor-pointer"
                       >
                         –
                       </button>
-                      <span className="font-body font-bold text-[#173E4A] text-lg">{quantity}</span>
+                      <span className="font-body font-bold text-text text-lg">{quantity}</span>
                       <button 
                         onClick={() => setQuantity(quantity + 1)}
-                        className="text-[#173E4A] text-xl font-bold hover:opacity-60 transition-opacity cursor-pointer"
+                        className="text-text text-xl font-bold hover:opacity-60 transition-opacity cursor-pointer"
                       >
                         +
                       </button>
@@ -250,14 +250,14 @@ export default function ProductModal({ product, onClose }) {
                     {/* Add to Cart Button */}
                     <button 
                       onClick={handleAddToCart}
-                      className="flex-1 h-14 rounded-full bg-[#F0A93B] text-[#173E4A] hover:bg-[#D48820] hover:text-white font-body font-bold text-base md:text-lg transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                      className="flex-1 h-14 rounded-full bg-[#F0A93B] text-text hover:bg-[#D48820] hover:text-white font-body font-bold text-base md:text-lg transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <span>{addedToCart ? '✓ Added to Bag!' : `Add to Cart — ₹${product.price * quantity}`}</span>
                     </button>
                   </div>
 
                   {/* Delivery Perks */}
-                  <div className="flex items-center gap-8 text-xs md:text-sm text-[#4A7A8A] font-body mb-10 pb-6 border-b border-[#173E4A]/10">
+                  <div className="flex items-center gap-8 text-xs md:text-sm text-[#4A7A8A] font-body mb-10 pb-6 border-b border-[#155E78]/10">
                     <span className="flex items-center gap-2">📦 Free Shipping over ₹399</span>
                     <span className="flex items-center gap-2">🛡️ 7 Days Easy Returns</span>
                   </div>
@@ -266,33 +266,33 @@ export default function ProductModal({ product, onClose }) {
                   <div className="grid grid-cols-4 gap-3 mb-10">
                     <div className="bg-[#EFECE5] rounded-2xl p-4 text-center flex flex-col items-center justify-center">
                       <span className="text-xl mb-1">🌿</span>
-                      <span className="text-xs font-body font-bold text-[#173E4A] leading-tight">100% Natural</span>
+                      <span className="text-xs font-body font-bold text-text leading-tight">100% Natural</span>
                     </div>
                     <div className="bg-[#EFECE5] rounded-2xl p-4 text-center flex flex-col items-center justify-center">
                       <span className="text-xl mb-1">🐰</span>
-                      <span className="text-xs font-body font-bold text-[#173E4A] leading-tight">Cruelty Free</span>
+                      <span className="text-xs font-body font-bold text-text leading-tight">Cruelty Free</span>
                     </div>
                     <div className="bg-[#EFECE5] rounded-2xl p-4 text-center flex flex-col items-center justify-center">
                       <span className="text-xl mb-1">🍃</span>
-                      <span className="text-xs font-body font-bold text-[#173E4A] leading-tight">Eco Friendly</span>
+                      <span className="text-xs font-body font-bold text-text leading-tight">Eco Friendly</span>
                     </div>
                     <div className="bg-[#EFECE5] rounded-2xl p-4 text-center flex flex-col items-center justify-center">
                       <span className="text-xl mb-1">🛡️</span>
-                      <span className="text-xs font-body font-bold text-[#173E4A] leading-tight">Expert Approved</span>
+                      <span className="text-xs font-body font-bold text-text leading-tight">Expert Approved</span>
                     </div>
                   </div>
 
                   {/* Expandable Tabs (Details, How to Use, Ingredients, Delivery) */}
-                  <div className="divide-y divide-[#173E4A]/10 border-t border-b border-[#173E4A]/10">
+                  <div className="divide-y divide-[#155E78]/10 border-t border-b border-[#155E78]/10">
                     
                     {/* Details */}
                     <div className="py-4">
                       <button 
                         onClick={() => toggleAccordion('details')}
-                        className="w-full flex items-center justify-between font-heading text-xl font-normal text-[#173E4A] text-left cursor-pointer"
+                        className="w-full flex items-center justify-between font-heading text-xl font-normal text-text text-left cursor-pointer"
                       >
                         <span>Details</span>
-                        <span className="text-[#173E4A] font-bold text-fluid-lg">{activeAccordion === 'details' ? '–' : '+'}</span>
+                        <span className="text-text font-bold text-fluid-lg">{activeAccordion === 'details' ? '–' : '+'}</span>
                       </button>
                       {activeAccordion === 'details' && (
                         <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
@@ -305,10 +305,10 @@ export default function ProductModal({ product, onClose }) {
                     <div className="py-4">
                       <button 
                         onClick={() => toggleAccordion('use')}
-                        className="w-full flex items-center justify-between font-heading text-xl font-normal text-[#173E4A] text-left cursor-pointer"
+                        className="w-full flex items-center justify-between font-heading text-xl font-normal text-text text-left cursor-pointer"
                       >
                         <span>How to Use</span>
-                        <span className="text-[#173E4A] font-bold text-fluid-lg">{activeAccordion === 'use' ? '–' : '+'}</span>
+                        <span className="text-text font-bold text-fluid-lg">{activeAccordion === 'use' ? '–' : '+'}</span>
                       </button>
                       {activeAccordion === 'use' && (
                         <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
@@ -321,10 +321,10 @@ export default function ProductModal({ product, onClose }) {
                     <div className="py-4">
                       <button 
                         onClick={() => toggleAccordion('ingredients')}
-                        className="w-full flex items-center justify-between font-heading text-xl font-normal text-[#173E4A] text-left cursor-pointer"
+                        className="w-full flex items-center justify-between font-heading text-xl font-normal text-text text-left cursor-pointer"
                       >
                         <span>Ingredients</span>
-                        <span className="text-[#173E4A] font-bold text-fluid-lg">{activeAccordion === 'ingredients' ? '–' : '+'}</span>
+                        <span className="text-text font-bold text-fluid-lg">{activeAccordion === 'ingredients' ? '–' : '+'}</span>
                       </button>
                       {activeAccordion === 'ingredients' && (
                         <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
@@ -337,10 +337,10 @@ export default function ProductModal({ product, onClose }) {
                     <div className="py-4">
                       <button 
                         onClick={() => toggleAccordion('shipping')}
-                        className="w-full flex items-center justify-between font-heading text-xl font-normal text-[#173E4A] text-left cursor-pointer"
+                        className="w-full flex items-center justify-between font-heading text-xl font-normal text-text text-left cursor-pointer"
                       >
                         <span>Delivery &amp; Returns</span>
-                        <span className="text-[#173E4A] font-bold text-fluid-lg">{activeAccordion === 'shipping' ? '–' : '+'}</span>
+                        <span className="text-text font-bold text-fluid-lg">{activeAccordion === 'shipping' ? '–' : '+'}</span>
                       </button>
                       {activeAccordion === 'shipping' && (
                         <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
@@ -353,8 +353,8 @@ export default function ProductModal({ product, onClose }) {
 
                   {/* Footer Links */}
                   <div className="mt-8 flex items-center justify-between text-xs md:text-sm text-[#4A7A8A] font-body underline underline-offset-4 mb-8">
-                    <a href="#faq" onClick={onClose} className="hover:text-[#173E4A]">Frequently Asked Questions</a>
-                    <a href="#footer" onClick={onClose} className="hover:text-[#173E4A]">Contact Support</a>
+                    <a href="#faq" onClick={onClose} className="hover:text-text">Frequently Asked Questions</a>
+                    <a href="#footer" onClick={onClose} className="hover:text-text">Contact Support</a>
                   </div>
 
                   {/* Customer Reviews & 5-Star Ratings */}
@@ -366,37 +366,37 @@ export default function ProductModal({ product, onClose }) {
             </div>
 
             {/* ── SECTION 2: TOP 4 TRUST BANNER (MATCHING SCREENSHOT 1) ── */}
-            <div className="pt-16 border-t border-[#173E4A]/10">
+            <div className="pt-16 border-t border-[#155E78]/10">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 
                 <div className="bg-[#EFECE5] rounded-3xl p-8 text-center flex flex-col items-center justify-center">
                   <span className="text-3xl mb-3">🌿</span>
-                  <h4 className="font-heading font-normal text-xl text-[#173E4A] mb-2">Natural Formula</h4>
-                  <p style={{ color: '#173E4A' }} className="font-body text-xs md:text-sm text-[#173E4A] font-medium leading-relaxed">
+                  <h4 className="font-heading font-normal text-xl text-text mb-2">Natural Formula</h4>
+                  <p style={{ color: 'var(--color-text)' }} className="font-body text-xs md:text-sm text-text font-medium leading-relaxed">
                     Crafted with pure, skin-loving ingredients for ultimate care.
                   </p>
                 </div>
 
                 <div className="bg-[#EFECE5] rounded-3xl p-8 text-center flex flex-col items-center justify-center">
                   <span className="text-3xl mb-3">🐰</span>
-                  <h4 className="font-heading font-normal text-xl text-[#173E4A] mb-2">Cruelty-Free</h4>
-                  <p style={{ color: '#173E4A' }} className="font-body text-xs md:text-sm text-[#173E4A] font-medium leading-relaxed">
+                  <h4 className="font-heading font-normal text-xl text-text mb-2">Cruelty-Free</h4>
+                  <p style={{ color: 'var(--color-text)' }} className="font-body text-xs md:text-sm text-text font-medium leading-relaxed">
                     Our products are never tested on animals, guaranteed ethical.
                   </p>
                 </div>
 
                 <div className="bg-[#EFECE5] rounded-3xl p-8 text-center flex flex-col items-center justify-center">
                   <span className="text-3xl mb-3">🛡️</span>
-                  <h4 className="font-heading font-normal text-xl text-[#173E4A] mb-2">Expert Approved</h4>
-                  <p style={{ color: '#173E4A' }} className="font-body text-xs md:text-sm text-[#173E4A] font-medium leading-relaxed">
+                  <h4 className="font-heading font-normal text-xl text-text mb-2">Expert Approved</h4>
+                  <p style={{ color: 'var(--color-text)' }} className="font-body text-xs md:text-sm text-text font-medium leading-relaxed">
                     Carefully tested to ensure safety and visible results.
                   </p>
                 </div>
 
                 <div className="bg-[#EFECE5] rounded-3xl p-8 text-center flex flex-col items-center justify-center">
                   <span className="text-3xl mb-3">🚚</span>
-                  <h4 className="font-heading font-normal text-xl text-[#173E4A] mb-2">Free Shipping</h4>
-                  <p style={{ color: '#173E4A' }} className="font-body text-xs md:text-sm text-[#173E4A] font-medium leading-relaxed">
+                  <h4 className="font-heading font-normal text-xl text-text mb-2">Free Shipping</h4>
+                  <p style={{ color: 'var(--color-text)' }} className="font-body text-xs md:text-sm text-text font-medium leading-relaxed">
                     Delivered to your doorstep with no extra costs nationwide.
                   </p>
                 </div>
@@ -405,31 +405,31 @@ export default function ProductModal({ product, onClose }) {
             </div>
 
             {/* ── SECTION 3: PRODUCT FAQ ACCORDION (MATCHING SCREENSHOT 1) ── */}
-            <div className="pt-16 border-t border-[#173E4A]/10">
+            <div className="pt-16 border-t border-[#155E78]/10">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
                 <div className="lg:col-span-4">
-                  <h2 className="font-heading text-fluid-3xl font-normal text-[#173E4A]">
+                  <h2 className="font-heading text-fluid-3xl font-normal text-text">
                     FAQ
                   </h2>
                 </div>
 
                 <div className="lg:col-span-8 flex flex-col gap-4">
                   {productFaqs.map((faq, idx) => (
-                    <div key={idx} className="bg-[#EFECE5] rounded-2xl p-6 border border-[#173E4A]/10 shadow-sm">
+                    <div key={idx} className="bg-[#EFECE5] rounded-2xl p-6 border border-[#155E78]/10 shadow-sm">
                       <button 
                         onClick={() => toggleAccordion(`product-faq-${idx}`)}
-                        className="w-full flex items-center justify-between text-left font-body font-bold text-[#173E4A] text-base md:text-lg cursor-pointer gap-4"
-                        style={{ color: '#173E4A' }}
+                        className="w-full flex items-center justify-between text-left font-body font-bold text-text text-base md:text-lg cursor-pointer gap-4"
+                        style={{ color: 'var(--color-text)' }}
                       >
-                        <span style={{ color: '#173E4A' }} className="text-[#173E4A] font-bold">{faq.q}</span>
-                        <span style={{ color: '#173E4A' }} className="text-[#173E4A] font-bold text-xl shrink-0">
+                        <span style={{ color: 'var(--color-text)' }} className="text-text font-bold">{faq.q}</span>
+                        <span style={{ color: 'var(--color-text)' }} className="text-text font-bold text-xl shrink-0">
                           {activeAccordion === `product-faq-${idx}` ? '–' : '+'}
                         </span>
                       </button>
 
                       {activeAccordion === `product-faq-${idx}` && (
-                        <p style={{ color: '#173E4A' }} className="mt-4 text-sm md:text-base text-[#173E4A] font-body font-medium leading-relaxed animate-fadeIn">
+                        <p style={{ color: 'var(--color-text)' }} className="mt-4 text-sm md:text-base text-text font-body font-medium leading-relaxed animate-fadeIn">
                           {faq.a}
                         </p>
                       )}

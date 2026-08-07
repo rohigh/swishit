@@ -69,7 +69,7 @@ export default function Footer() {
               </h2>
 
               {/* Newsletter Input */}
-              <form onSubmit={handleSubscribe} className="relative flex items-center bg-[#173E4A] rounded-full p-1.5 pl-6 max-w-md w-full mb-10 border border-[#5AB8D6]/20 focus-within:border-[#5AB8D6]/50 transition-colors">
+              <form onSubmit={handleSubscribe} className="relative flex items-center bg-[#155E78] rounded-full p-1.5 pl-6 max-w-md w-full mb-10 border border-[#5AB8D6]/20 focus-within:border-[#5AB8D6]/50 transition-colors">
                 <input 
                   type="email" 
                   value={email}
@@ -80,7 +80,7 @@ export default function Footer() {
                 />
                 <button 
                   type="submit"
-                  className="w-10 h-10 shrink-0 rounded-full bg-[#F0A93B] text-[#173E4A] flex items-center justify-center font-bold text-lg hover:bg-[#F5C06A] transition-colors cursor-pointer shadow-md"
+                  className="w-10 h-10 shrink-0 rounded-full bg-[#F0A93B] text-text flex items-center justify-center font-bold text-lg hover:bg-[#F5C06A] transition-colors cursor-pointer shadow-md"
                   aria-label="Subscribe"
                 >
                   &rarr;

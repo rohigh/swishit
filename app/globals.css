@@ -23,7 +23,7 @@
     --color-accent:   #5AB8D6;   /* Sky blue           */
     --color-base:     #FBF7EC;   /* Warm cream         */
     --color-cta:      #F0A93B;   /* Amber / golden     */
-    --color-text:     #173E4A;   /* Deep ocean text    */
+    --color-text:     #1A1A1A;   /* Sleek Soft Black   */
 
     /* ── Tints & shades derived from brand ── */
     --color-primary-light:  #2E9ABF;
@@ -32,8 +32,8 @@
     --color-accent-dark:    #3A97B5;
     --color-cta-light:      #F5C06A;
     --color-cta-dark:       #D48820;
-    --color-text-light:     #173E4A;
-    --color-text-muted:     #173E4A;
+    --color-text-light:     #333333;
+    --color-text-muted:     #4D4D4D;
 
     /* ── Surfaces (light-mode, cream-based) ── */
     --surface:          #FBF7EC;

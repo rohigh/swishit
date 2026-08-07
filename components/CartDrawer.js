@@ -65,7 +65,7 @@ export default function CartDrawer() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             onClick={() => setIsCartOpen(false)}
-            className="absolute inset-0 bg-[#173E4A]/40 backdrop-blur-xs"
+            className="absolute inset-0 bg-[#155E78]/40 backdrop-blur-xs"
           />
 
           {/* Slide-out Drawer Container */}
@@ -74,23 +74,23 @@ export default function CartDrawer() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-            className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col font-body text-[#173E4A] z-10 overflow-hidden border-l border-[#173E4A]/10"
+            className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col font-body text-text z-10 overflow-hidden border-l border-[#155E78]/10"
           >
             {/* Header */}
-            <div className="p-5 sm:p-6 border-b border-[#173E4A]/10 flex items-center justify-between bg-white">
+            <div className="p-5 sm:p-6 border-b border-[#155E78]/10 flex items-center justify-between bg-white">
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#155E78]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <h2 className="text-xl font-heading font-semibold text-[#173E4A]">Your Bag</h2>
-                <span className="px-2.5 py-0.5 rounded-full bg-[#155E78]/10 text-[#155E78] text-xs font-bold font-mono">
+                <h2 className="text-xl font-heading font-semibold text-text">Your Bag</h2>
+                <span className="px-2.5 py-0.5 rounded-full bg-[#155E78]/10 text-text text-xs font-bold font-mono">
                   {cartCount} {cartCount === 1 ? 'item' : 'items'}
                 </span>
               </div>
 
               <button
                 onClick={() => setIsCartOpen(false)}
-                className="w-8 h-8 rounded-full bg-[#F4F1EB] hover:bg-gray-200 text-[#173E4A] flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full bg-[#F4F1EB] hover:bg-gray-200 text-text flex items-center justify-center transition-colors"
                 aria-label="Close cart"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,11 +100,11 @@ export default function CartDrawer() {
             </div>
 
             {/* Free Shipping Progress Banner */}
-            <div className="bg-[#FBF7EC] px-6 py-3.5 border-b border-[#173E4A]/10">
+            <div className="bg-[#FBF7EC] px-6 py-3.5 border-b border-[#155E78]/10">
               <div className="flex items-center justify-between text-xs font-semibold mb-1.5">
                 {amountNeeded > 0 ? (
-                  <span className="text-[#173E4A]">
-                    Add <strong className="text-[#155E78]">₹{amountNeeded}</strong> more for <strong className="text-green-700">FREE Shipping!</strong>
+                  <span className="text-text">
+                    Add <strong className="text-text">₹{amountNeeded}</strong> more for <strong className="text-green-700">FREE Shipping!</strong>
                   </span>
                 ) : (
                   <span className="text-green-700 font-bold flex items-center gap-1">
@@ -114,7 +114,7 @@ export default function CartDrawer() {
                     🎉 You&apos;ve unlocked FREE Shipping!
                   </span>
                 )}
-                <span className="font-mono text-[#173E4A]/60">{progressPercent}%</span>
+                <span className="font-mono text-text/60">{progressPercent}%</span>
               </div>
               <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
                 <motion.div
@@ -132,13 +132,13 @@ export default function CartDrawer() {
             <div className="flex-grow overflow-y-auto p-4 sm:p-5 md:p-6 space-y-3 md:space-y-4">
               {cartItems.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                  <div className="w-16 h-16 rounded-full bg-[#F4F1EB] flex items-center justify-center text-[#155E78] mb-4">
+                  <div className="w-16 h-16 rounded-full bg-[#F4F1EB] flex items-center justify-center text-text mb-4">
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-heading font-semibold text-[#173E4A] mb-1">Your bag is empty</h3>
-                  <p className="text-xs text-[#173E4A]/70 max-w-xs mb-6">
+                  <h3 className="text-lg font-heading font-semibold text-text mb-1">Your bag is empty</h3>
+                  <p className="text-xs text-text/70 max-w-xs mb-6">
                     Looks like you haven&apos;t added any products yet.
                   </p>
                   <button
@@ -146,7 +146,7 @@ export default function CartDrawer() {
                       setIsCartOpen(false);
                       router.push('/shop');
                     }}
-                    className="px-6 py-2.5 rounded-full bg-[#173E4A] text-white font-medium text-xs hover:bg-[#155E78] transition-all shadow-sm"
+                    className="px-6 py-2.5 rounded-full bg-[#155E78] text-white font-medium text-xs hover:bg-[#155E78] transition-all shadow-sm"
                   >
                     Start Shopping
                   </button>
@@ -159,7 +159,7 @@ export default function CartDrawer() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    className="flex gap-4 p-3.5 rounded-2xl bg-[#F4F1EB]/50 border border-[#173E4A]/10 relative group"
+                    className="flex gap-4 p-3.5 rounded-2xl bg-[#F4F1EB]/50 border border-[#155E78]/10 relative group"
                   >
                     {/* Thumbnail */}
                     <div className="relative w-20 h-20 rounded-xl bg-white p-2 flex-shrink-0 flex items-center justify-center border border-gray-100">
@@ -176,11 +176,11 @@ export default function CartDrawer() {
                     <div className="flex-grow flex flex-col justify-between">
                       <div>
                         <div className="flex justify-between items-start pr-6">
-                          <h4 className="text-sm font-semibold text-[#173E4A] leading-tight line-clamp-1">
+                          <h4 className="text-sm font-semibold text-text leading-tight line-clamp-1">
                             {item.title}
                           </h4>
                         </div>
-                        <p className="text-[0.6875rem] text-[#173E4A]/60 font-mono mt-0.5">{item.variant}</p>
+                        <p className="text-[0.6875rem] text-text/60 font-mono mt-0.5">{item.variant}</p>
                       </div>
 
                       <div className="flex items-center justify-between mt-2">
@@ -188,12 +188,12 @@ export default function CartDrawer() {
                         <div className="flex items-center gap-2 border border-gray-300 rounded-full bg-white px-2 py-1">
                           <button
                             onClick={() => updateQuantity(item.id, item.variant, -1)}
-                            className="w-5 h-5 rounded-full hover:bg-gray-100 flex items-center justify-center text-xs font-bold text-[#173E4A]"
+                            className="w-5 h-5 rounded-full hover:bg-gray-100 flex items-center justify-center text-xs font-bold text-text"
                             aria-label="Decrease quantity"
                           >
                             –
                           </button>
-                          <span className="text-xs font-bold font-mono text-[#173E4A] w-4 text-center">
+                          <span className="text-xs font-bold font-mono text-text w-4 text-center">
                             {item.quantity}
                           </span>
                           <button
@@ -250,7 +250,7 @@ export default function CartDrawer() {
 
                 <button
                   onClick={() => setIsCartOpen(false)}
-                  className="w-full text-center text-xs text-[#155E78] font-semibold hover:underline"
+                  className="w-full text-center text-xs text-text font-semibold hover:underline"
                 >
                   Continue Shopping
                 </button>
