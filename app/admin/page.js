@@ -13,6 +13,7 @@ export default function AdminDashboard() {
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [authError, setAuthError] = useState(null);
   
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
@@ -23,8 +24,11 @@ export default function AdminDashboard() {
         const { data: { user }, error } = await supabase.auth.getUser();
         
         // Security check: Must be authenticated AND match the admin email
-        if (error || !user || user.email !== 'swishitt@gmail.com') {
-          router.push('/');
+        const userEmail = user?.email?.toLowerCase().trim();
+        if (error || !user || userEmail !== 'swishitt@gmail.com') {
+          console.log("Admin auth rejected. User object:", user);
+          setAuthError(`Access Denied! \nEmail detected: ${user?.email || 'None'}`);
+          setLoading(false);
           return;
         }
         
@@ -54,19 +58,22 @@ export default function AdminDashboard() {
       // Optimistic UI update
       setOrders(orders.map(o => o.id === orderId ? { ...o, status: newStatus } : o));
       
-      const { error } = await supabase
-        .from('orders')
-        .update({ status: newStatus })
-        .eq('id', orderId);
+      const response = await fetch('/api/admin/update-status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderId, newStatus }),
+      });
 
-      if (error) {
-        console.error('Error updating status:', error);
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Error updating status:', errorData.error);
+        
         // Revert on error
         const { data } = await supabase.from('orders').select('*').eq('id', orderId).single();
         if (data) {
            setOrders(orders.map(o => o.id === orderId ? data : o));
         }
-        alert('Failed to update order status. See console.');
+        alert('Failed to update order status securely. See console.');
       }
     } catch (err) {
       console.error(err);
@@ -84,10 +91,26 @@ export default function AdminDashboard() {
     );
   }
 
+  if (authError) {
+    return (
+      <div className="min-h-screen bg-surface flex flex-col font-body text-text">
+        <Navbar />
+        <main className="flex-grow pt-36 pb-20 flex flex-col items-center justify-center px-4">
+          <div className="bg-red-50 text-red-800 p-8 rounded-3xl border border-red-200 shadow-md max-w-lg text-center">
+            <h2 className="text-2xl font-heading font-bold mb-4">Security Rejection</h2>
+            <p className="whitespace-pre-wrap font-mono text-sm">{authError}</p>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
   if (!user) return null;
 
   // Analytics
-  const totalRevenue = orders.reduce((sum, ord) => sum + (ord.total || 0), 0);
+  const totalRevenue = orders
+    .filter(o => o.status !== 'Cancelled')
+    .reduce((sum, ord) => sum + (ord.total || 0), 0);
   const processingCount = orders.filter(o => o.status === 'Processing').length;
   const completedCount = orders.filter(o => o.status === 'Delivered').length;
 

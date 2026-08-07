@@ -131,6 +131,35 @@ export default function CheckoutPage() {
           status: 'Processing',
         });
       }
+
+      // Send Order Confirmation Email via our new API route
+      try {
+        const emailRes = await fetch('/api/email/order-confirmation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            orderDetails: {
+              orderId: orderDetails.orderId,
+              items: cartItems,
+              subtotal: cartSubtotal,
+              shippingFee: shippingFee,
+              total: finalTotal,
+            },
+            email: formData.email,
+            name: formData.firstName,
+          }),
+        });
+        if (!emailRes.ok) {
+           const errData = await emailRes.json();
+           console.error("Email route returned error:", errData);
+           alert(`Failed to send email: ${errData.error || 'Unknown error'}. Check VS Code terminal for details.`);
+        } else {
+           console.log("Email sent successfully!");
+        }
+      } catch (emailErr) {
+        console.error('Failed to trigger confirmation email:', emailErr);
+        alert('Network error while sending email.');
+      }
     } catch (dbErr) {
       console.error('Database order save notice:', dbErr);
     }
@@ -394,21 +423,28 @@ export default function CheckoutPage() {
                       </button>
                     </div>
                   ) : (
-                    <form onSubmit={handleApplyPromo} className="flex gap-2">
+                    <div className="flex gap-2">
                       <input
                         type="text"
                         placeholder="Promo code"
                         value={promoCode}
                         onChange={(e) => setPromoCode(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleApplyPromo(e);
+                          }
+                        }}
                         className="flex-1 px-3 py-2.5 rounded-xl border border-gray-300 text-sm text-text focus:outline-none focus:ring-2 focus:ring-[#5AB8D6]"
                       />
                       <button
-                        type="submit"
+                        type="button"
+                        onClick={handleApplyPromo}
                         className="px-4 py-2.5 rounded-xl bg-[#155E78] text-white text-sm font-semibold hover:bg-[#155E78] transition-all"
                       >
                         Apply
                       </button>
-                    </form>
+                    </div>
                   )}
                   {promoError && <p className="text-xs text-red-500 mt-2">{promoError}</p>}
                 </div>
