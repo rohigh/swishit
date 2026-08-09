@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import InstagramSection from '@/components/InstagramSection';
+import { submitContactForm } from '@/app/actions/contact';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -19,13 +20,20 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [errorMsg, setErrorMsg] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMsg(null);
     if (!formData.name || !formData.email || !formData.message) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    
+    const result = await submitContactForm(formData);
+    
+    setIsSubmitting(false);
+
+    if (result.success) {
       setSubmitted(true);
       setFormData({
         name: '',
@@ -33,7 +41,9 @@ export default function ContactPage() {
         subject: 'General Inquiry',
         message: '',
       });
-    }, 800);
+    } else {
+      setErrorMsg(result.error || 'Something went wrong. Please try again.');
+    }
   };
 
   const handleChange = (e) => {
@@ -127,6 +137,11 @@ export default function ContactPage() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {errorMsg && (
+                    <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm border border-red-200">
+                      {errorMsg}
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Full Name */}
                     <div>
