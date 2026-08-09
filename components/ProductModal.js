@@ -89,7 +89,7 @@ export default function ProductModal({ product, onClose }) {
   };
 
   const sizes = product?.isBundle 
-    ? ['Trio Collection (3x500ml)', 'Refill Pouch Bundle'] 
+    ? ['Trio Collection (3x500ml)'] 
     : ['500ml Pump', '1000ml Refill Pouch'];
 
   const productFaqs = product?.faqs || DEFAULT_PRODUCT_FAQS;
@@ -171,8 +171,8 @@ export default function ProductModal({ product, onClose }) {
                     <button 
                       key={idx}
                       onClick={() => setActiveImage(img)}
-                      className={`relative w-24 h-24 rounded-2xl bg-[#EFECE5] border-2 overflow-hidden shrink-0 transition-all cursor-pointer ${
-                        activeImage === img ? 'border-[#1D7E9E] scale-105 shadow-md' : 'border-transparent opacity-70 hover:opacity-100'
+                      className={`relative w-24 h-24 rounded-2xl bg-[#EFECE5] overflow-hidden shrink-0 transition-all cursor-pointer ${
+                        activeImage === img ? 'border-2 border-[#1D7E9E] scale-105 shadow-md' : 'opacity-70 hover:opacity-100'
                       }`}
                     >
                       <Image src={img} alt="Thumbnail" fill sizes="96px" className="object-contain p-2" />
@@ -197,8 +197,8 @@ export default function ProductModal({ product, onClose }) {
                   {/* Rating Stars Badge */}
                   <div className="flex items-center gap-2 mb-4">
                     <div className="flex text-amber-400 text-sm">★★★★★</div>
-                    <span className="text-xs font-bold text-text">4.9</span>
-                    <span className="text-xs text-text/60 font-body">• 2,500+ Verified Reviews</span>
+                    <span className="text-xs font-bold text-text">{product.rating || 4.9}</span>
+                    <span className="text-xs text-text/60 font-body">• {product.reviews ? `${product.reviews} Verified Reviews` : '2,500+ Verified Reviews'}</span>
                   </div>
 
                   {/* Short Description */}
@@ -259,7 +259,7 @@ export default function ProductModal({ product, onClose }) {
                   {/* Delivery Perks */}
                   <div className="flex items-center gap-8 text-xs md:text-sm text-[#4A7A8A] font-body mb-10 pb-6 border-b border-[#155E78]/10">
                     <span className="flex items-center gap-2">📦 Free Shipping over ₹399</span>
-                    <span className="flex items-center gap-2">🛡️ 7 Days Easy Returns</span>
+                    <span className="flex items-center gap-2">🛡️ 7 Days Easy Exchanges</span>
                   </div>
 
                   {/* 4 Trust Feature Icons Grid (Matching Screenshot 1) */}
@@ -295,7 +295,7 @@ export default function ProductModal({ product, onClose }) {
                         <span className="text-text font-bold text-fluid-lg">{activeAccordion === 'details' ? '–' : '+'}</span>
                       </button>
                       {activeAccordion === 'details' && (
-                        <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
+                        <p style={{ color: 'var(--color-text)' }} className="mt-3 text-sm md:text-base font-body font-medium leading-relaxed animate-fadeIn">
                           Swishit is engineered with plant-based coconut surfactants and our proprietary Perfume-Lock™ technology to eliminate stubborn grease and odors in one pump.
                         </p>
                       )}
@@ -311,27 +311,13 @@ export default function ProductModal({ product, onClose }) {
                         <span className="text-text font-bold text-fluid-lg">{activeAccordion === 'use' ? '–' : '+'}</span>
                       </button>
                       {activeAccordion === 'use' && (
-                        <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
+                        <p style={{ color: 'var(--color-text)' }} className="mt-3 text-sm md:text-base font-body font-medium leading-relaxed animate-fadeIn">
                           Press the pump once directly onto a damp sponge or in a sink filled with water. Lather and scrub your cookware or glassware, then rinse clean.
                         </p>
                       )}
                     </div>
 
-                    {/* Ingredients */}
-                    <div className="py-4">
-                      <button 
-                        onClick={() => toggleAccordion('ingredients')}
-                        className="w-full flex items-center justify-between font-heading text-xl font-normal text-text text-left cursor-pointer"
-                      >
-                        <span>Ingredients</span>
-                        <span className="text-text font-bold text-fluid-lg">{activeAccordion === 'ingredients' ? '–' : '+'}</span>
-                      </button>
-                      {activeAccordion === 'ingredients' && (
-                        <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
-                          Aqua, Coconut Glycinate (Plant Surfactant), Organic Citrus Peel Extract, Vegetable Glycerin, Perfume-Lock™ Natural Aroma, Citric Acid, Sodium Benzoate.
-                        </p>
-                      )}
-                    </div>
+
 
                     {/* Delivery & Returns */}
                     <div className="py-4">
@@ -343,8 +329,8 @@ export default function ProductModal({ product, onClose }) {
                         <span className="text-text font-bold text-fluid-lg">{activeAccordion === 'shipping' ? '–' : '+'}</span>
                       </button>
                       {activeAccordion === 'shipping' && (
-                        <p className="mt-3 text-sm md:text-base text-[#4A7A8A] font-body leading-relaxed animate-fadeIn">
-                          Dispatched within 24 hours. Standard delivery takes 2-4 business days across India. Free returns within 7 days if unopened.
+                        <p style={{ color: 'var(--color-text)' }} className="mt-3 text-sm md:text-base font-body font-medium leading-relaxed animate-fadeIn">
+                          Dispatched within 24 hours. Standard delivery takes 2-4 business days across India. Free exchanges within 7 days if unopened.
                         </p>
                       )}
                     </div>
@@ -371,7 +357,7 @@ export default function ProductModal({ product, onClose }) {
                 
                 <div className="bg-[#EFECE5] rounded-3xl p-8 text-center flex flex-col items-center justify-center">
                   <span className="text-3xl mb-3">🌿</span>
-                  <h4 className="font-heading font-normal text-xl text-text mb-2">Natural Formula</h4>
+                  <h4 className="font-heading font-normal text-xl text-text mb-2">100% Natural Formula</h4>
                   <p style={{ color: 'var(--color-text)' }} className="font-body text-xs md:text-sm text-text font-medium leading-relaxed">
                     Crafted with pure, skin-loving ingredients for ultimate care.
                   </p>
@@ -395,7 +381,7 @@ export default function ProductModal({ product, onClose }) {
 
                 <div className="bg-[#EFECE5] rounded-3xl p-8 text-center flex flex-col items-center justify-center">
                   <span className="text-3xl mb-3">🚚</span>
-                  <h4 className="font-heading font-normal text-xl text-text mb-2">Free Shipping</h4>
+                  <h4 className="font-heading font-normal text-xl text-text mb-2">Free Shipping over ₹399</h4>
                   <p style={{ color: 'var(--color-text)' }} className="font-body text-xs md:text-sm text-text font-medium leading-relaxed">
                     Delivered to your doorstep with no extra costs nationwide.
                   </p>

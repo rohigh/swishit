@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
@@ -72,13 +73,15 @@ function FAQ() {
                 </p>
               </div>
               <div className="pt-2">
-                <button 
-                  className="inline-flex items-center gap-3 rounded-full px-6 h-12 bg-[#F0A93B] text-text hover:bg-[#D48820] hover:text-white font-body text-sm font-semibold transition-all shadow-md cursor-pointer"
-                  style={{ backgroundColor: '#F0A93B', color: 'var(--color-text)' }}
-                >
-                  <span>Any questions? Reach out</span> 
-                  <PhoneCallIcon className="w-4 h-4 text-text" />
-                </button>
+                <Link href="/contact" passHref>
+                  <button 
+                    className="inline-flex items-center gap-3 rounded-full px-6 h-12 bg-[#F0A93B] text-text hover:bg-[#D48820] hover:text-white font-body text-sm font-semibold transition-all shadow-md cursor-pointer"
+                    style={{ backgroundColor: '#F0A93B', color: 'var(--color-text)' }}
+                  >
+                    <span>Any questions? Reach out</span> 
+                    <PhoneCallIcon className="w-4 h-4 text-text" />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

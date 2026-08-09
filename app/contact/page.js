@@ -29,20 +29,26 @@ export default function ContactPage() {
 
     setIsSubmitting(true);
     
-    const result = await submitContactForm(formData);
-    
-    setIsSubmitting(false);
+    try {
+      const result = await submitContactForm(formData);
+      
+      setIsSubmitting(false);
 
-    if (result.success) {
-      setSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: 'General Inquiry',
-        message: '',
-      });
-    } else {
-      setErrorMsg(result.error || 'Something went wrong. Please try again.');
+      if (result?.success) {
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          subject: 'General Inquiry',
+          message: '',
+        });
+      } else {
+        setErrorMsg(result?.error || 'Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error("Client-side error during form submission:", err);
+      setIsSubmitting(false);
+      setErrorMsg('A network or server error occurred. Please try again.');
     }
   };
 

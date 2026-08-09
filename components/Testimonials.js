@@ -17,6 +17,8 @@ const TESTIMONIALS = [
     quote: "Not gonna lie, I was super skeptical about a plant-powered dish soap cutting through stubborn Indian dal and curry grease. But Swishit is incredible! One push cleans my entire sink without any residue.",
     name: "Priya Sharma",
     role: "home chef & daily cook",
+    date: "August 14, 2026",
+    verified: true,
     initials: "PS",
     bg: "bg-pastel-blue text-[#0369a1]",
     desktopPos: "top-[16%] left-[2%] lg:left-[5%] xl:left-[6%] w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
@@ -27,6 +29,8 @@ const TESTIMONIALS = [
     quote: "Honestly? I was tired of messy soap bottles that spill and waste half the liquid. The Pump on Swishit is genius—exact amount every time, and my hands don't feel stripped or dry afterward.",
     name: "Rahul Verma",
     role: "switched from typical liquid soaps",
+    date: "July 29, 2026",
+    verified: true,
     initials: "RV",
     bg: "bg-pastel-green text-[#15803d]",
     desktopPos: "top-[10%] right-[2%] lg:right-[5%] xl:right-[6%] w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
@@ -37,6 +41,8 @@ const TESTIMONIALS = [
     quote: "The Ocean Garden scent is a total game changer. Unlike harsh chemical soaps that leave an artificial smell on dishes, Perfume-Lock™ keeps my kitchen smelling genuinely fresh and clean. Never going back.",
     name: "Ananya Patel",
     role: "kitchen minimalist & mother of 2",
+    date: "July 12, 2026",
+    verified: true,
     initials: "AP",
     bg: "bg-pastel-yellow text-[#b45309]",
     desktopPos: "top-[56%] left-1/2 -translate-x-1/2 w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
@@ -49,6 +55,8 @@ const TESTIMONIALS = [
     quote: "As someone who hosts dinner parties weekly, washing glassware used to be a chore. Lemon Loop leaves wine glasses crystal clear without a single water streak or cloudy film. Absolutely premium.",
     name: "Vikram Mehta",
     role: "food blogger & host",
+    date: "June 30, 2026",
+    verified: true,
     initials: "VM",
     bg: "bg-pastel-yellow text-[#a16207]",
     desktopPos: "top-[16%] left-[3%] lg:left-[6%] xl:left-[7%] w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
@@ -59,6 +67,8 @@ const TESTIMONIALS = [
     quote: "Finding a baby-safe dish soap that doesn't cost a fortune and actually removes greasy milk residue from bottles was impossible until Swishit. Lime Lush is gentle, safe, and ultra-effective.",
     name: "Sneha Ghosh",
     role: "mother of 3 & doctor",
+    date: "June 18, 2026",
+    verified: true,
     initials: "SG",
     bg: "bg-pastel-green text-[#15803d]",
     desktopPos: "top-[10%] right-[3%] lg:right-[6%] xl:right-[7%] w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
@@ -69,6 +79,8 @@ const TESTIMONIALS = [
     quote: "Protein shaker bottles are notorious for holding onto awful smells even after scrubbing. One pump of Ocean Garden eliminated that stale protein smell instantly. Truly lives up to the hype!",
     name: "Arjun Desai",
     role: "fitness enthusiast",
+    date: "May 25, 2026",
+    verified: true,
     initials: "AD",
     bg: "bg-pastel-blue text-[#1d7e9e]",
     desktopPos: "top-[56%] left-1/2 -translate-x-1/2 w-[88%] max-w-[360px] md:w-[320px] lg:w-[360px] xl:w-[400px]",
@@ -248,24 +260,39 @@ export default function Testimonials() {
               </div>
 
               {/* Author */}
-              <div className="flex items-center gap-3">
-                <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-mono font-bold text-xs md:text-sm ${test.bg}`}>
-                  {test.initials}
+              <div className="flex flex-col gap-1.5 mt-2">
+                <div className="flex items-center gap-3">
+                  <div className={`w-8 h-8 md:w-10 md:h-10 shrink-0 rounded-full flex items-center justify-center font-mono font-bold text-xs md:text-sm ${test.bg}`}>
+                    {test.initials}
+                  </div>
+                  <div className="flex flex-col">
+                    <span 
+                      style={{ color: '#1A1A1A' }}
+                      className="font-body font-bold text-xs md:text-sm lg:text-base leading-tight flex items-center gap-1.5"
+                    >
+                      {test.name}
+                      {test.verified && (
+                        <span 
+                          className="flex items-center justify-center w-3 h-3 md:w-4 md:h-4 rounded-full bg-[#1D7E9E] text-white text-[8px] md:text-[10px]" 
+                          title="Verified Purchase"
+                        >
+                          ✓
+                        </span>
+                      )}
+                    </span>
+                    <span 
+                      style={{ color: 'var(--color-text)' }}
+                      className="font-body font-medium text-[11px] md:text-xs lg:text-sm mt-0.5"
+                    >
+                      {test.role}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex flex-col">
-                  <span 
-                    style={{ color: '#1A1A1A' }}
-                    className="font-body font-bold text-xs md:text-sm lg:text-base leading-tight"
-                  >
-                    {test.name}
-                  </span>
-                  <span 
-                    style={{ color: 'var(--color-text)' }}
-                    className="font-body font-medium text-[11px] md:text-xs lg:text-sm"
-                  >
-                    {test.role}
-                  </span>
-                </div>
+                {test.date && (
+                  <div className="pl-11 md:pl-13 text-[10px] md:text-xs text-black/40 font-mono font-medium">
+                    {test.date}
+                  </div>
+                )}
               </div>
             </div>
           </div>

@@ -20,11 +20,7 @@ const LinkedinIcon = () => (
   </svg>
 );
 
-const TwitterIcon = () => (
-  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-  </svg>
-);
+
 
 const GlobeIcon = () => (
   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8">
@@ -159,9 +155,6 @@ export default function Footer() {
                 <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-[#5AB8D6]/20 flex items-center justify-center text-[#5AB8D6] hover:text-[#F0A93B] hover:border-[#F0A93B] transition-colors">
                   <LinkedinIcon />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-[#5AB8D6]/20 flex items-center justify-center text-[#5AB8D6] hover:text-[#F0A93B] hover:border-[#F0A93B] transition-colors">
-                  <TwitterIcon />
-                </a>
                 <a href="#" className="w-10 h-10 rounded-full border border-[#5AB8D6]/20 flex items-center justify-center text-[#5AB8D6] hover:text-[#F0A93B] hover:border-[#F0A93B] transition-colors">
                   <GlobeIcon />
                 </a>
@@ -175,7 +168,7 @@ export default function Footer() {
         {/* ── BOTTOM COPYRIGHT & LEGAL BAR ── */}
         <div className="pt-8 mt-12 md:mt-16 lg:mt-20 border-t border-[#5AB8D6]/15 flex flex-col md:flex-row items-center justify-between text-xs text-[#5AB8D6]/80 font-mono gap-4 text-center md:text-left">
           <div>
-            &copy; {new Date().getFullYear()} Swish It Inc. All rights reserved. &bull; Engineered for Everyday.
+            &copy; {new Date().getFullYear()} Swish It Pvt. Ltd. All rights reserved. &bull; The Standard for Effortless Clean.
           </div>
 
           <div className="flex items-center gap-6">

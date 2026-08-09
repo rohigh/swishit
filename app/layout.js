@@ -25,7 +25,7 @@ export const metadata = {
   keywords: ['swishit', 'dishwash', 'plant-powered', 'hygiene', 'kitchen', 'cleaning dew', 'eco-friendly'],
   authors: [{ name: 'SWISH IT' }],
   creator: 'SWISH IT',
-  metadataBase: new URL('https://swishit.app'),
+  metadataBase: new URL('https://swishit.in'),
   icons: {
     icon: '/img/logo - swishit-01.png',
     shortcut: '/img/logo - swishit-01.png',
@@ -34,7 +34,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://swishit.app',
+    url: 'https://swishit.in',
     siteName: 'SWISH IT',
     title: 'SWISH IT | The Standard for Effortless Clean',
     description: 'High-performance, plant-powered dishwashing dew engineered for effortless clean. Free shipping over ₹399.',

@@ -284,6 +284,9 @@ export default function Hero() {
           <div ref={scrollContainerRef}>
             <div ref={containerRef} className="flex flex-col gap-4 max-w-xl">
               <div ref={textRef} style={{ visibility: 'hidden' }}>
+                <span className="inline-block px-3 py-1 rounded-full bg-[#1D7E9E]/10 text-[#1D7E9E] text-xs font-bold font-mono tracking-widest uppercase mb-4 border border-[#1D7E9E]/20">
+                  Dishwashing Dew
+                </span>
                 <h1
                   className="font-body font-medium text-text tracking-tight leading-[1.05]"
                   style={{ fontSize: 'clamp(2.25rem, 4.5vw, 4.5rem)' }}

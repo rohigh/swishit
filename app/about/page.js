@@ -8,6 +8,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import InstagramSection from '@/components/InstagramSection';
 
+
+
 export default function AboutPage() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -85,11 +87,7 @@ export default function AboutPage() {
                 We combine modern plant-powered chemistry with ergonomic design so you can spend less time scrubbing and more time living.
               </p>
               
-              <div className="pt-4 grid grid-cols-3 gap-4 border-t border-[#5AB8D6]/20">
-                <div>
-                  <div className="font-heading text-fluid-xl text-[#F0A93B] font-bold">100%</div>
-                  <div className="text-xs text-[#82CCDF] font-mono mt-1 font-semibold">Efficacy Focus</div>
-                </div>
+              <div className="pt-4 grid grid-cols-2 gap-4 border-t border-[#5AB8D6]/20">
                 <div>
                   <div className="font-heading text-fluid-xl text-[#F0A93B] font-bold">3x</div>
                   <div className="text-xs text-[#82CCDF] font-mono mt-1 font-semibold">Concentrated</div>
@@ -141,7 +139,7 @@ export default function AboutPage() {
                 </svg>
               </div>
               <blockquote className="font-heading text-fluid-xl text-text leading-snug font-normal">
-                &ldquo;Our mission is simple: To provide exceptional cleaning and hygiene solutions that allow our customers to move faster, live healthier, and feel the satisfaction of an effortless SWISH.&rdquo;
+                &ldquo;Our mission is simple: to make dishwashing suck less, with fast-acting formulas that smell incredible and actually work.&rdquo;
               </blockquote>
               <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
                 <span className="px-5 py-2 rounded-full bg-[#155E78] text-white text-xs font-bold font-mono shadow-sm">Move Faster</span>
@@ -184,14 +182,14 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <h3 style={{ color: 'var(--color-text)' }} className="font-heading text-2xl text-text font-bold mb-4">
-                  High-Performance Chemistry
+                  Plant-Powered Chemistry
                 </h3>
                 <p style={{ color: '#1D7E9E' }} className="text-[#1D7E9E] text-sm md:text-base leading-relaxed font-semibold">
-                  We invest in cutting-edge, data-backed formulas that deliver unmatched cleaning power. Our products are engineered for efficacy, ensuring a professional-grade clean with minimal effort.
+                  We formulate exclusively with organic coconut and citric acid-derived surfactants. It cuts through tough Indian grease instantly without drying out your hands.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-gray-100 flex items-center text-xs font-mono text-text font-bold">
-                <span style={{ color: 'var(--color-text)' }}>CUTTING-EDGE &bull; EFFICIENT</span>
+                <span style={{ color: 'var(--color-text)' }}>PLANT-BASED &bull; TOUGH ON GREASE</span>
               </div>
             </motion.div>
 
@@ -210,14 +208,14 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <h3 style={{ color: 'var(--color-text)' }} className="font-heading text-2xl text-text font-bold mb-4">
-                  User-Focused Design
+                  The Perfect Pump
                 </h3>
                 <p style={{ color: '#1D7E9E' }} className="text-[#1D7E9E] text-sm md:text-base leading-relaxed font-semibold">
-                  We know time is valuable. From our ergonomic packaging to our clear instructions, the SWISH IT line is designed to streamline your cleaning routine, turning chores into quick, satisfying tasks.
+                  No more messy squeezing or sticky caps. One perfect push delivers the exact amount of soap every time—eliminating spills and maximizing every drop.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-gray-100 flex items-center text-xs font-mono text-text font-bold">
-                <span style={{ color: 'var(--color-text)' }}>ERGONOMIC &bull; STREAMLINED</span>
+                <span style={{ color: 'var(--color-text)' }}>EXACT DOSE &bull; ZERO SPILLS</span>
               </div>
             </motion.div>
 
@@ -236,14 +234,14 @@ export default function AboutPage() {
                   </svg>
                 </div>
                 <h3 style={{ color: 'var(--color-text)' }} className="font-heading text-2xl text-text font-bold mb-4">
-                  Responsibility and Trust
+                  Zero Harsh Fillers
                 </h3>
                 <p style={{ color: '#1D7E9E' }} className="text-[#1D7E9E] text-sm md:text-base leading-relaxed font-semibold">
-                  We are dedicated to transparency about the ingredients we use. We prioritize the health and safety of your home and the planet, continually seeking sustainable materials and responsible sourcing.
+                  We are certified cruelty-free and vegan. Our formula contains absolutely no synthetic sulfates, parabens, or artificial dyes, making it safe for baby bottles and sensitive skin.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-gray-100 flex items-center text-xs font-mono text-text font-bold">
-                <span style={{ color: 'var(--color-text)' }}>TRANSPARENT &bull; SUSTAINABLE</span>
+                <span style={{ color: 'var(--color-text)' }}>NON-TOXIC &bull; VEGAN</span>
               </div>
             </motion.div>
           </div>

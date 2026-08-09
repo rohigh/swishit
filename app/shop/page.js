@@ -7,13 +7,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductModal from '@/components/ProductModal';
+import { useCart } from '@/context/CartContext';
+
+
 
 const PRODUCTS = [
   {
     id: 'bundle',
     name: 'The Complete Collection',
     category: 'Bundles',
-    desc: 'Ocean Garden, Lime Lush & Lemon Loop. The ultimate trio for a spotless kitchen.',
+    desc: 'Ocean Garden, Lime Lush & Lemon Loop. The perfect trio for a spotless kitchen. Ships free nationwide!',
     price: 399,
     rating: 4.9,
     reviews: 128,
@@ -31,7 +34,7 @@ const PRODUCTS = [
     id: 'ocean',
     name: 'Ocean Garden',
     category: 'Single Bottles',
-    desc: 'Crisp, aquatic, and refreshing. Leaves dishes sparkling and hands moisturized.',
+    desc: 'Crisp and refreshing. Leaves dishes sparkling.',
     price: 135,
     rating: 4.9,
     reviews: 94,
@@ -45,7 +48,7 @@ const PRODUCTS = [
     id: 'lime',
     name: 'Lime Lush',
     category: 'Single Bottles',
-    desc: 'Vibrant and zesty lime. Gentle on your skin while cutting grease effortlessly.',
+    desc: 'Fresh and vibrant. Gentle on your hands.',
     price: 135,
     rating: 4.8,
     reviews: 76,
@@ -58,7 +61,7 @@ const PRODUCTS = [
   {
     id: 'lemon',
     name: 'Lemon Loop',
-    desc: 'Sunlit lemon citrus. Powerful grease-cutting action in a single pump.',
+    desc: 'Sunlit and zesty. Cuts through tough grease instantly.',
     category: 'Single Bottles',
     price: 135,
     rating: 4.9,
@@ -77,14 +80,23 @@ export default function ShopPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [addedId, setAddedId] = useState(null);
+  const { addToCart } = useCart();
 
   const filteredProducts = activeCategory === 'All'
     ? PRODUCTS
     : PRODUCTS.filter(p => p.category === activeCategory);
 
-  const handleQuickAdd = (e, prodId) => {
+  const handleQuickAdd = (e, prod) => {
     e.stopPropagation();
-    setAddedId(prodId);
+    addToCart({
+      id: prod.id,
+      title: prod.name,
+      variant: prod.isBundle ? 'Trio Collection (3x500ml)' : '500ml Pump',
+      price: prod.price,
+      quantity: 1,
+      image: prod.isBundle ? prod.images[0] : prod.image,
+    });
+    setAddedId(prod.id);
     setTimeout(() => setAddedId(null), 2200);
   };
 
@@ -178,8 +190,8 @@ export default function ShopPage() {
                       ))}
                     </div>
                   ) : (
-                    <div className="relative w-[clamp(110px,14vw,190px)] aspect-[3/4] group-hover:scale-110 transition-transform duration-500 ease-out">
-                      <Image src={prod.image} alt={prod.name} fill sizes="(max-width: 768px) 190px, 190px" className="object-contain drop-shadow-xl" />
+                    <div className="relative w-[clamp(140px,18vw,230px)] aspect-[3/4] group-hover:scale-110 transition-transform duration-500 ease-out">
+                      <Image src={prod.image} alt={prod.name} fill sizes="(max-width: 768px) 230px, 230px" className="object-contain drop-shadow-xl" />
                     </div>
                   )}
                 </div>
@@ -212,7 +224,7 @@ export default function ShopPage() {
                     </div>
 
                     <button 
-                      onClick={(e) => handleQuickAdd(e, prod.id)}
+                      onClick={(e) => handleQuickAdd(e, prod)}
                       className="h-11 px-5 rounded-full bg-[#1D7E9E] text-white font-medium text-xs hover:bg-[#F0A93B] hover:text-text transition-all shadow-md cursor-pointer"
                     >
                       {addedId === prod.id ? '✓ Added!' : 'Add to Cart'}
@@ -249,7 +261,7 @@ export default function ShopPage() {
 
             <div className="flex flex-col items-center">
               <span className="text-3xl mb-3">📦</span>
-              <h4 className="font-heading text-lg font-normal text-text mb-1">Free Shipping &gt; ₹350</h4>
+              <h4 className="font-heading text-lg font-normal text-text mb-1">Free Shipping over ₹399</h4>
               <p style={{ color: 'var(--color-text)' }} className="font-body text-xs text-text font-medium">Swift 2-4 day dispatch nationwide.</p>
             </div>
 

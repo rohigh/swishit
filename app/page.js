@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Swishit – Dishwashing Dew',
-  description: 'Plant-powered dishwashing liquid',
+  description: 'Plant-powered dishwashing liquid — we call it Dew',
 };
 
 export default function Home() {
