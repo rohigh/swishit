@@ -38,7 +38,7 @@ export async function submitContactForm(formData) {
           'Authorization': `Bearer ${resendApiKey}`
         },
         body: JSON.stringify({
-          from: 'Swishit Contact <onboarding@resend.dev>',
+          from: 'Swishit Contact <support@swishit.in>',
           to: ['hello.swishit@gmail.com'],
           subject: `New Contact Form Message: ${subject}`,
           html: `<h2>New Contact Message Received</h2>

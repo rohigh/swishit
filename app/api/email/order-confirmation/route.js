@@ -98,7 +98,7 @@ export async function POST(request) {
         'Authorization': `Bearer ${resendApiKey}`
       },
       body: JSON.stringify({
-        from: 'Swishit <onboarding@resend.dev>', // Resend's free testing email address
+        from: 'Swishit <support@swishit.in>',
         to: [email],
         bcc: ['hello.swishit@gmail.com'],
         subject: `Your Swishit Order Confirmation (#${orderDetails.orderId})`,
