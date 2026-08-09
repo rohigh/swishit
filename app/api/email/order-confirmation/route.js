@@ -100,6 +100,7 @@ export async function POST(request) {
       body: JSON.stringify({
         from: 'Swishit <onboarding@resend.dev>', // Resend's free testing email address
         to: [email],
+        bcc: ['hello.swishit@gmail.com'],
         subject: `Your Swishit Order Confirmation (#${orderDetails.orderId})`,
         html: htmlTemplate
       })
