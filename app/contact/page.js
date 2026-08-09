@@ -249,7 +249,7 @@ export default function ContactPage() {
               
               <div className="space-y-3">
                 <a
-                  href="mailto:support@swishit.app"
+                  href="mailto:hello.swishit@gmail.com"
                   className="flex items-center gap-3 p-3.5 rounded-2xl bg-[#155E78] hover:bg-[#1F4B5A] text-[#FBF7EC] transition-colors group border border-[#5AB8D6]/20"
                 >
                   <div className="w-10 h-10 rounded-full bg-[#1D7E9E] text-white flex items-center justify-center shrink-0 shadow-sm">
@@ -257,20 +257,20 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="text-xs text-[#82CCDF] font-mono font-semibold">General Enquiries</div>
-                    <div className="font-bold text-sm text-white group-hover:text-[#F0A93B] transition-colors">support@swishit.app</div>
+                    <div className="font-bold text-sm text-white group-hover:text-[#F0A93B] transition-colors">hello.swishit@gmail.com</div>
                   </div>
                 </a>
 
                 <a
-                  href="mailto:wholesale@swishit.app"
+                  href="tel:+919677420624"
                   className="flex items-center gap-3 p-3.5 rounded-2xl bg-[#155E78] hover:bg-[#1F4B5A] text-[#FBF7EC] transition-colors group border border-[#5AB8D6]/20"
                 >
                   <div className="w-10 h-10 rounded-full bg-[#F0A93B] text-[#122A33] flex items-center justify-center shrink-0 font-bold shadow-sm">
-                    💼
+                    📞
                   </div>
                   <div>
-                    <div className="text-xs text-[#82CCDF] font-mono font-semibold">Commercial & Wholesale</div>
-                    <div className="font-bold text-sm text-white group-hover:text-[#F0A93B] transition-colors">wholesale@swishit.app</div>
+                    <div className="text-xs text-[#82CCDF] font-mono font-semibold">Phone Support</div>
+                    <div className="font-bold text-sm text-white group-hover:text-[#F0A93B] transition-colors">+91 9677420624</div>
                   </div>
                 </a>
               </div>
