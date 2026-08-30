@@ -7,13 +7,18 @@ export async function middleware(request) {
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - img (public images)
-     * Feel free to modify this pattern to include more paths.
+     * Only run middleware on routes that need auth:
+     * - /account and sub-routes (protected - requires login)
+     * - /checkout and sub-routes (protected - requires login)
+     * - /login (redirect away if already logged in)
+     * - /signup (redirect away if already logged in)
+     * - /auth/callback (OAuth code exchange)
+     * All other routes (public pages, API routes, static files) skip middleware entirely.
      */
-    '/((?!_next/static|_next/image|favicon.ico|img|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/account/:path*',
+    '/checkout/:path*',
+    '/login',
+    '/signup',
+    '/auth/callback',
   ],
 }
