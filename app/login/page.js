@@ -29,6 +29,18 @@ function LoginContent() {
     }
   }, [searchParams]);
 
+  // Client-side redirect for already-logged-in users (replaces middleware redirect)
+  useEffect(() => {
+    const checkSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        const redirectTo = searchParams.get('redirect_to') || '/';
+        router.replace(redirectTo);
+      }
+    };
+    checkSession();
+  }, []);
+
   const handleGoogleSignIn = async () => {
     try {
       setLoading(true);
