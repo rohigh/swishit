@@ -4,14 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
-const DEFAULT_CART_ITEM = {
-  id: 'swishit-ocean-garden',
-  title: 'Ocean Garden Hand Dishwash',
-  variant: '500ml Glass-Look Bottle',
-  price: 349,
-  quantity: 1,
-  image: '/img/blue-nobg.jpeg',
-};
+
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
@@ -24,17 +17,12 @@ export function CartProvider({ children }) {
       const stored = localStorage.getItem('swishit_cart');
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) {
+        if (Array.isArray(parsed)) {
           setCartItems(parsed);
-        } else {
-          setCartItems([DEFAULT_CART_ITEM]);
         }
-      } else {
-        setCartItems([DEFAULT_CART_ITEM]);
       }
     } catch (e) {
       console.error('Failed to load cart from storage:', e);
-      setCartItems([DEFAULT_CART_ITEM]);
     } finally {
       setIsInitialized(true);
     }
